@@ -1,0 +1,9 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput()
+def unitId = unit["id"]
+%>
+
+<Descriptor service="com.webratio.units.custom.ajaxdata.AjaxDataUnitService">
+   <% printRaw(serializeXML(unit, false)) %>
+</Descriptor>

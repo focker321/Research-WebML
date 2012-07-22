@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Unit type="content|operation" canPlaceLayoutUnit="true" version="1.0.0" linkSource="true" linkTarget="true" okLinkTarget="true" defaultTowardsOperationLinkType="normal" koLinkTarget="true" views="SiteView" idPrefix="socialLogin" author="Santiago Hern&#225;n Apaza Delgado"> 
+  <StringProperty attributeName="app_id"/> 
+</Unit>

@@ -1,0 +1,10 @@
+#?delimiters [%, %], [%=, %]
+[%setHTMLOutput()%]
+<wr:Frame>
+<div style="color:rgb(102, 102, 102);font-family:Tahoma;font-size:small;text-decoration:none; text-align: left;">
+    <a style="color:rgb(102, 102, 102);font-family:Tahoma;font-size:small;text-decoration:none" target="_blank" href="${<wr:UnitId/>.data[0]}">
+    	<span style="color:rgb(0, 24, 96);padding:0px;margin:0px">Go to</span>
+    	<img style="width:32px;height:32px;border:0px;padding:0px;margin:0px" alt="Go to" src="style/img/doodle-logo.png"> -> ${<wr:UnitId/>.data[0]}
+    </a>
+</div>      
+</wr:Frame>

@@ -1,0 +1,17 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1" name="Publico" layout:style="FertileEnvironment" homePage="sv1#page3">
+  <OperationUnits>
+    <LoginUnit gr:x="280" gr:y="380" id="sv1#lgu1" name="Login">
+      <KOLink id="sv1#lgu1#kln1" name="KOLink1" to="sv1#page3#alt1#page5#mssu2">
+        <LinkParameter id="sv1#lgu1#kln1#par1" name="Acceso Invalido_Shown Messages" sourceValue="Acceso Invalido" target="sv1#page3#alt1#page5#mssu2.shownMessages"/>
+      </KOLink>
+    </LoginUnit>
+    <CreateUnit gr:x="860" gr:y="260" id="sv1#cru1" name="CreateUnit1" entity="ent3">
+      <OKLink id="sv1#cru1#oln1" name="OKLink1" to="sv1#page3#alt1#page5" automaticCoupling="true" gr:bendpoints="-184,-120,331,-95"/>
+    </CreateUnit>
+  </OperationUnits>
+  <layout:UnitConfiguration unitType="OpenIdLoginUnit" layout:unitLayout="WRTravelAgencyStyles/OpenIdLoginUnit"/>
+  <layout:UnitConfiguration unitType="SocialCommentUnit" layout:unitLayout="WRTravelAgencyStyles/SocialCommentUnit"/>
+  <layout:UnitConfiguration unitType="SocialGMapsUnit" layout:unitLayout="WRTravelAgencyStyles/SocialGMapsUnit"/>
+  <layout:UnitConfiguration unitType="SocialLogin" layout:unitLayout="WRTravelAgencyStyles/SocialLogin"/>
+  <layout:UnitConfiguration unitType="SocialLoginUnit" layout:unitLayout="WRTravelAgencyStyles/SocialLoginUnit"/>
+</SiteView>

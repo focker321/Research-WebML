@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Unit type="content|operation" formBased="false" canPlaceLayoutUnit="true" version="1.0.0" linkSource="true" linkTarget="true" defaultTowardsOperationLinkType="transport" okLinkTarget="true" idPrefix="openID" koLinkTarget="true" views="SiteView" author="Santiago Hernan Apaza Delgado" defaultIntraPageLinkType="normal"> 
+  <IsContextFreeUnit xml:space="preserve">return true</IsContextFreeUnit> 
+</Unit>

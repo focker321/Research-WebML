@@ -1,0 +1,33 @@
+package com.webratio.units.custom.sociallogin;
+import java.util.Map;
+
+import org.dom4j.Element;
+
+import com.webratio.rtx.RTXConstants;
+import com.webratio.rtx.RTXContentUnitService;
+import com.webratio.rtx.RTXException;
+import com.webratio.rtx.RTXManager;
+import com.webratio.rtx.core.AbstractService;
+
+
+public class SocialLoginUnitService extends AbstractService implements RTXContentUnitService{
+
+	public SocialLoginUnitService(String id, RTXManager mgr, Element descr) {
+		super(id, mgr, descr);
+	}
+
+	public Object computeParameterValue(String outputParamName, Map pageContext, Map sessionContext) throws RTXException {
+		return null;
+	}
+
+	public Object execute(Map pageContext, Map sessionContext) throws RTXException {
+		SocialLoginUnitBean bean = new SocialLoginUnitBean();
+			bean.setUID("162875453777391");
+			
+		return bean;
+	}
+
+	public void dispose() {
+		// TODO Auto-generated method stub
+	}
+}

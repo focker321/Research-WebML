@@ -1,0 +1,177 @@
+#?delimiters [%, %], [%=, %]
+<wr:LayoutParameter label="Show Header" name="show-header" type="boolean" default="true">
+Defines the rendition of the header on the top.
+Allowed values are: true (default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Attributes Name" name="show-attribute-name" type="boolean" default="false">
+Defines the rendition of the attributes names.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Bullet" name="show-bullet" type="boolean" default="true">
+Defines the rendition of a bullet next to each line.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Alternate Rows" name="use-alternate" type="boolean" default="false">
+Defines the usage of alternates colours for each line.
+Allowed values are: true or false(default).
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Links Position" name="link-position" type="enum" values="left|right|on_bullet|on_row" default="right">
+Defines the rendition of the sub levels links.
+Allowed values are:
+- right (default): places the links on the right
+- left: places the links on the left
+- on_bullet: places the first link on the bullet
+- on_row: places the first link on the attributes
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Links Menu" name="link-menu" type="boolean" default="false">
+Defines the rendition of the links.
+Allowed values are:
+- false (default): places all the links in the table
+- true: places the links in a dropdown menu for each row
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Scrolling Position" name="scrolling-position" type="enum" values="top|bottom|both" default="top">
+Defines where to position the scroll links.
+Allowed values are:
+- top (default): places the links at the top
+- bottom: places the links at the bottom
+- both: places the links at the top and bottom
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Buttons Position" name="button-position" type="enum" values="top|bottom|both" default="bottom">
+Defines where to position the buttons to render submit links.
+Allowed values are:
+- top: places the buttons at the top
+- bottom (default): places the buttons at the bottom
+- both: places the buttons at the top and bottom
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Show Jump Links" name="show-jump-links" type="boolean" default="true">
+Defines whether to show the jumps links of the scroller or not.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Use Empty Unit Message" name="use-empty-unit-message" type="boolean" default="false">
+Defines the usage of a message for empty units.
+Allowed values are: true(default) or false.
+</wr:LayoutParameter>
+<wr:LayoutParameter label="Empty Unit Message" name="empty-unit-message" type="string" default="emptyUnitMessage">
+Defines the key of the message to use if the unit is empty.
+Default value: emptyUnitMessage
+</wr:LayoutParameter>
+
+[%
+import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang.math.NumberUtils
+
+setHTMLOutput()
+
+def unitId = unit["id"]
+def blockFactor = unit["blockFactor"]
+def isSortable = unit["sortable"]
+def isScrollable = blockFactor != "" ? "true": "false"
+
+def links = unit.selectNodes("layout:Link").findAll{it["_exp"]!='t'}
+def unitLink = links.empty ? null : links[0]
+def unitLinkIsAjax = unitLink != null ? (unitLink["ajaxEnabled"] == "true" && isAjaxPage(page)) : false
+def link = unitLink?.valueOf("@link")
+
+def showHeader = params["show-header"]
+def showAttributeName = params["show-attribute-name"]
+def useAlternate = params["use-alternate"]
+def showBullet = params["show-bullet"]
+def linkPosition = params["link-position"]
+def buttonPosition = params["button-position"]
+def showJumpLinks = params["show-jump-links"]
+def scrollingPosition = params["scrolling-position"]
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+
+def linkMenu = Boolean.parseBoolean(params["link-menu"])
+
+def firstLink = unit.selectSingleNode("layout:Link[contains(@link,'First')]")
+def previousLink = unit.selectSingleNode("layout:Link[contains(@link,'Previous')]")
+def blockLink = unit.selectSingleNode("layout:Link[contains(@link,'Block')]")
+def nextLink = unit.selectSingleNode("layout:Link[contains(@link,'Next')]")
+def lastLink = unit.selectSingleNode("layout:Link[contains(@link,'Last')]")
+def isAutoExpandAjax = isAjaxPage(page)
+def checkable = "true" == unit["checkable"] && "true" != unit["distinct"]
+
+def name = unit.selectSingleNode("layout:Attribute")
+def type = unit.selectSingleNode("layout:Attribute[2]")
+
+//returns true if the given link must be rendered as a form button
+def isButton(link){
+  def navLink = getById(link["link"])
+  if(navLink == null){
+    return false
+  }
+  def linkParams = navLink.selectNodes("LinkParameter").collect{it["source"]}
+  if(linkParams.isEmpty()){
+    linkParams = getAutomaticLinkParameters(navLink).collect{it["source"]}
+  }
+  for(param in linkParams){
+    if(param?.endsWith("Checked")){
+      return true;
+    }
+  }
+  return false
+}
+
+def buttonsCount = unit.selectNodes("layout:Link").findAll{ isButton(it) }.size();
+%]
+
+[% 
+def getIconPath(linkLayout) {
+	folder = linkLayout.parameters["icon-folder"]
+	name = StringUtils.defaultIfEmpty(linkLayout.parameters["icon-name"], linkLayout.contextElement?.attributeValue("name"))
+	extension = linkLayout.parameters["icon-extension"]
+	return getFilePath(folder, name, extension)
+}
+%]
+
+[% if (useEmptyUnitMessage != "true") { %]
+<c:if test="${not(empty <wr:UnitId/>) and (<wr:UnitId/>.dataSize gt 0)}">
+[% } else { %]
+<c:choose>
+<c:when test="${not(empty <wr:UnitId/>) and (<wr:UnitId/>.dataSize gt 0)}">
+[% } %]
+	<wr:Frame>
+		<div class=" viewed-items">
+			<span class="label"><wr:UnitTitle/></span>
+			<ul>
+				<c:forEach var="current" varStatus="status" items="${<wr:UnitId/>.data}">
+					<c:set var="index" value="${status.index}"/>	
+						<li>
+								<wr:Visible context="name">
+									<wr:Visible context="unitLink">
+										<a href="<wr:URL context="unitLink"/>" class="row link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]" onclick="<wr:AjaxURL context="unitLink" />" [%if (unitLink?.attributeValue("newWindow") == "true") { %] target="_blank" [% } %]>
+									</wr:Visible>
+									<img src="style/type/<wr:Value context="type"/>.png" alt="<wr:Value context="name"/>"/>
+									<wr:Value context="name"/>
+									<wr:Visible context="unitLink">
+										</a>
+									</wr:Visible>
+								</wr:Visible>
+						
+						   <wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+							[% if (!isButton(l) && index > 0) { %]
+						      <wr:Visible>
+								 <wr:Link class="link"/>								
+						      </wr:Visible>
+							[% } %]
+						   </wr:Iterate>
+						</li>
+					</c:forEach>
+			</ul>
+		</div>
+	</wr:Frame>
+[% if (useEmptyUnitMessage != "true") { %]
+</c:if>
+[% } else { %]
+</c:when>
+<c:otherwise>
+	<wr:Frame>
+		<div class=" viewed-items off">
+			<span class="label"><wr:UnitTitle/></span>
+		</div>
+	</wr:Frame>
+</c:otherwise>
+</c:choose>
+[% } %]

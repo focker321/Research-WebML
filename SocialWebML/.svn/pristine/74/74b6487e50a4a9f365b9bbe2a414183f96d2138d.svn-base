@@ -1,0 +1,290 @@
+#?delimiters [%, %], [%=, %]
+[%
+import org.apache.commons.lang.StringUtils
+import org.apache.commons.lang.math.NumberUtils
+
+setHTMLOutput()
+
+def unitId = unit["id"]
+def blockFactor = unit["blockFactor"]
+def isSortable = unit["sortable"]
+def isScrollable = blockFactor != "" ? "true": "false"
+
+def links = unit.selectNodes("layout:Link").findAll{it["_exp"]!='t'}
+def unitLink = links.empty ? null : links[0]
+def unitLinkIsAjax = unitLink != null ? (unitLink["ajaxEnabled"] == "true" && isAjaxPage(page)) : false
+def link = unitLink?.valueOf("@link")
+
+def showHeader = params["show-header"]
+def showAttributeName = params["show-attribute-name"]
+def useAlternate = params["use-alternate"]
+def showBullet = params["show-bullet"]
+def linkPosition = params["link-position"]
+def buttonPosition = params["button-position"]
+def showJumpLinks = params["show-jump-links"]
+def scrollingPosition = params["scrolling-position"]
+def useEmptyUnitMessage = params["use-empty-unit-message"]
+def emptyUnitMessage = params["empty-unit-message"]
+def emptyDescrMessage = params["empty-descr-message"]
+
+def linkMenu = Boolean.parseBoolean(params["link-menu"])
+
+def firstLink = unit.selectSingleNode("layout:Link[contains(@link,'First')]")
+def previousLink = unit.selectSingleNode("layout:Link[contains(@link,'Previous')]")
+def blockLink = unit.selectSingleNode("layout:Link[contains(@link,'Block')]")
+def nextLink = unit.selectSingleNode("layout:Link[contains(@link,'Next')]")
+def lastLink = unit.selectSingleNode("layout:Link[contains(@link,'Last')]")
+def isAutoExpandAjax = isAjaxPage(page)
+def checkable = "true" == unit["checkable"] && "true" != unit["distinct"]
+
+def colspan = unit.selectNodes("layout:Attribute[position()<last()]").size()
+def description = unit.selectSingleNode("layout:Attribute[last()]")
+
+
+//returns true if the given link must be rendered as a form button
+def isButton(link){
+  def navLink = getById(link["link"])
+  if(navLink == null){
+    return false
+  }
+  def linkParams = navLink.selectNodes("LinkParameter").collect{it["source"]}
+  if(linkParams.isEmpty()){
+    linkParams = getAutomaticLinkParameters(navLink).collect{it["source"]}
+  }
+  for(param in linkParams){
+    if(param?.endsWith("Checked")){
+      return true;
+    }
+  }
+  return false
+}
+
+def buttonsCount = unit.selectNodes("layout:Link").findAll{ isButton(it) }.size();
+%]
+
+[% 
+def getIconPath(linkLayout) {
+	folder = linkLayout.parameters["icon-folder"]
+	name = StringUtils.defaultIfEmpty(linkLayout.parameters["icon-name"], linkLayout.contextElement?.attributeValue("name"))
+	extension = linkLayout.parameters["icon-extension"]
+	return getFilePath(folder, name, extension)
+}
+%]
+
+<c:forEach var="current" varStatus="status" items="${<wr:UnitId/>.data}">
+					<c:set var="index" value="${status.index}"/>	
+						<tr class="row<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">	
+						[% if (checkable) {%]
+							[% if ((linkPosition == "on_row") && (!links.empty)) {%]
+							   <td class="<wr:StyleClass context="unitLink"/> link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">
+							[% } else {%]
+							   <td class="<wr:StyleClass/> value<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">				
+							[% } %]
+							  <html:multibox property="<wr:UnitId/>Checked" styleClass="checkBox"><c:out value="${<wr:UnitId/>.key[index]}"/></html:multibox>
+							</td>
+						[%}%]
+						
+						[% if (showBullet == "true") {
+						 if ((linkPosition == "on_bullet" || linkPosition == "on_row") && !links.empty) { %]
+						        <td class="<wr:StyleClass context="unitLink"/> link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">
+						        	<wr:Visible context="unitLink">
+										<a href="<wr:URL context="unitLink"/>" class="link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]" onclick="<wr:AjaxURL context="unitLink" />" [%if (unitLink?.attributeValue("newWindow") == "true") { %] target="_blank" [% } %]>
+									</wr:Visible>
+						            <img src="WRResources/spacer.gif" class="bullet<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]" border="0" alt="<wr:Label context="unitLink"/>"/>					
+									<wr:Visible context="unitLink">
+										</a>
+									</wr:Visible>
+							    </td>
+						  [% } else { %]
+								<td class="<wr:StyleClass/> value<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">
+									<img src="WRResources/spacer.gif" class="bullet<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]" border="0" alt="<wr:Label context="unitLink"/>"/>
+								</td>
+						  [% } 
+					    } %]
+								
+							[% if (linkPosition == "left") { %]
+								[% if (linkMenu) {  
+									if (!links.empty) { %]
+										<td class="<wr:StyleClass context="unitLink"/> linkCell link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">
+								    		<div class="link-menu"><a href="#" class="arrow" title="Menu"><bean:message key="Menu"/></a>
+								    		<ul>
+								    			<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+												[% if (!isButton(l)) { 
+													def css = StringUtils.substringBefore(l["name"], " ").toLowerCase() %]
+											      <wr:Visible>
+											   		<li class="[%= css %]"><wr:Link class="link"/></li>										
+											      </wr:Visible>
+												[% } %]
+											   </wr:Iterate>
+								    		</ul>
+								    		</div>
+								    	</td>
+							    [% }
+							      } else { %]
+								<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+									[% if (!isButton(l)) { %]
+										<wr:Visible>
+										[% if ((linkPosition == "on_row") && (!links.empty)) {%]
+										   <td class="<wr:StyleClass context="unitLink"/> link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">
+										[% } else {%]
+										   <td class="<wr:StyleClass/> value<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">				
+										[% } %]
+								   			<c:choose>
+								   				<c:when test="${<wr:UnitId/>.currentIndex eq index}">
+								   					[% if (useAlternate == "true") { %]
+								   						<c:choose>
+								   							<c:when test="${index mod 2 eq 0}">
+																<wr:Link class="linkCurrentAlternate"/>
+															</c:when>
+															<c:otherwise>
+																<wr:Link class="linkCurrent"/>
+															</c:otherwise>
+								   						</c:choose>
+													[% } else { %]
+														<wr:Link class="linkCurrent"/>								
+													[% } %]
+								   				</c:when>
+								   				<c:otherwise>
+								   					[% if (useAlternate == "true") { %]
+								   						<c:choose>
+								   							<c:when test="${index mod 2 eq 0}">
+																<wr:Link class="linkAlternate"/>
+															</c:when>
+															<c:otherwise>
+																<wr:Link class="link"/>
+															</c:otherwise>
+								   						</c:choose>
+													[% } else { %]
+														<wr:Link class="link"/>								
+													[% } %]
+								   				</c:otherwise>
+								   			</c:choose>
+										</td>
+								    	</wr:Visible>
+							    	[% } %]
+								</wr:Iterate>
+								[% } %]
+							[% } %]
+							<wr:Iterate var="attr" context="unit" select="layout:Attribute[position()<last()]">
+								<wr:Visible>
+								[% if (showAttributeName == "true") {%]
+									<th class="<wr:StyleClass/> header<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">
+								    	<wr:Label/>
+								   </th>
+								[% } %]
+								[% if ((linkPosition == "on_row") && (!links.empty)) {%]
+								   <td class="<wr:StyleClass context="unitLink"/> link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %] [%= attr["type"]%]">
+									<wr:Visible context="unitLink">
+										<a onclick="$('<wr:UnitId/>-${index}-descr').toggle();return false;" href="<wr:URL context="unitLink"/>" class="<wr:StyleClass context="unitLink"/> link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]" [%if (unitLink?.attributeValue("newWindow") == "true") { %] target="_blank" [% } %]>
+									</wr:Visible>
+									<wr:Value/>
+									<wr:Visible context="unitLink">
+										</a>
+									</wr:Visible>
+								   </td>
+								[% } else {%]
+								   <td class="<wr:StyleClass/> value<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %] [%= attr["type"]%]">				
+									<a onclick="$('<wr:UnitId/>-${index}-descr').toggle();return false;" href="#" class=" link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]" >
+										<wr:Value />
+									</a>
+								   </td>
+								[% } %]
+								</wr:Visible>
+							</wr:Iterate>
+							[% if (linkPosition != "left" && linkMenu) { 
+								if (!links.empty) { %]
+							    	<td class="<wr:StyleClass context="unitLink"/> linkCell link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">
+							    		<div class="link-menu"><a href="#" class="arrow" title="Menu"><bean:message key="Menu"/></a>
+							    		<ul>
+							    			<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+											[% if (!isButton(l)) { 
+												def css = StringUtils.substringBefore(l["name"], " ").toLowerCase() 
+												css = (linkPosition == "on_row" && index == 0) ? css+" bold" : css %]
+										      <wr:Visible>
+										   		<li class="[%= css %]"><wr:Link class="link"/></li>										
+										      </wr:Visible>
+											[% } %]
+										   </wr:Iterate>
+							    		</ul>
+							    		</div>
+							    	</td>
+					    	[% 	}
+					    	   } else { %]
+						   <wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+							[% if (!isButton(l) && (((linkPosition == "on_row" || linkPosition == "on_bullet") && index > 0) || (linkPosition != "on_row" && linkPosition != "on_bullet" && linkPosition != "left"))) { %]
+						      <wr:Visible>
+									<td class="<wr:StyleClass context="unitLink"/> linkCell link<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %]">
+							   			<c:choose>
+							   				<c:when test="${<wr:UnitId/>.currentIndex eq index}">
+							   					[% if (useAlternate == "true") { %]
+							   						<c:choose>
+							   							<c:when test="${index mod 2 eq 0}"><wr:Link class="linkCurrentAlternate"/></c:when>
+														<c:otherwise><wr:Link class="linkCurrent"/></c:otherwise>
+							   						</c:choose>
+												[% } else { %]
+													<wr:Link class="linkCurrent"/>								
+												[% } %]
+							   				</c:when>
+							   				<c:otherwise>
+							   					[% if (useAlternate == "true") { %]
+							   						<c:choose>
+							   							<c:when test="${index mod 2 eq 0}">
+															<wr:Link class="linkAlternate"/>
+														</c:when>
+														<c:otherwise>
+															<wr:Link class="link"/>
+														</c:otherwise>
+							   						</c:choose>
+												[% } else { %]
+													<wr:Link class="link"/>								
+												[% } %]
+							   				</c:otherwise>
+							   			</c:choose>
+						   			</td>
+						      </wr:Visible>
+							[% } %]
+						   </wr:Iterate>
+						   [% } %]
+						</tr>
+						<tr class="row<c:if test="${<wr:UnitId/>.currentIndex eq index}">Current</c:if>[% if (useAlternate == "true") { %]<c:if test="${index mod 2 eq 0}">Alternate</c:if>[% } %] rowDescription" id="<wr:UnitId/>-${index}-descr" style="display:none;">
+						[% if (checkable) {%]<td></td>[%}%]
+						[% if (showBullet == "true") { %]<td></td>[% } %]
+						[% if (linkPosition == "left") { %]
+							[% if (linkMenu) { %]
+								<td></td>
+							[% } else { %]
+								<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+								[% if (!isButton(l)) { %]
+									<wr:Visible><td></td></wr:Visible>
+						    	[% } %]
+								</wr:Iterate>
+							[% } %]
+						[% } %]
+						
+						[% if (showAttributeName == "true") {%]
+							<td class="valueDescription" colspan="[%= colspan*2 %]">
+						[% } else { %]
+							<td class="valueDescription" colspan="[%= colspan %]">
+						[% } %]
+								<c:choose>
+								  <c:when test="${not(empty current.[%=getFieldName(description)%])}">
+									<span><wr:Value context="description"/></span>
+								  </c:when>
+								  <c:otherwise>
+								    <span><bean:message key="[%=emptyDescrMessage%]"/></span>
+								  </c:otherwise>
+								</c:choose>
+							</td>
+						[% if (linkPosition != "left" && linkMenu) { %]
+							<td></td>
+						[% } else { %]
+						<wr:Iterate var="l" context="unit" select="layout:Link[string(@_exp) != 't']">
+						[% if (!isButton(l) && (((linkPosition == "on_row" || linkPosition == "on_bullet") && index > 0) || (linkPosition != "on_row" && linkPosition != "on_bullet" && linkPosition != "left"))) { %]
+					      <wr:Visible>
+								<td></td>
+					      </wr:Visible>
+						[% } %]
+					   </wr:Iterate>
+					   [% } %]
+						</tr>
+					</c:forEach>

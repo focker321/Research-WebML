@@ -1,0 +1,12 @@
+#?delimiters <%,%>,<%=,%>
+<%
+setXMLOutput()
+def unitId = unit.valueOf("@id")
+%>
+
+<OutputParameters>
+   <OutputParameter name="myResult" type="" label="myResult"/>
+   <OutputParameter name="firstname" type="" label="FirstName"/>
+   <OutputParameter name="lastname" type="" label="LastName"/>
+   <OutputParameter name="email" type="" label="Email"/>
+</OutputParameters>

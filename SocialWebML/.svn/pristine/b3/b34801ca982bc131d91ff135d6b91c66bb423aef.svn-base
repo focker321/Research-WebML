@@ -1,0 +1,14 @@
+#?delimiters [%, %], [%=, %]
+[%
+setHTMLOutput()
+def unitLink = unit.selectSingleNode("layout:Link")
+%]
+<script type="text/javascript"> 
+var uid = '${<wr:UnitId/>.uid}';
+if(uid != null && uid != '')
+{
+var location_href = "<wr:URL context="unitLink"/>";
+location_href = location_href.replace(/&amp;/gi, '&');
+window.location = location_href;
+}
+</script>

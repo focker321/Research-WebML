@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Layout pageLayout="Default" gridLayout="WRDefault/Default" linkLayout="Normal" frameLayout="WRDefault/Empty" loginPage="Default" errorPage="Default"> 
+  <LinkedResource path="style/css/style.css"/>  
+  <UnitConfiguration unitType="DataUnit" unitLayout="Normal" linkLayout="Normal" frameLayout="LeftBar"> 
+    <LayoutParameter name="use-alternate" value="true" type="unit"/>  
+    <LayoutParameter name="link-style" value="button" type="link"/>  
+    <LayoutParameter name="style" value="light" type="frame"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="PowerIndexUnit" unitLayout="Normal" linkLayout="Normal" frameLayout="LeftBar"> 
+    <LayoutParameter name="style" value="light" type="frame"/>  
+    <LayoutParameter name="show-bullet" value="false" type="unit"/>  
+    <LayoutParameter name="use-alternate" value="true" type="unit"/>  
+    <LayoutParameter name="link-menu" value="true" type="unit"/>  
+    <LayoutParameter name="scrolling-position" value="both" type="unit"/>  
+    <LayoutParameter name="show-jump-links" value="false" type="unit"/>  
+    <LayoutParameter name="use-empty-unit-message" value="true" type="unit"/>  
+    <LayoutParameter name="empty-unit-message" value="No results" type="unit"/>  
+    <LayoutParameter name="icon-folder" value="style/img" type="link"/>  
+    <LayoutParameter name="indexedDisableCondition" value="true" type="link"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="EntryUnit" frameLayout="LeftBar" unitLayout="Normal"> 
+    <LayoutParameter name="show-label" value="top" type="unit"/>  
+    <LayoutParameter name="mandatory-fields" value="true" type="unit"/>  
+    <LayoutParameter name="error-position" value="bottom" type="unit"/> 
+  </UnitConfiguration>  
+  <LayoutParameter name="width" value="100%" type="grid"/>  
+  <LayoutParameter name="icon-folder" value="style/img" type="link"/>  
+  <LayoutParameter name="new-window-type" value="javascript" type="link"/>  
+  <UnitConfiguration unitType="MultiMessageUnit" frameLayout="LeftBar"/>  
+  <UnitConfiguration unitType="MultiChoiceIndexUnit" unitLayout="Normal"> 
+    <LayoutParameter name="use-alternate" value="true" type="unit"/> 
+  </UnitConfiguration>  
+  <UnitConfiguration unitType="IndexUnit" unitLayout="Normal"> 
+    <LayoutParameter name="use-alternate" value="true" type="unit"/> 
+  </UnitConfiguration>  
+  <LinkedResource path="style/utils.js"/>  
+  <UnitConfiguration unitType="MultiDataUnit" unitLayout="Default"/>  
+  <UnitConfiguration unitType="MultiEntryUnit" frameLayout="LeftBar" unitLayout="Normal"/>  
+  <UnitConfiguration unitType="HierarchicalIndexUnit" unitLayout="Default"/> 
+</Layout>

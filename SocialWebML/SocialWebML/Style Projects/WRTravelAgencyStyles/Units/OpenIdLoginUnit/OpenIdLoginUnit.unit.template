@@ -1,0 +1,31 @@
+#?delimiters [%, %], [%=, %]
+[%
+setHTMLOutput()
+
+def unitLink = unit.selectSingleNode("layout:Link")
+%]
+	<script type="text/javascript"> 
+
+
+
+$(document).ready(function() {
+
+     $(".button").click(function() {
+        var user_id = 'san';
+        var dataString = 'user_id=' + user_id;  
+        window.location = "<wr:URL context="unitLink"/>&ad=1987&user_id="+user_id;
+        
+
+     });
+
+
+});
+
+	 </script>
+
+  <p><a href="page1.do?op=Facebook">Facebook</a></p>
+  <p><a href="page1.do?op=Google">Google</a></p>
+  <p><a href="page1.do?op=Yahoo">Yahoo</a></p>
+  <p><a href="http://code.google.com/p/jopenid/" target="_blank">About JOpenID</a></p>
+<a href="<wr:URL context="unitLink"/>&ad=1987">hola2</a>
+<div class="button">Otro DIV</div>

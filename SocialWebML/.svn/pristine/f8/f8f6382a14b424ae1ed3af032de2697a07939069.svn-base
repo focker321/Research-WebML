@@ -1,0 +1,1597 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	cursor: default;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+  list-style-position: inside;
+  padding-left: 1em;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+td, th {
+  border-collapse: separate;
+}
+a {
+  color: #485FB7;
+  cursor: pointer !important;
+}
+a * {
+  cursor: pointer !important;
+}
+a:hover {
+  text-decoration: underline;
+}
+strong, b {
+  font-weight: bold;
+}
+i, cite, em, var, address, dfn {
+font-style: italic;
+}
+p {
+  margin: 0.5em 0;
+}
+u, ins {
+text-decoration: underline;
+}
+element.style {
+}
+s, strike, del {
+text-decoration: line-through;
+}
+
+sup, sub, small {
+  font-size: smaller;
+}
+tt, code, kbd, samp {
+font-family: monospace;
+}
+div.clear {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+/****************************************************************/
+/*                            GENERAL                           */
+/*  Style rules determining the behavior of pages               */
+/****************************************************************/
+
+*, html, body {
+  font-family: Lucida Grande, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+* html input { 
+  width:auto;
+  overflow:visible;
+}
+
+html ,body {
+  min-width: 100%;
+  min-height: 100%;
+  height: 100%;
+}
+
+.body {
+  background: url("../img/bg.png") repeat-x scroll center top #FFFFFF; 
+  line-height: 1;
+	color: #000000;
+	min-width: 100%;
+  min-height: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.bg-bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background: url("../img/bg-footer.png") repeat-x scroll center bottom transparent;
+  height: 170px;
+}
+
+.body .container {
+  min-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.top-bar {
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -moz-box-shadow: 0 15px 25px #C0D569 inset, 0 1px 2px 0 #485FB7;
+  -webkit-box-shadow: 0 15px 25px #C0D569 inset, 0 1px 2px 0 #485FB7;
+  box-shadow: 0 15px 25px #C0D569 inset, 0 1px 2px 0 #485FB7;
+  background-color: #6FA032;
+  height: 40px;
+  padding: 0 20px;
+  margin: 0 40px;        
+}
+
+.top-bar .logo {
+  float: left;
+  height: 40px;
+}
+
+.top-bar .logo a {
+  display: block;
+  height: 40px;
+  width: 120px;
+  background: transparent url(../img/logo.png) no-repeat scroll center center;
+  overflow: hidden;
+  text-indent: -1000px;
+  font-size: 0;
+}
+
+.top-bar .user-profile {
+    float: right;
+    height: 100%;
+    width: 400px;
+}
+
+.top-bar .user-profile .value {
+  height: 40px;
+  vertical-align: middle;
+  color: #FFFFFF;
+}
+.top-bar .user-profile .value img {
+  max-height: 26px;
+}
+.top-bar .user-profile .button {
+  margin-left: 10px;
+  margin-top: 0;
+}
+
+.languages, .userUnit {
+  float: right;
+}
+.languages li {
+  float: left;
+  margin-top: 12px;
+  padding: 0 5px;
+}
+
+.global-search {
+  float: left;
+  line-height: 40px;
+  padding-left: 20px;
+}
+.global-search .button{
+margin: 0 0 7px 2px
+}
+
+.footer {
+  color: #FFFFFF;
+  padding: 20px 50px;
+  text-align: right;
+}
+
+.footer a {
+  color: #485FB7;
+  text-decoration: underlined;
+}
+
+.lm {
+margin: 0 40px; 
+}
+.lm ul {
+  padding: 10px 10px 0 10px;
+  float: left;
+  list-style: none inside;
+}
+
+.lm ul li {
+  float: left;
+  height: 30px;
+  margin-right: 2px;
+  position: relative;
+}
+
+.lm ul li a {
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+  background-color: #485FB7;
+  display: block;
+  height: 100%;
+  line-height: 30px;
+  padding: 0 10px;
+  white-space: nowrap;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.lm ul li:hover a {
+  background-color: #313F7D;
+}
+.lm ul li.current a, .lm ul li.current:hover a {
+  background-color: #FFFFFF;
+  color: #485FB7;
+}
+
+
+.lm ul li ul {
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px 0 #006CC9;
+  -moz-box-shadow: 0 1px 2px 0 #006CC9;
+  box-shadow: 0 1px 2px 0 #006CC9;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  padding: 0 0 6px 0;
+  z-index: 10;
+  background-color: #FFFFFF;
+  opacity: .9;
+}
+.lm ul li:hover ul {
+  display: block;
+}
+.lm ul li ul li {
+  display: block;
+  float: none;
+  margin: 0;
+  height: 25px;
+}
+.lm ul li ul li a, .lm ul li:hover ul li a {
+  background-color: #FFFFFF;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  color: #485FB7;
+  line-height: 25px;
+  padding: 0 20px;
+}
+.lm ul li ul li a:hover, .lm ul li ul li.current a {
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+
+.viewed-items {
+  float: right;
+  position: relative;
+  padding: 10px 10px 0 0;
+}
+.viewed-items span {
+  float: right;
+  background-color: #6FA032;
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
+  color: #FFFFFF;
+  display: block;
+  height: 100%;
+  line-height: 30px;
+  padding: 0 10px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.viewed-items ul {
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px 0 #006CC9;
+  -moz-box-shadow: 0 1px 2px 0 #006CC9;
+  box-shadow: 0 1px 2px 0 #006CC9;
+  display: none;
+  padding: 6px;
+  z-index: 10;
+  background-color: #FFFFFF;
+  opacity: .9;
+  min-width: 150px;
+  list-style: none inside;
+}
+.viewed-items:hover ul {
+  display: block;
+}
+.viewed-items:hover span {
+  background-color: #466520;
+}
+.viewed-items ul li {
+  display: block;
+  float: none;
+  margin: 0;
+  height: 25px;
+}
+.viewed-items ul li a {
+  background-color: #FFFFFF;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  color: #485FB7;
+  line-height: 25px;
+  padding: 0 5px;
+  display: inline;
+  float: right;
+}
+.viewed-items ul li:hover a {
+  background-color: #FFFFFF;
+}
+.viewed-items ul li a.row {
+  float: left;
+}
+.viewed-items ul li a.row:hover {
+  text-decoration: underline;
+  background-color: transparent;
+}
+.content {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 2px 6px 0 #485FB7;
+  -moz-box-shadow: 0 2px 6px 0 #485FB7;
+  box-shadow: 0 2px 6px 0 #485FB7;
+  padding: 10px;
+  background-color: #FFFFFF;
+  margin: 0 40px; 
+  clear: both;
+}
+.login-content .content, .error-content .content {
+  margin: 0px auto;
+  width: 250px;
+}
+.login-content, .error-content {
+  padding-top: 100px;
+}
+.login-content table, .error-content table {
+  width: 100%;
+}
+.page-title {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -moz-box-shadow: 0 15px 25px #C0D569 inset, 0 1px 2px 0 #485FB7;
+  -webkit-box-shadow: 0 15px 25px #C0D569 inset, 0 1px 2px 0 #485FB7;
+  box-shadow: 0 15px 25px #C0D569 inset, 0 1px 2px 0 #485FB7;
+  background-color: #6FA032;
+  height: 40px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.page-title h1 {
+  color: #FFFFFF;
+  float: left;
+  font-size: 1.7em;
+  height: 100%;
+  line-height: 40px;
+  text-shadow: 0 1px 1px #485FB7;
+}
+.page-title ul {
+  float: right;
+  height: 100%;
+  list-style: none inside;
+}
+.page-title ul li {
+  float: right;
+  height: 100%;
+  margin-left: 2px;
+}
+.page-title ul li .button {
+  margin: 7px 0 0 2px;
+}
+
+.left-bar {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #E4F1F5;
+  border: 1px solid #485FB7;
+  padding: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.left-bar h2 {
+  border-bottom: 1px solid #485FB7;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  color: #485FB7;
+}
+
+.light {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #FFF;  
+  padding: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.light h2 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  color: #6FA032;
+}
+.light .PowerIndexUnit .maintable {                         
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.light .PowerIndexUnit .maintable td {                         
+}
+
+
+
+/****************************************************************/
+/*                            GENERAL                           */
+/*  Style rules determining the behavior of all WebRatio Units  */
+/****************************************************************/
+
+/* WebRatio CSS classes DIVs */
+.plain {
+	display: inline;
+	clear: none;
+}
+
+
+/* Buttons */
+.button {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 2px 0 #485FB7;
+  -moz-box-shadow: 0 1px 2px 0 #485FB7;
+  box-shadow: 0 1px 2px 0 #485FB7;
+  margin: 10px 10px 2px  0;
+  display: inline-block;
+  height: 1.8em;
+  line-height: 1.8em;
+  padding: 0 10px;
+  font-size: 1.1em;
+  color: #485FB7;
+  background-color: #FFFFFF;
+  text-decoration: none;
+  border: medium none;
+}
+input.button {
+  line-height: normal;
+  width:auto;
+  overflow:visible;
+  padding-bottom: 2px;
+}
+
+.button:hover {
+  cursor: pointer !important;
+  color: #FFFFFF;
+  background-color: #485FB7;
+  text-decoration: none;
+}
+
+.left-icon input.button {
+	display: inline;
+	margin-left: 10px;
+	height: 20px;
+	margin-top: 0px;
+}
+
+/* Fix for Internet Explorer for input with background image */
+input[type="submit"],
+input[type="button"] {
+	width:auto;
+  overflow:visible;
+  height: 26px;
+  border: medium none;
+}
+
+input.search, input.cerca, input.filtra, input.select {
+  background: url(../img/search.png) no-repeat scroll 5px center #FFFFFF;
+  padding-left: 26px;
+}
+input.new, input.nuova, input.nuovo {
+  background: url(../img/new.png) no-repeat scroll 5px center #FFFFFF;
+  padding-left: 26px;
+}
+input.export {
+  background: url(../img/export.png) no-repeat scroll 5px center #FFFFFF;
+  padding-left: 26px;
+}
+input.pdf {
+  background: url(../img/export-pdf.png) no-repeat scroll 5px center #FFFFFF;
+  padding-left: 26px;
+}
+input.esporta {
+  background: url(../img/esporta.png) no-repeat scroll 5px center #FFFFFF;
+  padding-left: 26px;
+}
+input.importa {
+  background: url(../img/importa.png) no-repeat scroll 5px center #FFFFFF;
+  padding-left: 26px;
+}
+input.genera {
+  background: url(../img/genera.png) no-repeat scroll 5px center #FFFFFF;
+  padding-left: 26px;
+}
+input.elimina {
+  background: url(../img/Delete.png) no-repeat scroll 5px center #FFFFFF;
+  padding-left: 26px;
+}
+input.save, input.salva, input.conferma, input.inserisci {
+  background: url(../img/save.png) no-repeat scroll 5px center #FFFFFF;
+  padding-left: 26px;
+}
+input.modify, input.cambia, input.modifica {
+  background: url(../img/Modify.png) no-repeat scroll 5px center #FFFFFF;
+  padding-left: 26px;
+}
+input.show {
+  background: url(../img/globe.png) no-repeat scroll 5px 6px #FFFFFF;
+  padding-left: 26px;
+}
+input.get {
+  background: url(../img/Chart.png) no-repeat scroll 5px 6px #FFFFFF;
+  padding-left: 26px;
+}
+input.torna {
+  background: url(../img/left.png) no-repeat scroll 5px 6px #FFFFFF;
+  padding-left: 26px;
+}
+input.notxt {
+  font-size: 0;
+  width: 0;
+  padding-right: 0;
+}
+
+
+
+/* Number values alignment */
+.integer, .float, .decimal {
+  text-align:left;
+}
+
+/* HTML Values */
+
+
+
+/* Headers and attribute names */
+.header {
+  line-height: 2em;
+  text-align: left;
+  color: #485FB7;
+  text-transform: capitalize;
+}
+
+/* Headers and attribute names of current elements */
+.headerCurrent {}
+
+/* Alternate headers and attribute names */
+.headerAlternate {}
+
+/* Alternate headers and attribute names of current elements */
+.headerCurrentAlternate {}
+
+/* Attribute values */
+.value {text-align: left;}
+
+/* Attribute values of current elements */
+.valueCurrent {text-align: left;}
+
+/* Alternate attribute values */
+.valueAlternate {text-align: left;}
+
+/* Alternate attribute values of current elements */
+.valueCurrentAlternate {text-align: left;}
+
+/* Bullets */
+.bullet {}
+
+/* Bullets of current elements */
+.bulletCurrent {}
+
+/* Alternate bullets */
+.bulletAlternate {}
+
+/* Alternate bullets of current elements */
+.bulletCurrentAlternate {}
+
+/* Rows */
+.row {}
+
+/* Rows of current elements */
+.rowCurrent {}
+
+/* Alternate rows */
+.rowAlternate {}
+
+/* Alternate rows of current elements */
+.rowCurrentAlternate {}
+
+/* Links */
+.link {}
+
+/* Links of current elements */
+.linkCurrent {}
+
+/* Alternate links */
+.linkAlternate {}
+
+/* Alternate links of current elements */
+.linkCurrentAlternate {}
+
+/* Scroll links */
+.scroll {}
+
+/* Text between scroll links (e.g. 1-10 of 20) */
+.scrollText {}
+
+/* Jump bundles */
+.jump {}
+
+/* Sorting links */
+.sort {
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Ascending sort links */
+.sortAscending {  
+  background: url("../img/ascend.png") no-repeat scroll 0 0 transparent;
+  height: 16px;
+  margin: 0px;
+  padding-right: 1px;
+  width: 16px;
+}
+
+/* Descending sort links */
+.sortDescending {
+  background: url("../img/descend.png") no-repeat scroll 0 0 transparent;
+  height: 16px;
+  margin: 0px;
+  padding-right: 1px;
+  width: 16px;
+}
+
+/* "Select All" link */
+.selectAll {}
+
+/* "Unselect All" link */
+.unSelectAll {}
+
+/* Fields */
+.field {
+  border:1px solid #999;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  font-size: 1.1em;
+}
+
+/* Selection fields and selects */
+.selectionfield {
+  border:1px solid #999;
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+  font-size: 1.1em;
+}
+
+/* Multi selection fields */
+.multiselectionfield {}
+
+/* Error messages */
+.error {}
+
+/* Checkboxes */
+.checkBox {}
+
+/* Days of calendars */
+.day {}
+
+/* Month names of calendars */
+.month {}
+
+/* Previous year link of calendars */
+.previousYear {}
+
+/* Next year link of calendars */
+.nextYear {}
+
+/* Horizontal spacing */
+.horizontalSpacer {}
+
+/* Vertical spacing */
+.verticalSpacer {}
+
+/*********************************************************************************/
+/*  Theses classes determine the behavior of units according to their unit type  */
+/*********************************************************************************/
+
+/*******************/
+/*  ALPHABET UNIT  */
+/*******************/
+
+/* Alphabet Units values */
+.AlphabetUnit .value {}
+
+/* Alphabet Units links */
+.AlphabetUnit .link {}
+
+/***************/
+/*  DATA UNIT  */
+/***************/
+
+/* Data Units headers and attribute names */
+.DataUnit .header {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Data Units attribute values */
+.DataUnit .value {
+  padding-left: 10px;
+}
+
+/* Data Units rows */
+.DataUnit .row {
+   border-top: 1px #e0e0e0 solid;
+   background-color: #F2FBFB;
+}
+
+/* Data Units alternate rows */
+.DataUnit .rowAlternate {
+  border-top: 1px #e0e0e0 solid;
+  background-color: #FFF;
+}
+
+/* Data Units links */
+.DataUnit .link {}
+
+/****************/
+/*  ENTRY UNIT  */
+/****************/
+
+/* Entry Units headers and field names */
+.EntryUnit .header {
+  white-space: nowrap;
+}
+
+/* Entry Units fields */
+.EntryUnit .value {}
+
+/* Entry Units rows */
+.EntryUnit .row {}
+
+/* Entry Units alternate rows */
+.EntryUnit .rowAlternate {}
+
+/* Entry Units links */
+.EntryUnit .value .button {
+  display:inline;
+  margin: 0;
+  vertical-align: super;
+}
+
+/* Entry Units fields */
+.EntryUnit .field {}
+
+/* Entry Units selection fields and selects */
+.EntryUnit .selectionfield {}
+
+/* Entry Units multi selection fields */
+.EntryUnit .multiselectionfield {}
+
+/* Entry Units error messages */
+.EntryUnit span.error {
+  color: red;
+  line-height: 2em;
+}
+.EntryUnit td.cell-link {
+  vertical-align: bottom;
+  line-height: 1.8em;
+}
+
+
+/*************************/
+/*  EVENT CALENDAR UNIT  */
+/*************************/
+
+/* Event Calendar Units values */
+.EventCalendarUnit .value {}
+
+/* Event Calendar Units values of the current element*/
+.EventCalendarUnit .valueCurrent {}
+
+/* Event Calendar Units links */
+.EventCalendarUnit .button {}
+
+/* Event Calendar Units links */
+.EventCalendarUnit .link {}
+
+/* Event Calendar Units links of current elements */
+.EventCalendarUnit .linkCurrent {}
+
+/* Event Calendar Units days */
+.EventCalendatUnit .day {}
+
+/* Event Calendar Units month names */
+.EventCalendatUnit .month {}
+
+/* Event Calendar Units previous year link */
+.EventCalendatUnit .previousYear {}
+
+/* Event Calendar Units next year link */
+.EventCalendatUnit .nextYear {}
+
+/* Event Calendar Units horizontal spacing */
+.EventCalendatUnit .horizontalSpacer {}
+
+/* Event Calendar Units vertical spacing */
+.EventCalendatUnit .verticalSpacer {}
+
+/*****************************/
+/*  HIERARCHICAL INDEX UNIT  */
+/*****************************/
+
+
+.HierarchicalIndexUnit .maintable {                         
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.HierarchicalIndexUnit .maintable .maintable { 
+  margin: 0;
+}
+
+/* Hierarchical Index Units headers and attribute names */
+.HierarchicalIndexUnit table {
+  /*width: 100%;*/                                                                        
+  line-height: 2em;
+}
+
+.HierarchicalIndexUnit a img {
+  vertical-align: text-bottom;
+}
+.HierarchicalIndexUnit td, .HierarchicalIndexUnit th {
+  padding: 0 5px;
+}
+.HierarchicalIndexUnit td td.value {
+  padding: 0;
+}
+.HierarchicalIndexUnit .headerRow {
+  border-bottom: 2px #485FB7 solid;
+  line-height: 3em;
+}
+
+/* Hierarchical Index Units headers and attribute names */
+.HierarchicalIndexUnit .header {
+  font-weight: bold;
+}
+
+.HierarchicalIndexUnit .row {
+  border-top: 1px #e0e0e0 solid;
+}
+/* Hierarchical Index Units rows of current elements */
+.HierarchicalIndexUnit .rowCurrent {
+border-top: 1px #e0e0e0 solid;
+}
+
+/* Hierarchical Index Units alternate rows */
+.HierarchicalIndexUnit .rowAlternate {
+border-top: 1px #e0e0e0 solid;
+background-color: #F2FBFB;
+}
+
+/* Hierarchical Index Units alternate rows of current elements */
+.HierarchicalIndexUnit .rowCurrentAlternate {
+border-top: 1px #e0e0e0 solid;
+background-color: #F2FBFB;
+}
+
+.HierarchicalIndexUnit .row:hover,
+.HierarchicalIndexUnit .rowCurrentAlternate:hover,
+.HierarchicalIndexUnit .rowAlternate:hover,
+.HierarchicalIndexUnit .rowCurrent:hover
+ {
+  background-color: #E4F1F5;
+}
+/* Hierarchical Index Units links */
+.HierarchicalIndexUnit .link {}
+
+/****************/
+/*  INDEX UNIT  */
+/****************/
+
+
+.IndexUnit .maintable {                         
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.IndexUnit .maintable .maintable { 
+  margin: 0;
+}
+
+/* IndexUnit headers and attribute names */
+.IndexUnit table {
+  /*width: 100%;*/                                                                        
+  line-height: 2em;
+}
+
+.IndexUnit a img {
+  vertical-align: text-bottom;
+}
+.IndexUnit td, .IndexUnit th {
+  padding: 0 5px;
+}
+
+.IndexUnit .headerRow {
+  border-bottom: 2px #485FB7 solid;
+  line-height: 3em;
+}
+
+/* IndexUnit headers and attribute names */
+.IndexUnit .header {
+  font-weight: bold;
+}
+
+
+
+/* Index Units headers and attribute names of current elements */
+.IndexUnit .headerCurrent {}
+
+/* Index Units alternate headers and attribute names */
+.IndexUnit .headerAlternate {}
+
+/* Index Units alternate headers and attribute names of current elements */
+.IndexUnit .headerCurrentAlternate {}
+
+/* Index Units attribute values */
+.IndexUnit .informal {}
+
+/* Index Units attribute values */
+.IndexUnit .value {}
+
+/* Index Units attribute values of current elements */
+.IndexUnit .valueCurrent {}
+
+/* Index Units alternate attribute values */
+.IndexUnit .valueAlternate {}
+
+/* Index Units alternate attribute values of current elements */
+.IndexUnit .valueCurrentAlternate {}
+
+/* Index Units attribute values in dropdown*/
+.IndexUnit .selectionfield {}
+
+/* Index Units bullets */
+.IndexUnit .bullet {}
+
+/* Index Units bullets of current elements */
+.IndexUnit .bulletCurrent {}
+
+/* Index Units alternate bullets */
+.IndexUnit .bulletAlternate {}
+
+/* Index Units alternate bullets of current elements */
+.IndexUnit .bulletCurrentAlternate {}
+
+/* Index Units rows */
+.IndexUnit .row {
+  border-top: 1px #e0e0e0 solid;
+}
+
+/* Index Units rows of current elements */
+.IndexUnit .rowCurrent {
+border-top: 1px #e0e0e0 solid;
+}
+
+/* Index Units alternate rows */
+.IndexUnit .rowAlternate {
+border-top: 1px #e0e0e0 solid;
+background-color: #F2FBFB;
+}
+
+/* Index Units alternate rows of current elements */
+.IndexUnit .rowCurrentAlternate {
+border-top: 1px #e0e0e0 solid;
+background-color: #F2FBFB;
+}
+
+.IndexUnit .row:hover,
+.IndexUnit .rowCurrentAlternate:hover,
+.IndexUnit .rowAlternate:hover,
+.IndexUnit .rowCurrent:hover
+ {
+  background-color: #E4F1F5;
+}
+
+/* Index Units links */
+.IndexUnit .link {}
+
+/* Index Units links of current elements */
+.IndexUnit .linkCurrent {}
+
+/* Index Units alternate links */
+.IndexUnit .linkAlternate {}
+
+/* Index Units alternate links of current elements */
+.IndexUnit .linkCurrentAlternate {}
+
+/*********************/
+/*  JOB STATUS UNIT  */
+/*********************/
+
+/* Job Status Units headers and property names */
+.JobStatusUnit .header {}
+
+/* Job Status Units property values */
+.JobStatusUnit .value {}
+
+/* Job Status Units bullets */
+.JobStatusUnit .bullet {}
+
+/* Job Status Units links */
+.JobStatusUnit .link {}
+
+
+/*****************************/
+/*  MULTI CHOICE INDEX UNIT  */
+/*****************************/
+
+.MultiChoiceIndexUnit .maintable {                         
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.MultiChoiceIndexUnit .maintable .maintable { 
+  margin: 0;
+}
+
+/* Multi Data Units headers and attribute names */
+.MultiChoiceIndexUnit table {
+  /*width: 100%;*/                                                                        
+  line-height: 2em;
+}
+
+.MultiChoiceIndexUnit a img {
+  vertical-align: text-bottom;
+}
+.MultiChoiceIndexUnit td, .MultiChoiceIndexUnit th {
+  padding: 0 5px;
+}
+
+.MultiChoiceIndexUnit .headerRow {
+  border-bottom: 2px #485FB7 solid;
+  line-height: 3em;
+}
+
+/* MultiChoiceIndexUnit headers and attribute names */
+.MultiChoiceIndexUnit .header {
+  font-weight: bold;
+}
+
+
+/* Multi Choice Index Units attribute values */
+.MultiChoiceIndexUnit .value {}
+
+/* Multi Choice Index Units rows */
+/* Index Units rows */
+.MultiChoiceIndexUnit .row {
+  border-top: 1px #e0e0e0 solid;
+}
+
+/* Index Units rows of current elements */
+.MultiChoiceIndexUnit .rowCurrent {
+border-top: 1px #e0e0e0 solid;
+}
+
+/* Index Units alternate rows */
+.MultiChoiceIndexUnit .rowAlternate {
+border-top: 1px #e0e0e0 solid;
+background-color: #F2FBFB;
+}
+
+/* Index Units alternate rows of current elements */
+.MultiChoiceIndexUnit .rowCurrentAlternate {
+border-top: 1px #e0e0e0 solid;
+background-color: #F2FBFB;
+}
+
+.MultiChoiceIndexUnit .row:hover,
+.MultiChoiceIndexUnit .rowCurrentAlternate:hover,
+.MultiChoiceIndexUnit .rowAlternate:hover,
+.MultiChoiceIndexUnit .rowCurrent:hover
+ {
+  background-color: #E4F1F5;
+}
+
+/* Multi Choice Index Units links */
+.MultiChoiceIndexUnit .button {}
+
+/* Multi Choice Index Units errors */
+.MultiChoiceIndexUnit .error {}
+
+/* Multi Choice Index Units checkboxes */
+.MultiChoiceIndexUnit .checkBox {}
+
+/* Multi Choice Index Units "Select All" link */
+.MultiChoiceIndexUnit .selectAll {}
+
+/*********************/
+/*  MULTI DATA UNIT  */
+/*********************/
+.MultiDataUnit .maintable {                         
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.MultiDataUnit .maintable .maintable { 
+  margin: 0;
+}
+
+/* Multi Data Units headers and attribute names */
+.MultiDataUnit table {
+  /*width: 100%;*/                                                                        
+  line-height: 2em;
+}
+
+.MultiDataUnit a img {
+  vertical-align: text-bottom;
+}
+.MultiDataUnit td, .MultiDataUnit th {
+  padding: 0 5px;
+}
+
+.MultiDataUnit .headerRow {
+  border-bottom: 2px #485FB7 solid;
+  line-height: 3em;
+}
+
+/* MultiDataUnit headers and attribute names */
+.MultiDataUnit .header {
+  font-weight: bold;
+}
+
+
+/* Multi Data Units attribute values */
+.MultiDataUnit .row {
+border-top: 1px #e0e0e0 solid;
+}
+/* Multi Data Units bullets */
+.MultiDataUnit .bullet {}
+
+/* Multi Data Units links */
+.MultiDataUnit .link {}
+
+/**********************/
+/*  MULTI ENTRY UNIT  */
+/**********************/
+
+
+.MultiEntryUnit .maintable {                         
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.MultiEntryUnit .maintable .maintable { 
+  margin: 0;
+}
+
+/* IndexUnit headers and attribute names */
+.MultiEntryUnit table {
+  /*width: 100%;*/                                                                        
+  line-height: 2em;
+}
+
+.MultiEntryUnit a img {
+  vertical-align: text-bottom;
+}
+.MultiEntryUnit td, .MultiEntryUnit th {
+  padding: 0 5px;
+}
+.MultiEntryUnit td td.value {
+  padding: 0;
+}
+.MultiEntryUnit .headerRow {
+  border-bottom: 2px #485FB7 solid;
+  line-height: 3em;
+}
+
+/* IndexUnit headers and attribute names */
+.MultiEntryUnit .header {
+  font-weight: bold;
+}
+
+/* Multi Entry Units links */
+.MultiEntryUnit .button {}
+
+/* Multi Entry Units fields */
+.MultiEntryUnit .field {}
+
+/* Multi Entry Units selection fields and selects */
+.MultiEntryUnit .selectionfield {}
+
+/* Multi Entry Units "Select All" link */
+.selectAll {}
+
+/* Multi Entry Units error messages */
+.MultiEntryUnit .error {}
+
+/************************/
+/*  MULTI MESSAGE UNIT  */
+/************************/
+
+/* Multi Message Units values */
+.MultiMessageUnit .value {}
+
+/* Multi Message Units links */
+.MultiMessageUnit .link {}
+
+/*******************************/
+/*  NO OPERATION CONTENT UNIT  */
+/*******************************/
+
+/* No Operation Content Units links */
+.NoOpContentUnit .link {}
+
+/**********************/
+/*  POWER INDEX UNIT  */
+/**********************/
+
+.PowerIndexUnit {
+}
+
+.PowerIndexUnit table {
+  /*width: 100%;*/                                                                        
+  line-height: 2em;
+}
+
+
+.PowerIndexUnit a img {
+  vertical-align: text-bottom;
+}
+.PowerIndexUnit td, .PowerIndexUnit th {
+  padding: 0 5px;
+}
+
+.PowerIndexUnit .headerRow {
+  border-bottom: 2px #485FB7 solid;
+  line-height: 3em;
+}
+
+/* Power Index Units headers and attribute names */
+.PowerIndexUnit .header {
+  font-weight: bold;
+}
+.PowerIndexUnit .linkCell {
+  width: 0;
+  text-align: right;
+}
+
+/* Power Index Units headers and attribute names of current elements */
+.PowerIndexUnit .headerCurrent {}
+
+/* Power Index Units alternate headers and attribute names */
+.PowerIndexUnit .headerAlternate {}
+
+/* Power Index Units alternate headers and attribute names of current elements */
+.PowerIndexUnit .headerCurrentAlternate {}
+
+/* Power Index Units attribute values */
+.PowerIndexUnit .value {}
+
+/* Power Index Units attribute values of current elements */
+.PowerIndexUnit .valueCurrent {}
+
+/* Power Index Units alternate attribute values */
+.PowerIndexUnit .valueAlternate {}
+
+/* Power Index Units alternate attribute values of current elements */
+.PowerIndexUnit .valueCurrentAlternate {}
+
+/* Power Index Units bullets */
+.PowerIndexUnit .bullet {}
+
+/* Power Index Units bullets of current elements */
+.PowerIndexUnit .bulletCurrent {}
+
+/* Power Index Units alternate bullets */
+.PowerIndexUnit .bulletAlternate {}
+
+/* Power Index Units alternate bullets of current elements */
+.PowerIndexUnit .bulletCurrentAlternate {}
+
+/* Power Index Units rows */
+.PowerIndexUnit .row {
+border-top: 1px #e0e0e0 solid;
+}
+
+/* Power Index Units rows of current elements */
+.PowerIndexUnit .rowCurrent {
+border-top: 1px #e0e0e0 solid;
+}
+
+/* Power Index Units alternate rows */
+.PowerIndexUnit .rowAlternate {
+border-top: 1px #e0e0e0 solid;
+background-color: #F2FBFB;
+}
+
+/* Power Index Units alternate rows of current elements */
+.PowerIndexUnit .rowCurrentAlternate {
+border-top: 1px #e0e0e0 solid;
+background-color: #F2FBFB;
+}
+
+.PowerIndexUnit .row:hover,
+.PowerIndexUnit .rowCurrentAlternate:hover,
+.PowerIndexUnit .rowAlternate:hover,
+.PowerIndexUnit .rowCurrent:hover
+ {
+  background-color: #E4F1F5;
+}
+.PowerIndexUnit .rowDescription {
+  border: none;
+}
+
+.PowerIndexUnit .rowDescription .valueDescription span {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background-color: #FFF4C7;
+  display: inline-block;
+  margin: 5px 0px 5px 5px;
+  max-width: 70%;
+  padding: 5px 10px;
+  width: 70%;
+}
+
+/* Power Index Units links */
+.PowerIndexUnit a.link {
+  color: #000000;
+  display: block;
+  outline: none;
+}
+
+/* Power Index Units links of current elements */
+.PowerIndexUnit a.linkCurrent {
+  color: #000000;
+  display: block;
+  outline: none;
+}
+
+/* Power Index Units alternate links */
+.PowerIndexUnit a.linkAlternate {
+  color: #000000;
+  display: block;
+  outline: none;
+}
+
+/* Power Index Units alternate links of current elements */
+.PowerIndexUnit a.linkCurrentAlternate {
+  color: #000000;
+  display: block;
+  outline: none;
+}
+
+/* Power Index Units scroll links */
+.PowerIndexUnit .scrolling {
+  
+  margin-top: 0px;
+  width: auto;
+  border-bottom: 1px solid #ccc;
+}
+
+.PowerIndexUnit .maintable {                         
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.PowerIndexUnit .link-menu {
+  position: relative;
+  float: right;
+}
+.PowerIndexUnit .link-menu a.arrow {
+  background: transparent url(../img/arrow-down.png) no-repeat scroll right top;
+  font-size: 0;
+  display: block;
+  width: 20px;
+  height: 19px;
+}
+.PowerIndexUnit .link-menu:hover a.arrow {
+  
+}
+
+.PowerIndexUnit .link-menu ul {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 2px 6px 0 #485FB7;
+  -moz-box-shadow: 0 2px 6px 0 #485FB7;
+  box-shadow: 0 2px 6px 0 #485FB7;
+  background-color: #FFFFFF;
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 120px;
+  padding: 6px;
+  list-style: none inside;
+}
+
+.PowerIndexUnit .link-menu ul li a {
+  display: block;
+  line-height: 2em;
+  padding: 0 5px;
+  text-decoration: none;
+}
+.PowerIndexUnit .link-menu ul li.bold a {
+  font-weight: bold;
+}
+
+
+.PowerIndexUnit .link-menu ul li.modify a {
+  background: url(../img/Modify.png) no-repeat scroll 5px center ;
+  padding-left: 26px;
+}
+.PowerIndexUnit .link-menu ul li.delete a {
+  background: url(../img/Delete.png) no-repeat scroll 5px center;
+  padding-left: 26px;
+}
+.PowerIndexUnit .link-menu ul li.details a {
+  background: url(../img/search.png) no-repeat scroll 5px center;
+  padding-left: 26px;
+}
+.PowerIndexUnit .link-menu ul li a:hover {
+  background-color: #E4F1F5;
+}
+
+.PowerIndexUnit .link-menu:hover ul {
+  display: block;
+  z-index: 1000;
+}
+
+/* Text between Power Index Units scroll links (e.g. 1-10 of 20) */
+.PowerIndexUnit .scrollText {}
+
+/* Power Index Units jump bundles */
+.PowerIndexUnit .jump {}
+
+.PowerIndexUnit span {
+	float: left;
+}
+
+.PowerIndexUnit .jump {
+	float: left;
+	padding-left: 10px;
+}
+
+.PowerIndexUnit .jump a {
+	color: #485FB7;
+}
+
+
+/* Power Index Units sorting links */
+.PowerIndexUnit .sort {}
+
+/***************************************/
+/*  RECURSIVE HIERARCHICAL INDEX UNIT  */
+/***************************************/
+
+/* Recursive Hierarchical Index Units headers and attribute names */
+.RecursiveHierarchicalIndexUnit .header {}
+
+/* Recursive Hierarchical Index Units attribute values */
+.RecursiveHierarchicalIndexUnit .value {}
+
+/* Recursive Hierarchical Index Units attribute values of current elements */
+.RecursiveHierarchicalIndexUnit .valueCurrent {}
+
+/* Recursive Hierarchical Index Units links */
+.RecursiveHierarchicalIndexUnit .link {}
+
+/*****************/
+/*  SCRIPT UNIT  */
+/*****************/
+
+/* Script Units results */
+.ScriptUnit .value {}
+
+/*******************/
+/*  SCROLLER UNIT  */
+/*******************/
+
+/* Scroller Units links */
+.ScrollerUnit .link {}
+
+/* Scroller Units scroll links */
+.ScrollerUnit .scroll {}
+
+/* Text between Scroller Units scroll links (e.g. 1-10 of 20) */
+.ScrollerUnit .scrollText {}
+
+/* Scroller Units jump bundles */
+.ScrollerUnit .jump {}
+
+h2.linkedIn {
+  padding-left: 20px;
+  background:transparent url(../img/linkedIn.png) no-repeat left;
+}
+
+h2.doodle {
+  padding-left: 20px;
+  background:transparent url(../img/doodle.png) no-repeat left;
+}
+
+h2.twitter {
+  padding-left: 20px;
+  background:transparent url(../img/twitter.png) no-repeat left;
+}
+
+h2.twitter-message {
+  padding-left: 20px;
+  background:transparent url(../img/twitter-message.png) no-repeat left;
+}
+
+
+.wr-footer {
+  padding: 20px 50px;
+  text-align: right;
+  clear: both;
+}
+.wr-footer a {
+  color: rgb(102, 102, 102);
+  font-family: Tahoma;
+	font-size: small;
+	text-decoration: none;  
+}
+.wr-footer span.blu {
+  color: rgb(0, 24, 96);
+}
+.wr-footer span.red {
+  color: rgb(224, 30, 0);
+}
+.wr-footer sup {
+  font-size: 80%;
+}
