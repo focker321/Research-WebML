@@ -1,0 +1,148 @@
+#?delimiters [%, %], [%=, %]
+[%setHTMLOutput()%]
+<html>
+<body>
+
+
+  
+  <script type="text/javascript">
+    var map;
+    
+   
+    $(document).ready(function(){
+      prettyPrint();
+      map = new GMaps({
+        div: '#map',
+        lat: -12.043333,
+        lng: -77.028333,
+        zoom: 2
+      });
+      
+
+      function addMark2Map(addressMark){
+          GMaps.geocode({
+              address: addressMark.trim(),
+              callback: function(results, status){
+                if(status=='OK'){
+              	  var latlng = results[0].geometry.location;
+  				    map.addMarker({
+  				        lat: latlng.lat(),
+  				        lng: latlng.lng()
+  				      });	
+                }
+              }
+            });
+    }; 
+getUser();
+      
+
+      
+      
+
+      
+      GMaps.geolocate({
+        success: function(position){
+          map.setCenter(position.coords.latitude, position.coords.longitude);
+          map.addMarker({
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            });
+        },
+        error: function(error){
+          alert('Geolocation failed: '+error.message);
+        },
+        not_supported: function(){
+          alert("Your browser does not support geolocation");
+        }
+      });
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    //facebook app id
+
+
+      //function to get current userid
+      function getUser()
+      {
+
+          FB.init({
+              appId      : '294923613865105', // App ID
+              status     : true, // check login status
+              cookie     : true, // enable cookies to allow the server to access the session
+              xfbml      : true  // parse XFBML
+          });
+          //check current user login status
+          FB.getLoginStatus(function(response) {
+              if (response.status === 'connected') {
+      loadFriends();
+
+              } else {
+                  //user is not connected.
+                  FB.login(function(response) {
+                      if (response.authResponse) {
+                          loadFriends();
+                          
+                      } else {
+                          alert('User cancelled login or did not fully authorize.');
+                      }
+                  }, {scope:'email,user_birthday,status_update,publish_stream,user_about_me,user_location,friends_location'});
+              }
+          });
+      }
+      
+      
+      
+      
+    //function to load friends
+      function loadFriends()
+      {
+    	  
+          //get array of friends and get it's current location
+          FB.api('/me', function(response) {
+        	  
+              var friends = FB.Data.query('SELECT uid, name, current_location FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = me() ORDER BY rand() ) AND has_added_app=0');
+
+              FB.Data.waitOn([friends], function() {
+                FB.Array.forEach(friends.value, function(row) {
+              	  
+              	  if(row.current_location != null){
+                 	  addMark2Map(row.current_location.name);
+              	  }
+                });
+              });
+          });
+          
+      }
+    
+    
+    
+    });
+    
+    
+
+  </script>
+  
+  
+  
+  <div id="body">
+    <div class="row">
+      <div class="span11">
+        <div class="popin">
+          <div id="map"></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    
+    <div id="fb-root"></div>
+ 
+
+</body>
+</html>

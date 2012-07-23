@@ -1,9 +1,0 @@
-#?delimiters <%,%>,<%=,%>
-<%
-setXMLOutput()
-def unitId = unit["id"]
-%>
-
-<Descriptor service="com.webratio.units.custom.socialcommentunit.SocialCommentUnitService">
-   <% printRaw(serializeXML(unit, false)) %>
-</Descriptor>

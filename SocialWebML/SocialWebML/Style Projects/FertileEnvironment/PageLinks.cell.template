@@ -1,8 +1,0 @@
-#?delimiters [%, %], [%=, %]
-[%setXMLOutput()%]
-<wr:Iterate var="l" context="cell" select="layout:Link">
-  <wr:Visible>
-      <li><wr:Link class="button"/></li>
-  </wr:Visible>
-
-</wr:Iterate>

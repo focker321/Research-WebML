@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<Layout> 
-  <LinkedResource path="WRTravelAgencyStyles/css/units.css"/>  
-  <UnitConfiguration unitType="SocialLogin" unitLayout="SocialLogin"/>  
-  <UnitConfiguration unitType="OpenIdLoginUnit" unitLayout="OpenIdLoginUnit"/>
-</Layout>
