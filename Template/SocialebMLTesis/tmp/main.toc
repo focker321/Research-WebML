@@ -1,0 +1,48 @@
+\select@language {spanish}
+\contentsline {chapter}{\'INDICE}{\es@scroman {iv}}{section*.4}
+\contentsline {chapter}{LISTA DE FIGURAS}{\es@scroman {vi}}{section*.5}
+\contentsline {chapter}{LISTA DE TABLAS}{\es@scroman {viii}}{section*.6}
+\contentsline {chapter}{\chapternumberline {1}INTRODUCCI\'ON}{1}{chapter.7}
+\contentsline {section}{\numberline {1.1}Planteamiento del problema}{1}{section.8}
+\contentsline {section}{\numberline {1.2}Justificaci\'on del problema}{2}{section.9}
+\contentsline {section}{\numberline {1.3}Objetivos}{2}{section.10}
+\contentsline {section}{\numberline {1.4}Estado del Arte}{3}{section.13}
+\contentsline {section}{\numberline {1.5}Metodolog\'ia del Trabajo}{4}{section.14}
+\contentsline {section}{\numberline {1.6}Organizaci\'on de la Tesis}{4}{section.15}
+\contentsline {chapter}{\chapternumberline {2}MARCO TE\'ORICO}{5}{chapter.20}
+\contentsline {section}{\numberline {2.1}Web 2.0}{5}{section.21}
+\contentsline {section}{\numberline {2.2}Web Social y/o Web Semantic}{6}{section.30}
+\contentsline {subsection}{\numberline {2.2.1}5 eras de la web social}{10}{subsection.33}
+\contentsline {subsection}{\numberline {2.2.2}Desarrollo de Aplicaciones Sociales}{15}{subsection.46}
+\contentsline {section}{\numberline {2.3}Desarrollo Dirigido por Modelos}{17}{section.51}
+\contentsline {section}{\numberline {2.4}Web Modeling Language}{18}{section.53}
+\contentsline {section}{\numberline {2.5}Trabajos Relacionados}{26}{section.56}
+\contentsline {subsection}{\numberline {2.5.1}RUP3C}{26}{subsection.57}
+\contentsline {chapter}{\chapternumberline {3}PROPUESTA}{35}{chapter.62}
+\contentsline {section}{\numberline {3.1}Comunicaci\'on}{35}{section.66}
+\contentsline {section}{\numberline {3.2}An\'alisis y Dise\~no: Modelado}{39}{section.72}
+\contentsline {subsection}{\numberline {3.2.1}Modelado de la Base de Datos}{39}{subsection.74}
+\contentsline {subsection}{\numberline {3.2.2}Modelado del Hipertexto}{41}{subsection.76}
+\contentsline {section}{\numberline {3.3}Construcci\'on}{43}{section.79}
+\contentsline {chapter}{\chapternumberline {4}CASO DE ESTUDIO}{53}{chapter.95}
+\contentsline {section}{\numberline {4.1}Contexto}{53}{section.96}
+\contentsline {section}{\numberline {4.2}WRTA - An\'alisis de Requerimientos del Negocio}{53}{section.97}
+\contentsline {subsection}{\numberline {4.2.1}Identificaci\'on de grupos}{54}{subsection.98}
+\contentsline {subsection}{\numberline {4.2.2}An\'alisis de Requerimientos Funcionales}{54}{subsection.100}
+\contentsline {subsection}{\numberline {4.2.3}Identificaci\'on de Objetos Core de Informaci\'on}{55}{subsection.103}
+\contentsline {subsection}{\numberline {4.2.4}Identificaci\'on de SiteViews}{56}{subsection.104}
+\contentsline {section}{\numberline {4.3}WRTA - An\'alisis de Requerimientos Sociales}{57}{section.106}
+\contentsline {subsection}{\numberline {4.3.1}Identificaci\'on de Grupos -- Sociales}{57}{subsection.107}
+\contentsline {section}{\numberline {4.4}WRTA - Dise\~no de Datos}{58}{section.109}
+\contentsline {section}{\numberline {4.5}WRTA - Dise\~no de Hipertexto}{61}{section.114}
+\contentsline {subsection}{\numberline {4.5.1}Siteview P\'ublico}{62}{subsection.116}
+\contentsline {subsection}{\numberline {4.5.2}Siteview Administrador}{62}{subsection.120}
+\contentsline {subsection}{\numberline {4.5.3}Siteview Aplicaci\'on}{63}{subsection.124}
+\contentsline {chapter}{\chapternumberline {5}CONCLUSIONES}{69}{chapter.128}
+\contentsline {appendix}{\chapternumberline {A}MODELADO DE CUSTOM UNITS\\De Andreis -- \cite {Andreis2010}}{70}{appendix.129}
+\contentsline {appendix}{\chapternumberline {B}CODIFICACI\'ON DE CUSTOM UNITS}{93}{appendix.130}
+\contentsline {section}{\numberline {B.1}SocialLoginUnitService}{93}{section.131}
+\contentsline {section}{\numberline {B.2}GetSocialDataUnitService}{98}{section.220}
+\contentsline {section}{\numberline {B.3}SocialCommentUnitService}{103}{section.304}
+\contentsline {section}{\numberline {B.4}SocialGMapsUnitService}{106}{section.337}
+\contentsline {chapter}{BIBLIOGRAF\'IA}{109}{section*.371}

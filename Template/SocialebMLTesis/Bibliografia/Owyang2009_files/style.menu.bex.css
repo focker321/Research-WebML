@@ -1,0 +1,163 @@
+#menu-wrapper, #menu-wrapper2 {
+	width: 302px; height:65px; 
+	text-align:left; 
+	}
+
+#menu-wrapper.home {
+	float:right; 
+}
+
+#menu-wrapper a { color: #a4a4a4; }
+	
+.accordionButton, .accordionButton2 {	
+	background: url(images/ui-arrowLightBlue_right.png) no-repeat 270px center rgb(163,192,228);
+	width: 302px; 
+	height:65px; 
+	float: left;
+	_float: none;  /* Float works in all browsers but IE6 */
+	cursor: pointer;
+	color: rgb(103,132,167);
+	font: 8pt/1.5em sans-serif;
+	}
+.accordionButton { border-bottom: 2px solid rgb(181,209,241); }
+
+.accordionButton .innerShadow { 
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	padding: 16px 21px; 
+	 
+}
+.accordionButton b { display: inline-block; margin-bottom: 4px; font-size: 19pt; }
+
+.accordionButton.last, .accordionButton2.last	{
+	border-bottom: none;
+}
+
+.accordionContent, .accordionContent2 {
+	display:none;	
+	width: 302px;
+	float: left;
+	_float: none; /* Float works in all browsers but IE6 */
+	line-height:22px; 
+	vertical-align:middle; 
+	position:relative; 
+	/* top:3px;  */
+	
+	}
+
+.accordionContent2 {
+	padding:0 20px 0 26px; 
+	font: 9pt/1.25em sans-serif;
+}
+
+.accordionContent .innerShadow { width: auto; height: auto; }
+.accordionContent2 .innerShadow { padding: 0 26px; }
+
+.accordionContent { background-color: #b5d1f1; }
+.accordionContent.active, .accordionContent2.active { display: block; }
+
+/*
+.accordionContent li {
+	border-bottom:1px solid #ebebeb; 
+	height:18px; 
+	width:302px; 
+	overflow:hidden; 
+}
+#menu-wrapper li.active { background-color: #5486c2; }
+
+#menu-wrapper li.active a { 
+	display: block; 
+	width: inherit; 
+	height: inherit; 
+}
+#menu-wrapper2 li.active { background-color: #fff; }
+*/
+
+/***********************************************************************************************************************
+ EXTRA STYLES ADDED FOR MOUSEOVER / ACTIVE EVENTS
+************************************************************************************************************************/
+
+.on,
+.over,
+.over2 {
+	background: url(images/ui-arrowWhite_down.png) no-repeat 264px center rgb(84,134,194);
+	color: white;
+	}
+
+.on { border-color: transparent; }
+
+	
+/*************************
+simple show/hide css
+***************************/
+
+.showhide {
+    display:none;
+}
+
+.showhide2 {
+    display:none;
+}
+
+/*************************
+accordion menu content
+***************************/
+.side-menu {
+	padding: 5px 0;
+	font: bold 10.5pt/1.35em sans-serif;
+}
+
+.side-menu li {
+	padding: 15px 20px 0;
+	border-bottom: 1px dashed rgb(161,186,215);
+}
+
+.side-menu li:last-child {
+	border-bottom: none;
+}
+
+.side-menu a {
+	display: block;
+	float: right;
+	width: 210px;
+}
+.side-menu li:first-child a {
+	width: 200px;
+	text-shadow: 0 0 .3em rgba(0, 0, 0, .25);
+	color: white!important;
+	font-size: 11pt;
+}
+.side-menu .date {
+	background-color: rgba(255,255,255,.66);
+	float: left;
+	width: 34px;
+	height: 34px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	white-space: nowrap;
+	text-align: center;
+	text-transform: uppercase;
+	color: rgb(151,151,151);
+	font-size: 8pt;
+	line-height: 1.25em;
+}
+.side-menu li:first-child .date { 
+	background-color: white; 
+	width: 38px;
+	height: 38px;
+	-webkit-box-shadow: 0 0 .2em .2em rgba(0, 0, 0, .1);
+	-moz-box-shadow: 0 0 .2em .2em rgba(0, 0, 0, .1);
+	box-shadow: 0 0 .2em .2em rgba(0, 0, 0, .1);
+	font-size: 9pt;
+	color: rgb(119,119,119);
+}
+.side-menu .date .d {
+	display: block;
+	padding-top: 5px;
+}
+.side-menu .date .m {
+	display: block;
+}
+

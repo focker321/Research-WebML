@@ -1,0 +1,186 @@
+% The class: the leet one
+\documentclass[a4paper]{memoir}%con oneside|twoside se pone a doble o simple
+% pana gi
+
+% DISCLAIMER
+% Questo file e` stato prodotto a puro scopo personale e lo condivido con il solo
+% scopo di condividerlo: in nessun modo l'intento di questo file e` quello di proporre
+% o imporre una struttura ad un documento di tesi
+%
+% In nessun modo sono responsabile dell'(ab)uso di questo file o di altri file che
+% ne possono derivare
+%
+% Federico (fmaggi@elet.polimi.it)
+  
+% GUIDELINE
+% - Consiglio di usare PDFLaTeX e di conseguenza figure in .pdf
+% - Per vari motivi separo il frontespizio dal resto della tesi: compilatelo a parte
+%   ed includetelo togliendo il commento al comando di seguito che include il PDF frontespizio/main
+% - Non servono altri package a meno di scopi particolari: ho incluso tutto il necessario
+%   in preamble.tex
+% - Mi riferisco sempre alla ``nuova'' filosofia di usare LaTeX quindi per problemi, errori o
+%   situazioni di panico, perfavore rifatevi a questi due riferimenti e a nient'altro:
+%      - memoir: http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/memman.pdf
+%      - cose da non fare: http://www.ctan.org/tex-archive/info/l2tabu/italian/l2tabuit.pdf
+% - Se vi state chiedendo come mai il margine piu` esterno e` maggiore di quello interno allora non
+%   avete letto `memman.pdf' :-D
+% - Per COMPILARE: 1) latex, 2) bibtex, 3) latex, 4) latex
+% - Se ancora non lo usate consiglio l'ambiente AUCTeX+RefTeX sotto Emacs
+
+% Dedicated settings
+\input{preamble}
+ 
+\begin{document}
+\renewcommand\contentsname{\'INDICE} 
+\renewcommand\listfigurename{LISTA DE FIGURAS}
+\renewcommand\listtablename{LISTA DE TABLAS}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\bibname}{BIBLIOGRAF\'IA} 
+%\renewcommand{\abstractname}{RESUMEN}
+\pagestyle{empty}
+% \includepdf[pages=1]{frontTitlePage/main}
+\marginsize{3cm}{2.5cm}{2.5cm}{2.5cm}
+\frontmatter
+\pagestyle{plain}
+
+% Dedication
+\begin{epigraphs}
+  \qitem{
+    Dedicado a\ldots\ldots
+  }{\small Santiago Hern\'an Apaza Delgado}
+\end{epigraphs}
+
+% Acknowkedgements
+\chapter*{Reconocimientos}
+Gracias a\ldots\ldots
+
+% Abstract (in English and Spanish)
+
+\chapter*{RESUMEN}
+\label{chap:abstract}
+
+\textit{The work aims to investigate the methodology, tools and components necessary to specify, extend, and automatically generate web applications taking as its starting point a set of specifications which will be modeled and/or treated from the perspective of BPMN thus seeks to extend "WebML" to "Social WebML.}
+
+
+
+% Preface and conventions
+\chapter*{Convenciones}
+\label{chap:preface} 
+En este cap\'itulo se enumeraran algunas convenciones l\'exicas, sint\'acticas y
+tipogr\'aficas usadas en el presente documento.
+
+\begin{comment}
+\section*{Notations}
+\label{sec:notations}
+Lineas abajo se encuentra la lista de notaciones usadas en el documento,
+con la explicaci\'on de su significado.
+\end{comment}
+
+\section*{Acr\'onimos}
+\label{sec:acronyms}
+Lineas abajo se encuentra la definici\'on de los acr\'onimos que aparecen
+en el documento.
+
+\begin{acronym} 
+  \setlength{\itemsep}{0pt}\small
+  \acro{WebML}{\emph{Web Modeling Language}}
+  \acro{MDD}{\emph{Model-Driven Development}}
+  \acro{MDA}{\emph{Model-Driven Architecture}}
+  \acro{MDE}{\emph{Model-Driven Engineering}}
+  \acro{PIM}{\emph{Platform Independent Model}}
+  \acro{PDM}{\emph{Platform Definition Model}}
+  \acro{PSM}{\emph{Platform Specific Model}}
+  \acro{DSL}{\emph{Domain Specific Language}}
+  \acro{CASE}{\emph{Computer Aided Software Engineering}}
+  \acro{ERM}{\emph{Entity-Relationship Model}}
+  \acro{UML}{\emph{Unified Modeling Language}}
+  \acro{XML}{\emph{eXtensible Markup Language}}
+  \acro{OQL}{\emph{Object Query Language}}
+  \acro{OCL}{\emph{Object Constraint Language}}
+  \acro{RUP}{\emph{Rational Unified Process}}
+  \acro{CRM}{\emph{Customer Relationship Manager}}
+  \acro{FOAF}{\emph{Friend Of A Friend}}
+  \acro{AJAX}{\emph{Asynchronous JavaScript And XML}}
+  \acro{IDE}{\emph{Integrated Development Environment}}
+  \acro{BPM}{\emph{Business Process Modeling}}
+\end{acronym}
+
+% Lists
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+% Main text
+\mainmatter
+\pagestyle{Ruled}
+
+% Objective of the work
+% Description of work done
+% Main results and innovative aspects
+% Outline of the thesis
+\chapter{INTRODUCCI\'ON}
+\label{chap:Introduction}
+	\section{Planteamiento del problema}
+	\label{sec:Problem}
+	Hoy en d\'ia vivimos en un mundo considerado social, desde el \'ambito m\'as
+	b\'asico de la interacci\'on f\'isica entre los mismos seres humanos y el
+	ambiente que los rodea hasta llegar inclusive a una interacci\'on ``virtual'',
+	dentro de la cual los \'ultimos a\~nos se ha notado un constante y r\'apido
+	crecimiento; esto desde la aparici\'on de la Web 2.0 y su evoluci\'on 
+	constante llegando incluso hasta hoy en d\'ia a hablar de una Web Social, en la
+	cual subsisten y conviven los individuos sociales, los cuales, utilizan
+	herramientas sociales (Wikis, blogs, etc.) entre ellas una de las m\'as
+	importantes: Las Redes Sociales.
+	 
+	Con la aparici\'on de la Web 2.0 se cerr\'o una etapa en la historia de la
+	Internet, ya que antes de ella se conoc\'ia \'unicamente una Internet de \'ambito
+	informativo (el usuario solo pod\'ia acceder a la informaci\'on), y despu\'es del
+	punto de quiebre dado por la Web 2.0 se dio comienzo al desarrollo de las
+	denominadas aplicaciones basadas en web, en las cuales ya no se trataba
+	de p\'aginas web las cuales ten\'ian por objetivo \'unicamente la visi\'on de
+	acceso a la informaci\'on, sino tambi\'en la de un intercambio, correcci\'on, valor
+	a\~nadido, en otras palabras, una visi\'on de \'ambito interactivo (el usuario ya
+	pod\'ia corregir, aportar, borrar, comentar, etc.)
+ 
+	Al transcurrir el tiempo, analistas, dise\~nadores, desarrolladores, etc.
+	comenzaron a notar que las herramientas de programaci\'on tradicionales, como por
+	ejemplo \ac{UML}, \ac{RUP}, etc., no les ayudaban en muchos de los aspectos que
+	este nuevo \'ambito de desarrollo conllevaba, como era la escalabilidad a niveles
+	astron\'omicos, la concurrencia continua, las grandes cantidades de informaci\'on
+	que se deb\'ia de manipular, y muchos otros aspectos los cuales pod\'ian no estar
+	preconcebidos al momento del dise\~no pero que en el mundo real lo vivimos a cada
+	instante; es por ello que se dise\~n\'o un lenguaje y metodolog\'ia adecuada para el
+	desarrollo de aplicaciones basadas en web, el mismo que se nombr\'o como
+	\ac{WebML}, con la aparici\'on de esta metodolog\'ia y lenguaje se pudo solucionar
+	muchos aspectos del dise\~no, desarrollo, la misma forma de ver el ciclo de vida
+	del desarrollo de una aplicaci\'on cambio de manera considerable.
+	 
+	Como se coment\'o inicialmente ahora vivimos el tiempo de la Web Social, y la
+	metodolog\'ia/lenguaje \ac{WebML} al momento de ser concebida no previno la
+	aparici\'on de una aplicaci\'on basada en web de tipo social como es por ejemplo las que
+	vemos diariamente, o inclusive el uso de aquellas para brindar un valor a\~nadido
+	a otras aplicaciones basadas en web.
+	
+	\section{Justificaci\'on del problema}
+	\label{sec:Justify}
+	Tanto desde la implementaci\'on de una aplicaci\'on social basada en web como en su
+	propia utilidad hacia y desde el usuario y due\~no de la aplicaci\'on son muchos
+	los aspectos que difieren de una aplicaci\'on basada en web tradicional. Por
+	ejemplo actualmente se puede notar la existencia de p\'aginas web, aplicaciones
+	web y comunidades web, las cuales tienen por objetivo las de:
+	\begin{itemize}
+	  \item Informar de alguna determinada actividad a un grupo de usuarios.
+	  \item servir de apoyo a alguna determinada labor y sobre todo la
+	  descentralizaci\'on del motor de actividades.
+	  \item Mantener determinados lazos entre los individuos (usuarios) de la
+	comunidad.
+	\end{itemize}
+	
+	Aunque hoy en d\'ia se introduce parte de las comunidades en casi cualquier
+	lugar no se est\'a logrando explotar y sobre todo llegar a acoger las
+	caracter\'isticas de la web social. Es por ello que con la presente propuesta
+	se persigue cubrir al menos los aspectos b\'asicos que se precisan para que
+	desde su desarrollo hasta el mo

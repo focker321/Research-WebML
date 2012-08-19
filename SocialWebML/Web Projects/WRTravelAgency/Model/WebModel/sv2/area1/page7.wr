@@ -1,0 +1,70 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="61" id="sv2#area1#page7" name="Anhadir Viaje" landmark="true">
+  <ContentUnits>
+    <EntryUnit gr:x="11" gr:y="120" id="sv2#area1#page7#enu2" name="Formulario Para Nuevo Viaje" fieldOrder="sv2#area1#page7#enu2#fld5 sv2#area1#page7#enu2#sfld1 sv2#area1#page7#enu2#sfld2 sv2#area1#page7#enu2#fld4 sv2#area1#page7#enu2#fld7 sv2#area1#page7#enu2#fld6" linkOrder="sv2#area1#page7#enu2#ln8">
+      <SelectionField id="sv2#area1#page7#enu2#sfld1" name="Destino" type="string">
+        <Slot id="sv2#area1#page7#enu2#sfld1#slot1" name="Destino_oid" label="false" output="true"/>
+        <Slot id="sv2#area1#page7#enu2#sfld1#slot2" name="Destino_nombre" label="true" output="false"/>
+        <VRules>
+          <MandatoryValidationRule id="sv2#area1#page7#enu2#sfld1#mnd3" name="Required"/>
+        </VRules>
+      </SelectionField>
+      <SelectionField id="sv2#area1#page7#enu2#sfld2" name="Tipo de Viaje" type="string">
+        <Slot id="sv2#area1#page7#enu2#sfld2#slot3" name="TipoViaje_oid" label="false" output="true"/>
+        <Slot id="sv2#area1#page7#enu2#sfld2#slot4" name="TipoViaje_nombre" label="true" output="false"/>
+        <VRules>
+          <MandatoryValidationRule id="sv2#area1#page7#enu2#sfld2#mnd4" name="Required"/>
+        </VRules>
+      </SelectionField>
+      <Field id="sv2#area1#page7#enu2#fld4" name="Resumen" type="string" modifiable="true"/>
+      <Field id="sv2#area1#page7#enu2#fld5" name="Titulo" type="string" modifiable="true"/>
+      <Field id="sv2#area1#page7#enu2#fld6" name="Costo" type="float" modifiable="true"/>
+      <Field id="sv2#area1#page7#enu2#fld7" name="Fecha de Viaje" type="date" modifiable="true"/>
+      <Link id="sv2#area1#page7#enu2#ln8" name="Link8" to="sv2#cru2" type="normal" validate="true">
+        <LinkParameter id="sv2#area1#page7#enu2#ln8#par12" name="Destino_DESTINO.oid(TICKETToDESTINO)" source="sv2#area1#page7#enu2#sfld1" target="sv2#cru2.rel1#role2.ent2#att2"/>
+        <LinkParameter id="sv2#area1#page7#enu2#ln8#par13" name="Fecha de Viaje_Fecha_Viaje" source="sv2#area1#page7#enu2#fld7" target="sv2#cru2.ent1#att5"/>
+        <LinkParameter id="sv2#area1#page7#enu2#ln8#par16" name="Resumen_Resumen_Viaje" source="sv2#area1#page7#enu2#fld4" target="sv2#cru2.ent1#att14"/>
+        <LinkParameter id="sv2#area1#page7#enu2#ln8#par17" name="Tipo de Viaje_TIPO_VIAJE.oid(TICKETToTIPO_VIAJE)" source="sv2#area1#page7#enu2#sfld2" target="sv2#cru2.rel2#role4.ent3#att3"/>
+        <LinkParameter id="sv2#area1#page7#enu2#ln8#par18" name="Resumen_Titulo_Viaje" source="sv2#area1#page7#enu2#fld5" target="sv2#cru2.ent1#att12"/>
+      </Link>
+    </EntryUnit>
+    <SelectorUnit gr:x="0" gr:y="0" id="sv2#area1#page7#seu2" name="SelectDestino" entity="ent2">
+      <Link id="sv2#area1#page7#seu2#ln7" name="Link7" to="sv2#area1#page7#enu2" type="transport" validate="true" ajaxEnabled="true">
+        <LinkParameter id="sv2#area1#page7#seu2#ln7#par14" name="Nombre_Destino[Destino_nombre]" source="ent2#att7Array" target="sv2#area1#page7#enu2#sfld1#slot2"/>
+        <LinkParameter id="sv2#area1#page7#seu2#ln7#par15" name="oid_Destino[Destino_oid]" source="ent2#att2Array" target="sv2#area1#page7#enu2#sfld1#slot1"/>
+      </Link>
+    </SelectorUnit>
+    <SelectorUnit gr:x="101" gr:y="1" id="sv2#area1#page7#seu3" name="SelectTipoViaje" entity="ent3">
+      <Link id="sv2#area1#page7#seu3#ln6" name="Link6" to="sv2#area1#page7#enu2" type="transport" validate="true">
+        <LinkParameter id="sv2#area1#page7#seu3#ln6#par19" name="Tipo_Tipo de Viaje[TipoViaje_nombre]" source="ent3#att6Array" target="sv2#area1#page7#enu2#sfld2#slot4"/>
+        <LinkParameter id="sv2#area1#page7#seu3#ln6#par20" name="oid_Tipo de Viaje[TipoViaje_oid]" source="ent3#att3Array" target="sv2#area1#page7#enu2#sfld2#slot3"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Unit unitId="sv2#area1#page7#enu2">
+          <layout:Field field="sv2#area1#page7#enu2#fld5"/>
+          <layout:Field field="sv2#area1#page7#enu2#sfld1"/>
+          <layout:Field field="sv2#area1#page7#enu2#sfld2"/>
+          <layout:Field field="sv2#area1#page7#enu2#fld4"/>
+          <layout:Field field="sv2#area1#page7#enu2#fld7"/>
+          <layout:Field field="sv2#area1#page7#enu2#fld6"/>
+          <layout:Link link="sv2#area1#page7#enu2#ln8"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

@@ -1,0 +1,2022 @@
+% The class: the leet one
+\documentclass[a4paper]{memoir}%con oneside|twoside se pone a doble o simple
+% pana gi
+
+% DISCLAIMER
+% Questo file e` stato prodotto a puro scopo personale e lo condivido con il solo
+% scopo di condividerlo: in nessun modo l'intento di questo file e` quello di proporre
+% o imporre una struttura ad un documento di tesi
+%
+% In nessun modo sono responsabile dell'(ab)uso di questo file o di altri file che
+% ne possono derivare
+%
+% Federico (fmaggi@elet.polimi.it)
+  
+% GUIDELINE
+% - Consiglio di usare PDFLaTeX e di conseguenza figure in .pdf
+% - Per vari motivi separo il frontespizio dal resto della tesi: compilatelo a parte
+%   ed includetelo togliendo il commento al comando di seguito che include il PDF frontespizio/main
+% - Non servono altri package a meno di scopi particolari: ho incluso tutto il necessario
+%   in preamble.tex
+% - Mi riferisco sempre alla ``nuova'' filosofia di usare LaTeX quindi per problemi, errori o
+%   situazioni di panico, perfavore rifatevi a questi due riferimenti e a nient'altro:
+%      - memoir: http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/memman.pdf
+%      - cose da non fare: http://www.ctan.org/tex-archive/info/l2tabu/italian/l2tabuit.pdf
+% - Se vi state chiedendo come mai il margine piu` esterno e` maggiore di quello interno allora non
+%   avete letto `memman.pdf' :-D
+% - Per COMPILARE: 1) latex, 2) bibtex, 3) latex, 4) latex
+% - Se ancora non lo usate consiglio l'ambiente AUCTeX+RefTeX sotto Emacs
+
+% Dedicated settings
+\input{preamble}
+ 
+\begin{document}
+\renewcommand\contentsname{INDICE} 
+\renewcommand\listfigurename{LISTA DE FIGURAS}
+\renewcommand\listtablename{LISTA DE TABLAS}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\bibname}{BIBLIOGRAFIA} 
+%\renewcommand{\abstractname}{RESUMEN}
+\pagestyle{empty}
+% \includepdf[pages=1]{frontTitlePage/main}
+\marginsize{3cm}{2.5cm}{2.5cm}{2.5cm}
+\frontmatter
+\pagestyle{plain}
+
+% Dedication
+\begin{epigraphs}
+  \qitem{
+    Dedicado a\ldots\ldots
+  }{\small Santiago Hern\'an Apaza Delgado}
+\end{epigraphs}
+
+% Acknowkedgements
+\chapter*{Reconocimientos}
+Gracias a\ldots\ldots
+
+% Abstract (in English and Spanish)
+
+\chapter*{RESUMEN}
+\label{chap:abstract}
+
+\textit{The work aims to investigate the methodology, tools and components necessary to specify, extend, and automatically generate web applications taking as its starting point a set of specifications which will be modeled and/or treated from the perspective of BPMN thus seeks to extend "WebML" to "Social WebML.}
+
+
+
+% Preface and conventions
+\chapter*{Convenciones}
+\label{chap:preface} 
+En este cap\'itulo se enumeraran algunas convenciones l\'exicas, sint\'acticas y
+tipogr\'aficas usadas en el presente documento.
+
+\begin{comment}
+\section*{Notations}
+\label{sec:notations}
+Lineas abajo se encuentra la lista de notaciones usadas en el documento,
+con la explicaci\'on de su significado.
+\end{comment}
+
+\section*{Acr\'onimos}
+\label{sec:acronyms}
+Lineas abajo se encuentra la definici\'on de los acr\'onimos que aparecen
+en el documento.
+
+\begin{acronym} 
+  \setlength{\itemsep}{0pt}\small
+  \acro{WebML}{\emph{Web Modeling Language}}
+  \acro{MDD}{\emph{Model-Driven Development}}
+  \acro{MDA}{\emph{Model-Driven Architecture}}
+  \acro{MDE}{\emph{Model-Driven Engineering}}
+  \acro{PIM}{\emph{Platform Independent Model}}
+  \acro{PDM}{\emph{Platform Definition Model}}
+  \acro{PSM}{\emph{Platform Specific Model}}
+  \acro{DSL}{\emph{Domain Specific Language}}
+  \acro{CASE}{\emph{Computer Aided Software Engineering}}
+  \acro{ERM}{\emph{Entity-Relationship Model}}
+  \acro{UML}{\emph{Unified Modeling Language}}
+  \acro{XML}{\emph{eXtensible Markup Language}}
+  \acro{OQL}{\emph{Object Query Language}}
+  \acro{OCL}{\emph{Object Constraint Language}}
+  \acro{RUP}{\emph{Rational Unified Process}}
+  \acro{CRM}{\emph{Customer Relationship Manager}}
+  \acro{FOAF}{\emph{Friend Of A Friend}}
+  \acro{AJAX}{\emph{Asynchronous JavaScript And XML}}
+  \acro{IDE}{\emph{Integrated Development Environment}}
+  \acro{BPM}{\emph{Business Process Modeling}}
+\end{acronym}
+
+% Lists
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+% Main text
+\mainmatter
+\pagestyle{Ruled}
+
+% Objective of the work
+% Description of work done
+% Main results and innovative aspects
+% Outline of the thesis
+\chapter{INTRODUCCI\'ON}
+\label{chap:Introduction}
+	\section{Planteamiento del problema}
+	\label{sec:Problem}
+	Hoy en d\'ia vivimos en un mundo considerado social, desde el \'ambito m\'as
+	b\'asico de la interacci\'on f\'isica entre los mismos seres humanos y el
+	ambiente que los rodea hasta llegar inclusive a una interacci\'on ``virtual'',
+	dentro de la cual los \'ultimos a\~nos se ha notado un constante y r\'apido
+	crecimiento; esto desde la aparici\'on de la Web 2.0 y su evoluci\'on 
+	constante llegando incluso hasta hoy en d\'ia a hablar de una Web Social, en la
+	cual subsisten y conviven los individuos sociales, los cuales, utilizan
+	herramientas sociales (Wikis, blogs, etc.) entre ellas una de las m\'as
+	importantes: Las Redes Sociales.
+	 
+	Con la aparici\'on de la Web 2.0 se cerr\'o una etapa en la historia de la
+	Internet, ya que antes de ella se conoc\'ia \'unicamente una Internet de \'ambito
+	informativo (el usuario solo pod\'ia acceder a la informaci\'on), y despu\'es del
+	punto de quiebre dado por la Web 2.0 se dio comienzo al desarrollo de las
+	denominadas aplicaciones basadas en web, en las cuales ya no se trataba
+	de p\'aginas web las cuales ten\'ian por objetivo \'unicamente la visi\'on de
+	acceso a la informaci\'on, sino tambi\'en la de un intercambio, correcci\'on, valor
+	a\~nadido, en otras palabras, una visi\'on de \'ambito interactivo (el usuario ya
+	pod\'ia corregir, aportar, borrar, comentar, etc.)
+ 
+	Al transcurrir el tiempo, analistas, dise\~nadores, desarrolladores, etc.
+	comenzaron a notar que las herramientas de programaci\'on tradicionales, como por
+	ejemplo \ac{UML}, \ac{RUP}, etc., no les ayudaban en muchos de los aspectos que
+	este nuevo \'ambito de desarrollo conllevaba, como era la escalabilidad a niveles
+	astron\'omicos, la concurrencia continua, las grandes cantidades de informaci\'on
+	que se deb\'ia de manipular, y muchos otros aspectos los cuales pod\'ian no estar
+	preconcebidos al momento del dise\~no pero que en el mundo real lo vivimos a cada
+	instante; es por ello que se dise\~n\'o un lenguaje y metodolog\'ia adecuada para el
+	desarrollo de aplicaciones basadas en web, el mismo que se nombr\'o como
+	\ac{WebML}, con la aparici\'on de esta metodolog\'ia y lenguaje se pudo solucionar
+	muchos aspectos del dise\~no, desarrollo, la misma forma de ver el ciclo de vida
+	del desarrollo de una aplicaci\'on cambio de manera considerable.
+	 
+	Como se coment\'o inicialmente ahora vivimos el tiempo de la Web Social, y la
+	metodolog\'ia/lenguaje \ac{WebML} al momento de ser concebida no previno la
+	aparici\'on de una aplicaci\'on basada en web de tipo social como es por ejemplo las que
+	vemos diariamente, o inclusive el uso de aquellas para brindar un valor a\~nadido
+	a otras aplicaciones basadas en web.
+	
+	\section{Justificaci\'on del problema}
+	\label{sec:Justify}
+	Tanto desde la implementaci\'on de una aplicaci\'on social basada en web como en su
+	propia utilidad hacia y desde el usuario y due\~no de la aplicaci\'on son muchos
+	los aspectos que difieren de una aplicaci\'on basada en web tradicional. Por
+	ejemplo actualmente se puede notar la existencia de p\'aginas web, aplicaciones
+	web y comunidades web, las cuales tienen por objetivo las de:
+	\begin{itemize}
+	  \item Informar de alguna determinada actividad a un grupo de usuarios.
+	  \item servir de apoyo a alguna determinada labor y sobre todo la
+	  descentralizaci\'on del motor de actividades.
+	  \item Mantener determinados lazos entre los individuos (usuarios) de la
+	comunidad.
+	\end{itemize}
+	
+	Aunque hoy en d\'ia se introduce parte de las comunidades en casi cualquier
+	lugar no se est\'a logrando explotar y sobre todo llegar a acoger las
+	caracter\'isticas de la web social. Es por ello que con la presente propuesta
+	se persigue cubrir al menos los aspectos b\'asicos que se precisan para que
+	desde su desarrollo hasta el momento de su liberaci\'on una aplicaci\'on basada
+	en web sea considera una aplicaci\'on ``social'' basada en web, las bases de
+	nuestra propuesta estar\'an basadas en los conceptos brindados por \ac{WebML} y
+	para el desarrollo de la misma se utilizar\'a un enfoque basado en Desarrollo
+	Dirigido por Modelos para proveer modelos que puedan ser reutilizados y
+	mejorados en posteriores proyectos.
+	
+	\section{Objetivos}
+	\label{sec:Objectives}
+	\begin{enumerate}
+	  \item Objetivo General
+	  
+	  \begin{itemize}
+	    \item Proponer la extensi\'on de la metodolog\'ia/lenguaje de desarrollo de
+	    aplicaciones basadas en web (\ac{WebML}) a Social WebML para poder soportar
+	    el paradigma Social.
+	  \end{itemize}
+	  
+	  \item Objetivos espec\'ificos
+	  
+	  \begin{itemize}
+	    \item Proponer y dise\~nar plantillas de levantamiento de requisitos
+	    sociales.
+	    \item Presentar una posible propuesta de uso espec\'ifico para los patrones
+	    sociales de dise\~no.
+	    \item Dise\~nar e implementar unidades de programaci\'on funcionales para el
+	    desarrollo de aplicaciones sociales basadas en web.
+	    \item Hacer uso de Herramientas Sociales en la extensi\'on del lenguaje de
+	    desarrollo de aplicaciones basadas en web.
+	  \end{itemize}
+	  
+	\end{enumerate}
+	
+	\section{Estado del Arte}
+	\label{sec:Status}
+	Como punto de partida comentaremos el trabajo realizado por \cite{Gerosa2005}
+	en el cual se desarroll\'o una extensi\'on de la metodolog\'ia de desarrollo de
+	software cl\'asico:
+	Rational Unified Process denominada RUP3C llamada as\'i por: ``Cooperation,
+	Comunication and Coordination'' procesos los cuales en este trabajo se defiende
+	que son las bases para desarrollar una comunidad web la cual m\'as
+	espec\'ificamente se basa en extender la fase de desarrollo haciendo uso de
+	Programaci\'on Orientada a Componentes y aspectos basados en las $3$ C's para
+	dirigir el desarrollo de la comunidad de forma adecuada.
+	
+	Otro punto importante se encuentra en \cite{Fraternali2010} y
+	\cite{Frattini2007} en los cuales se muestra un primer acercamiento a un \'ambito
+	social a \ac{WebML}, en la cual \ac{WebML} es utilizada y en cierta forma
+	extendida para el dise\~no e implementaci\'on de una comunidad web en la cual se describe los
+	patrones de dise\~no sociales y ejemplos del uso de las mismas en algunas
+	comunidades web actuales, as\'i como una descripci\'on a detalle de la metodolog\'ia
+	\ac{WebML} como algunos puntos resaltantes a tomar en cuenta como aporte para el
+	desarrollo de una comunidad web con \ac{WebML}.
+	
+	Desde el punto de vista nombrado en el p\'arrafo anterior \cite{Bozzon2009}
+	propuso de forma te\'orica, el como debieran de comportarse los patrones de dise\~no
+	sociales adem\'as de mostrar una implementaci\'on emp\'irica, desde una vista b\'asica
+	hasta una vista ampliada de cada uno de los patrones sociales.
+	
+	De forma indirecta \cite{Brambilla2006} y \cite{Ceri2010} comenzaron a
+	abrir el camino hacia un \'ambito social al introducir tecnolog\'ias como
+	\ac{AJAX} entre otras, y auto-generaci\'on de aplicaciones basadas en web con
+	el correcto dise\~no de requerimientos de negocio con \ac{BPM}.
+	
+	\cite{Fraternali2011} propone una extensi\'on del \ac{BPM}
+	en la cual las herramientas sociales juegan un papel muy importante en el
+	aspecto de comunicaci\'on en un proceso de negocio, el cual es uno de los pilares
+	que tomaremos al momento del desarrollo de la propuesta.
+	
+	\section{Metodolog\'ia del Trabajo}
+	\label{sec:Methodology}
+	La limitaci\'on m\'as resaltante en este proyecto son las diversas posturas que los
+	autores toman al referirse o intentar  definir lo que significa y por
+	consiguiente que conlleva el t\'ermino ``social'' en el desarrollo de una
+	aplicaci\'on social basada en web, con lo cual se podr\'ia no llegar a cubrir los
+	aspectos que muchos autores consideren ``b\'asicos''.
+	
+	Una restricci\'on que es tanto a favor como en contra del desarrollo de este
+	trabajo es el constante y r\'apido cambio tanto en tecnolog\'ias como en
+	atributos dados al concepto de social, lo cual puede conllevar a facilidad en
+	la captura del core de los modelos a desarrollarse como en la variable complejidad que pueden
+	llegar a tener la implementaci\'on de los mismos.
+	
+	\section{Organizaci\'on de la Tesis}
+	\label{src:Organization}
+	El presente trabajo est\'a organizado de la siguiente manera:
+	
+	\begin{enumerate}
+	  \item El Cap\'itulo I, muestra una introducci\'on a conceptos que ser\'an
+	  importantes a lo largo del proyecto, los cuales sientan las bases de
+	  conocimiento elemental para poder comprender, analizar y proyectar el
+	  objetivo principal del trabajo.
+	  \item El Cap\'itulo II, muestra el contexto del trabajo a realizar y su
+	  estado del arte bas\'andonos principalmente en la metodolog\'ia de desarrollo
+	  RUP3C y la herramienta WebRatio, la cual ser\'a la base para el desarrollo de
+	  las ``unidades sociales'' (componentes de programaci\'on), as\'i como el
+	  objetivo principal del desarrollo del trabajo.
+	  \item El Cap\'itulo III, tratara enteramente en el desarrollo de la
+	  propuesta, desde su parte conceptual, la cual incluye documentos de an\'alisis
+	  que se proponen para la etapa de an\'alisis en la extensi\'on de la metodolog\'ia
+	  \ac{WebML}, hasta la parte aplicativa, la cual detallaremos ciertos conceptos
+	  utilizados en la programaci\'on, as\'i como su aplicaci\'on en el desarrollo de
+	  las aplicaciones sociales basadas en Web y su forma de implementaci\'on con el
+	  uso de buenas pr\'acticas de desarrollo y el dise\~no arquitect\'onico a emplearse.
+	  \item El Cap\'itulo IV, presenta un Caso de Estudio emp\'irico el cual
+	  llamaremos WR Travel Agency en el cual mediante el uso de la
+	  metodolog\'ia/lenguaje propuesto se le brindara una soluci\'on a la problem\'atica
+	  de WR Travel Agency.
+	  \item El Cap\'itulo V, presenta las conclusiones obtenidas en el
+	  desarrollo del trabajo
+	\end{enumerate}
+
+\chapter{MARCO TE\'ORICO}
+\label{chap:Process}
+	\section{Web 2.0}
+	\label{sec:Web20}
+	\cite{O'Reilly2007} comenta que la web 2.0 aparece a partir de un estado en la
+	cual la web tradicional por si misma ya no soportaba todas aquellas actividades
+	que el usuario desearia realizar, es por ello que se le a\~nadi\'o un conjunto
+	de caracter\'isticas ``necesarias m\'as no suficientes" para acomodarse a las
+	necesidades del usuario, las cuales son acotadas y mejor entendidas por
+	\cite{Frattini2007}, estas son enumeradas como sigue a continuaci\'on:
+	
+	%Caracter\'isticas
+	\begin{enumerate}
+	  \item La web como una plataforma - Esta caracter\'istica denota a la web
+	  como una plataforma en la cual se puede a\~nadir servicios cada vez de mayor
+	  complejitud\footnote{Actualmente \'esta caracter\'istica es mejor
+	  entendida  con el t\'ermino ``MashUp''}.
+	  \item Aprovechar la inteligencia colectiva -  Esta caracter\'istica expresa
+	  y/o define a la contribuci\'on de los usuarios como el recurso m\'as
+	  importante a ser explotado.
+	%Revisar nombre ingles/espa\~nol
+	  \item Blogging\footnote{Definir blogging} y la inteligencia de las masas -
+	  Esta caracter\'istica define a las personas como los
+	  principales actores, de los cuales siempre se tiene que tener en cuenta para
+	  las decisiones a tomar.
+	%Revisar nombre ingles/espa\~nol
+	  \item Data as the next Intel Inside - Esta caracter\'istica expresa y/o
+	  denota que la posesi\'on de la informaci\'on puede ser transformada en
+	  oportunidades para las empresas.
+	  \item Finalizaci\'on del concepto de ciclo de liberaci\'on de software - Esta
+	  caracteristica denota que el usuario final se convertiria en parte del equipo
+	  de desarollo, jugando un papel de ``desarrollador'' y de
+	  tester\footnote{Actualmente el mayor papel en la construcci\'on que realiza
+	  el usuario es como beta tester para las liberaciones alfa y/o beta. Total
+	  Commander es una prueba de ello: ``http://www.ghisler.com/800\_b23.php''}.
+	%Revisar nombre ingles/espa\~nol
+	  \item Lightweight programming model - LLegar a poseer una capacidad de mezcla
+	  entre contenidos y servicios.
+	  \item Software por encima del nivel de simples dispositivo - En esta
+	  caracter\'istica se concibe la idea de descartar la PC en si misma y llegar
+	  a la computaci\'on ubicua\footnote{Computaci\'on ubiqua}.
+	%Revisar nombre ingles/espa\~nol
+	  \item Rich user experience - Esta caracter\'istica m\'as como un consejo
+	  de dise\~no se da en la frase: \textit{Los usuarios prefieren interfaces
+	  f\'aciles de usar (esenciales y efectivas)}.
+	\end{enumerate}
+	
+	Estas son las caracter\'isticas que \cite{O'Reilly2007} propuso para comenzar
+	una segunda etapa en la web, el cual con el pasar de los a\~nos los puntos
+	antes nombrados se disgregaron y se especializaron, definiendo cada uno sus
+	propios lineamientos.
+%Agregar una referencia para el parrafo anterior.
+	
+	\section{Social Web y/o Semantic Web}
+	\label{sec:SSWeb}
+	En \cite{Gruber2008} se comenta que la web social es representada por una
+	clase de websites y aplicaciones en un ecosistema de participaci\'on donde el
+	``valor'' es creado por la adici\'on de la contribuci\'on de muchos usuarios
+	individuales, a lo cual \cite{Bani2011} a\~nade que su participaci\'on lo
+	convierte en el principal driver de la generaci\'on de este valor y que la
+	comunicaci\'on multi--direccional es aquella que crea conocimiento en el
+	contexto de la conversaci\'on, en el cual se utiliza el conocido ``Sistema de
+	Conocimiento Colectivo'' el cual es definido como la inteligencia colectiva
+	m\'as una representaci\'on del conocimiento m\'as t\'ecnicas de razonamiento
+	(tambi\'en llamado en este contexto, semantic web).
+	
+	La web social esta com\'unmente asociada a t\'erminos como inteligencia colectiva
+	(collective inteligence) o sabidur\'ia de multitudes (wisdom of crowds) la cual
+	esta basada en una arquitectura de participaci\'on y contribuci\'on colectiva,
+	estos son considerados por \cite{Arroyo2007} como los principios de la social
+	web y adem\'as los pilares para una nueva forma de construir p\'aginas web para
+	permitir participaci\'on de gran n\'umero de usuarios. Adem\'as considera que
+	la web se est\'a haciendo cada vez m\'as social ya que se est\'a dirigiendo
+	cada vez m\'as a una larga cola de usuarios y todo esto gracias a que los
+	servicios son cada vez m\'as f\'aciles de emplear y es por ello que
+	\cite{Heymann2007} comenta que poco a poco la web social debe adoptar
+	ciertos criterios como convertirse en una unidad controladora (un administrador) en la
+	cual la interacci\'on este bien definida entre los usuarios, los cuales
+	deber\'ian de adoptar una forma de identificaci\'on \'unica, lo cual les
+	brindar\'ia una identidad y sobre todo  que el acceso a la informaci\'on sea de
+	f\'acil entrada para lo cual debiera de existir m\'ultiples interfaces (como
+	por ejemplo los tag cloud).
+
+	\cite{Arroyo2007} y \cite{Heymann2007} plantean una filosof\'ia para la Social
+	Web, en la cual esta signifique que compartan recursos a la vez que se
+	beneficia incluso a\'un m\'as de los recursos compartidos por otros, de esta forma
+	la web  se convertir\'ia en una plataforma de servicios en el sentido en que los
+	web sites con esa filosof\'ia constituyan un espacio para que el usuario pueda
+	participar a\~nadiendo contenidos de distintos tipos. (Mientras m\'as personas usen
+	este servicio, este mejora) y para ello se tienen algunas caracter\'isticas
+	representativas, como son:
+	
+	\begin{itemize}
+	  \item Participaci\'on y colaboraci\'on del usuario
+	  \item Incremento en los canales de comunicaci\'on
+	  \item Interacci\'on
+	  \item Compartir recursos y conocimientos (la meta es el beneficio mutuo)
+	  \item Democracia (el usuario es el verdadero due\~no)
+	  \item Car\'acter p\'ublico y abierto(f\'acil e intuitivo)
+	  \item Obra colectiva (Por ejemplo Wikipedia)
+	\end{itemize}
+	
+	\cite{Davies2009} nos comenta que las caracter\'isticas de la web social adem\'as de
+	las anteriormente nombradas son:
+	
+	\begin{itemize}
+	  \item El contenido social es generado por el usuario (mediante la acci\'on del
+	  posteo)
+	  \item Existencia de la facultad de poder crear y/o pertenecer a un grupo
+	  (llamado: social networking)
+	  \item Existencia de una plataforma cruzada en la cual los archivos son
+	  compartidos (esta caracter\'istica es compartida con alguna de las
+	  caracter\'isticas de la web sem\'antica en la cual se a\~nade que estos archivos
+	  y/u objetos deben de ser compartidos con otros sites).
+	  \item Unidades independientes de la p\'agina.
+	  \item Sub-segmentos deben de ser completamente orientables (llamado full
+	  pointability), lo cual significa que una unidad puede apuntar hacia otra
+	  unidad o hacia otro segmento.
+	\end{itemize}
+	
+	\cite{Davies2009} nos comenta que de todas las caracter\'isticas antes nombradas
+	y otra que pudieran encontrarse con el tiempo una de entre todas ellas se
+	considerar\'ia el pilar de la web social aquella que a diferencia de las otras tiene
+	que existir, siendo esta: la caracter\'istica de la \textbf{contribuci\'on}.
+	
+	Adem\'as algo importante que comenta \cite{Bani2011} es que con el alza de
+	la web social, se tienen millones de personas las cuales ofertan su
+	conocimiento on-line lo cual significa que la informaci\'on es almacenada,
+	buscable y f\'acilmente compartida y un gran reto para la siguiente
+	generaci\'on de la web sem\'antica y web social es encontrar el correcto
+	matching entre lo que es puesto on-line y los m\'etodos para hacer \'util el
+	razonamiento con la data. La verdadera inteligencia colectiva puede emerger si
+	la data recolectada de todas las personas es agregada y recombinada para crear
+	nuevos conocimientos y nuevas formas de aprender que los individuos humanos no
+	pueden hacer por ellos mismos.
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{figure}[here]
+		\centering
+		\includegraphics[width=0.9\textwidth]{figure/fig_faqosphere.png}
+		\caption{The FAQ-o-sphere}
+		\label{fig:FAQoSphere}
+	\end{figure}
+	 
+	Sobre este contexto se desarrollaron algunas propuestas como son:
+	\begin{itemize}
+	  \item [a.] FAQ-o-sphere: El cual era un sistema experto que como se puede ver
+	  en la Figura \ref{fig:FAQoSphere} \'esta consume la data de una determinada
+	  problem\'atica, recolectada de un conjunto de individuos y se realiza un
+	  matching con un conjunto, c\'umulo o banco de problemas y desde las cuales da
+	  una lista de aserciones similares. Es aqui en donde ``Collected to
+	  collective intelligence'' defin\'ian algunas restricciones que se deb\'ian de
+	  considerar, como por ejemplo.
+	  
+	  \begin{itemize}
+	    \item Conocimiento emergente: El cual deb\'ia de crearse desde el sistema,
+	    siendo este considerado nuevo.
+	    \item Contenido inicial debe ser generado por el usuario.
+	    \item Existencia de una sinergia humano/maquina, cuya combinaci\'on
+	    proveer\'ia la capacidad de generar informaci\'on \'util que no puede ser
+	    obtenida de otra forma.
+	    \item Rendimiento creciente y a escala. 
+	  \end{itemize}  
+	    
+	  \item [b.] Real Travel: En esta propuesta se ve algunas similitudes con
+	  respecto al anterior los cuales se muestran en la Figura \ref{fig:realTravel}
+	  y se explican a continuaci\'on.
+	  
+	  \begin{itemize}
+	    \item Contenido real debe de ser hecho por los propios autores, el cual se
+	    asemeja a la restricci\'on de que \textit{``El contenido inicial debe ser generado por
+	    el usuario''}.
+	    \item Debe lograrse una equivalencia a preguntar a los usuarios sobre sus
+	    experiencias, el cual se asemeja conceptualmente a la restricci\'on de
+	    \textit{``Existencia de una sinergia humano/maquina''}.
+	    \item Se puede cubrir sus necesidades y dar mayores soluciones a sus
+	    problemas
+
+	  \end{itemize} 
+	  
+	\end{itemize}
+	
+	\begin{figure}[here]
+		\centering
+		\includegraphics[width=0.9\textwidth]{figure/fig_realTravel.png} 
+		\caption{Conocimiento Colectivo: Real Travel}
+		\label{fig:realTravel}
+	\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	Estos modelos se basan en fomentar la contribuci\'on con la cual se
+	incrementar\'ia los retornos con escalas y como resultado de estas condiciones
+	se lograr\'ia un conocimiento emergente, pero este ya no ser\'ia generado por
+	humanos sino inferido por el computador.
+	
+		\subsection{5 eras de la web social}
+		\label{ssec:5eras}
+		Se ha comentado la importancia de poder identificarnos de una manera
+		\'unica en todo este mundo virtual llamado Internet, pero \cite{Owyang2009}
+		nos comenta que el uso de los IDs representa solo el comienzo de la
+		transformaci\'on en que la web evolucionara paso a paso desde websites
+		sociales separados, concebidas como islas por \cite{Smarr2010} hacia una
+		experiencia social compartida. Es por ello que en \cite{Forrester2009} el
+		mismo autor nos comenta que para poder referirnos a la web social tenemos que
+		referirnos a alg\'un tiempo en especial, los cuales se han dividido en un
+		total de $5$ etapas de tiempo, muy diferenciada del anterior y del posterior; a
+		continuaci\'on las describiremos resaltando lo m\'as importante de cada era
+		para poder entender como deberiamos de evolucionar en el desarrollo de la
+		socialweb.
+		
+		%\begin{figure}[here]
+		%	\includegraphics[width=0.9\textwidth]{figure/fig_5Eras.png}
+		%	\caption{Las 5 eras de la Social Web}
+		%	\label{fig:5Eras}
+		%\end{figure}
+	
+		\begin{enumerate}
+		  \item Era de las relaciones sociales (a\~nos $90$): Como se ve en la Figura
+		  \ref{fig:5ErasA} en esta era las personas estan relacionadas y/o conectadas
+		  a otras y comparten informaci\'on en lo que se consideran comunidades.
+		  
+		  \begin{figure}[here]
+			\centering
+			\includegraphics[width=0.9\textwidth]{figure/fig_5ErasA.png}
+			\caption{Las 5 eras de la Social Web -- Relaciones Sociales}
+			\label{fig:5ErasA}
+		  \end{figure}
+		
+		  \item Era de la funcionalidad social: Como se ve en la Figura
+		  \ref{fig:5ErasB} en esta era, el foco permanece en las actividades que se
+		  realizan en las redes sociales las cuales consiguen hacer evolucionar a las
+		  redes sociales a plataformas, las cuales soportan aplicaciones sociales
+		  interactivas y estas son consideradas Sistemas operativos. La tecnolog\'ia
+		  en esta era entra en un creciente auge, pero teniendo un punto en contra lo
+		  cual le pone un l\'imite superior a su evoluci\'on y es que la tecnolog\'ia
+		  subyacente solamente existe y persiste aun dentro de cada isla que se crea
+		  dentro de cada red social, como se ve en la Figura \ref{fig:SNMap} estas
+		  islas aunque comparten un mismo lugar de residencia (Internet), estas no se
+		  relacionan de manera alguna, lo cua conllevaria seg\'un \cite{Smarr2010} a
+		  su posterior desaparici\'on.
+		  Algunos aspectos representativos de esta era, como son:
+		  
+		  \begin{figure}[here]
+			\centering
+			\includegraphics[width=0.9\textwidth]{figure/fig_SocialNetworkMap.png}
+			\caption{Mapa relativo de las Redes Sociales}
+			\label{fig:SNMap}
+		  \end{figure}
+		
+		  \begin{itemize}
+		    \item Consumidores comparten sus experiencias, pero no pueden conectarlas
+		    a trav\'es de las redes.
+		    \item Aunque la evoluci\'on de las redes sociales se considera elevado y
+		    r\'apido posee un l\'imite que es el alcance de su comunicaci\'on, pero para
+		    esto comienza a surgir intentos para eliminar esta barrera, como son
+		    Facebook Connect.
+		    \item Las brands se conectan con perfiles pero no pueden alcanzar a toda
+		    la audiencia.
+		  \end{itemize}
+		  
+		\begin{figure}[here]
+			\centering
+			\includegraphics[width=0.9\textwidth]{figure/fig_5ErasB.png}
+			\caption{Las 5 eras de la Social Web -- Funcionalidad Social}
+			\label{fig:5ErasB}
+		\end{figure}
+		
+		  En conclusi\'on esta era posee una gran barrera que son las mismas islas que
+		  hace que esta crezca tan r\'apida y esplendorosamente.
+		    
+		    
+		  \begin{figure}[here]
+			\centering
+			\includegraphics[width=0.9\textwidth]{figure/fig_5ErasC.png}
+			\caption{Las 5 eras de la Social Web -- Colonizaci\'on Social}
+			\label{fig:5ErasC}
+		  \end{figure}
+		
+		  \item Era de la colonizaci\'on social ($2009$ en adelante): Como se ve en la Figura
+		  \ref{fig:5ErasC} en esta era cada experiencia puede ser ahora social gracias
+		  a que nuestra identidad puede migrar de un lugar a otro. Esto se realiza
+		  gracias a: \textit{OpenId} o \textit{Facebook Connect}. Las
+		  caracter\'isticas m\'as resultantes en esta era son:
+		  \begin{itemize}
+		    \item Los usuarios, consumidores, clientes, etc. pueden navegar en la web
+		    sin el sentimiento de una experiencia solitaria ya que gracias a tener
+		    una identidad \'unica pueden encontrar a sus ``amigos'' donde sea ellos se
+		    encuentren. Un ejemplo sencillo es que ellos podr\'an ver p\'aginas creadas
+		    y/o recomendadas por sus amigos en la \textit{``isla''} donde ellos se
+		    encuentren.
+		    \item Para a\~nadir valor, las redes sociales agregan actividades de
+		    miembros a su red. Por ejemplo en la Figura \ref{fig:Biography}
+		    vemos como \textit{Facebook} lo representa mediante una presentaci\'on en
+		    \textit{biografia} o \textit{timeline}\footnote{www.facebook.com} en la
+		    cual se puede ver como reune en un solo sitio y de manera organizada los
+		    aspectos que Facebook considero de mayor relevancia para sus usuarios.
+		    \item Se crea un cambio radical desde un marketing de forma
+		    ``tradicional'' a un marketing mediante ``recomendaciones sociales''.
+		  \end{itemize}
+
+		  \begin{figure}[here]
+			\centering
+			\includegraphics[width=0.9\textwidth]{figure/fig_biography.png}
+			\caption{Facebook: Modo Timeline o Biography}
+			\label{fig:Biography}
+		  \end{figure}
+		  
+		  
+		\begin{figure}[here]
+			\centering
+			\includegraphics[width=0.9\textwidth]{figure/fig_5ErasD.png}
+			\caption{Las 5 eras de la Social Web -- Contexto Social}
+			\label{fig:5ErasD}
+		\end{figure}
+		
+		  \item Era del contexto social ($2010$ en adelante): Como se ve en la Figura
+		  \ref{fig:5ErasD} el contenido personalizado y preciso, desde las redes
+		  sociales, gracias a la experiencia del usuario basado en sus preferencias,
+		  su comportamiento y sus amigos. En esta era se logra la tan anhelada
+		  identidad portable, no solo restringi\'endonos a informaci\'on personal sino
+		  tambi\'en a experiencias, demograf\'ia e historia.
+		  Otras caracter\'isticas importantes de esta era son:
+		  
+		  \begin{itemize}
+		    \item El usuario dependiendo de la situaci\'on expondr\'a informaci\'on
+		    relevante asociada a su ID a los web sites que visite.
+		    \item Las redes sociales cambiaran su modelo de negocios.
+		    \item Las brands personalizaran sus web sites para impulsar los
+		    resultados, realizando de esta forma un marketing de tipo ad-hoc para
+		    cada usuario.
+		    \item Los resultados de la b\'usqueda ser\'an de contenido basado en
+		    relevancia social de forma que la informaci\'on ser\'a m\'as r\'apida y relevante
+		    al momento de b\'usqueda.
+		    \item Los dispositivos m\'oviles permiten a cualquiera tener un entorno en
+		    el bolsillo.
+		    \item Proveedores de TV enlazaran el aspecto social con la web
+		    tradicional generando as\'i televisi\'on Social. Un ejemplo que tenemos en la
+		    actualidad de ello es Apple TV.
+		  \end{itemize}
+		    
+		    
+		\begin{figure}[here]
+			\centering
+			\includegraphics[width=0.9\textwidth]{figure/fig_5ErasE.png}
+			\caption{Las 5 eras de la Social Web -- Comercio Social}
+			\label{fig:5ErasE}
+		\end{figure}
+		
+		
+		  \item Era del comercio social: Como se ve en la Figura
+		  \ref{fig:5ErasE} las comunidades definen productos y servicios
+		  futuros, manejando as\'i la innovaci\'on y por consiguiente convirti\'endose en
+		  repositorios de identidades y relaciones. Algunas caracter\'isticas de esta
+		  era son:
+		  
+		  \begin{itemize}
+		    \item Los usuarios dejaran que las comunidades tome el control sobre lo
+		    que compran.
+		    \item Las redes sociales se convertir\'an en la siguiente generaci\'on de
+		    sistemas \ac{CRM} (Por ejemplo SalesForte\footnote{http://salesforte.com/})
+		    \item Los formularios de registro desaparecer\'an y el contenido estar\'a
+		    fragmentado.
+		    \item La privacidad se convertir\'a en un gran reto y a la vez en un gran
+		    punto de crecimiento sostenible ya que mientras m\'as seguridad exista
+		    sobre un determinado web site la conexi\'on entre esta y una brand ser\'a m\'as
+		    fuerte y por consiguiente m\'as confiable de elecci\'on por el usuario.
+		    \item Una sobre exposici\'on causara el retiro de las redes sociales de vez
+		    en cuando.
+		    \item Las redes sociales tendrán como necesidad fundamental, el reforzar
+		    seriamente sus capacidades de tratamiento de datos.
+		  \end{itemize}
+% Anhadir porque se supone estos
+		Aunque en la actualidad deberiamos de hallarnos eb la $4$ta era, relativamente
+		nos hallamos a mediados de la $3$ra.
+		\end{enumerate}
+		
+		\subsection{Desarrollo de Aplicaciones Sociales}
+		\label{sec:DevelopingSA}
+		Para poder desarrollar aplicaciones sociales primero debe hablarse
+		sobre la concepci\'on, planteamiento y producci\'on de sitios web y aplicaciones
+		que soportan la interacci\'on social, \cite{Porter2008} las llama Social
+		Design y nos comenta que el reto del software social es la problem\'atica del
+		dise\~no de interfaces que sean flexibles \'osea que soporten el comportamiento
+		social actual y deseado de las personas que lo usan. Porter nos acota una
+		frase muy especial.
+		
+		\begin{quotation}
+		\textit{Solo los seres humanos son sociales por lo tanto nuestro software
+		tambi\'en debe serlo.}
+		\end{quotation}
+		
+		Al momento de desarrollar aplicaciones sociales tenemos algunas
+		consideraciones como por ejemplo:
+		
+		\cite{Bani2011} nos comenta el como debiera de ser el ambiente del desarrollo
+		social, el cual considera que debiera tener herramientas de programaci\'on
+		colaborativa en tiempo real con caracter\'isticas de redes sociales integradas,
+		con el cual se proveer\'ia un amplio rango  de facilidades para colaboraci\'on
+		s\'incrona, as\'incrona y ``compartici\'on de informaci\'on entre miembros del
+		equipo''. Y define al ambiente de desarrollo social como un espacio virtual
+		donde los desarrolladores de un proyecto se inter-relacionan, por ejemplo
+		algo que se deberia tener en cuenta al momento del desarrollo de las
+		aplicaciones es lograr lo que \cite{Porter2008} denomina efecto Amazon en la
+		cual nos comenta que las personas van primero a un lugar, no para adquirir
+		directamente lo que quieren ah\'i, sino para hacer un estudio, ya que
+		socialmente hablando lo que a las personas les gusta no generalmente es el
+		producto, sino el conocimiento que se tiene del mismo.
+		
+		Y siendo el caso que de verdad deseen la posesi\'on del producto, se detect\'o
+		una actitud un poco extra\~na la cual era b\'asicamente que las personas
+		buscan los defectos de aquellos productos que buscan, y de esta forma saber si
+		estos productos tendr\'an alg\'un tipo de contradicci\'on contra lo que la
+		brand ofrece.
+		
+		Tambi\'en nos habla sobre el efecto magn\'etico, nombrado as\'i ya que se basa
+		simplemente en mantener a una persona el mayor tiempo posible navegando en la
+		misma p\'agina, nos comenta que un buen ejemplo de esto es la utilizaci\'on de
+		p\'aginas extremadamente grandes o como lo hace actualmente Facebook con el
+		uso de p\'aginas sin fin, como se ve en la Figura \ref{fig:amazon}.
+		Tambi\'en se pone \'enfasis en el Comment, ya que este logra concebirse como la
+		informaci\'on m\'as pura que puede obtenerse de las personas, ya que este se
+		obtiene:
+		
+		\begin{figure}[here]
+			\centering
+			\includegraphics[width=0.2\textwidth]{figure/fig_amazon.PNG}
+			\caption{Efecto Magnetico -- Página sin fin -- \url{http://www.amazon.com/}}
+			\label{fig:amazon}
+		\end{figure}
+		
+		\begin{itemize}
+		  \item Sin realizar pago alguno
+		  \item Hace que la referencia al objeto sea m\'inima
+		  \item Logra alcanzar mayor atenci\'on del usuario 
+		\end{itemize}
+		
+		\begin{figure}[here]
+			\centering
+			\includegraphics[width=0.3\textwidth]{figure/fig_onewayCommunication.PNG}
+			\caption{Comunicaci\'on Unidireccional}
+			\label{fig:oneWayCommunication}
+		\end{figure}
+		
+		\begin{figure}[here]
+			\centering
+			\includegraphics[width=0.3\textwidth]{figure/fig_twowayCommunication.PNG}
+			\caption{Comunicaci\'on Bidireccional}
+			\label{fig:twoWayCommunication}
+		\end{figure}
+		
+		\begin{figure}[here]
+			\centering
+			\includegraphics[width=0.5\textwidth]{figure/fig_manywayCommunication.PNG}
+			\caption{Comunicaci\'on Many--to--Many}
+			\label{fig:ManyWayCommunication}
+		\end{figure}
+	 
+	 	
+		Adicionalmente tendr\'iamos que conversar sobre el termino comunicaci\'on, ya que
+		de esto nace la socializaci\'on de una aplicaci\'on web; a continuaci\'on
+		se muestra los tipos de comunicaci\'on los cuales \cite{Porter2008} utiliz\'o para
+		diferenciar web tradicional, web 2.0 y la social web; que, como se puede
+		notar en la Figura \ref{fig:oneWayCommunication} la comunicaci\'on unicamente
+		provenia del website hacia el usuario; en La
+		Figura \ref{fig:twoWayCommunication} se logra romper el esquema anterior y se
+		consigue la bi--direccionalidad del website--usuario y viceversa y en la
+		Figura  \ref{fig:ManyWayCommunication} en la cual la comunicaci\'on gracias a
+		diferentes medios, como por ejemplo las redes sociales, se da website--usuario
+		y viceversa y adicionalmente una comunicaci\'on usuario--usuario.
+		
+		Entre estos tipos de comunicaci\'on, se busca un tipo de aplicaci\'on
+		com\'unmente llamada ``Aplicaci\'on sofisticada'' en la cual
+		\cite{Kamthan2009} a\~nade que en este tipo de interacci\'on se les considera
+		a las personas como si estas fuesen un tipo de tecnolog\'ias primarias y
+		secundarias y la web solamente un broker\footnote{10}, adem\'as de
+		considerarla como uno de los factores primarios para la visi\'on de la social
+		web junto con la ``madurez de la infraestructura tecnol\'ogica y la
+		disponibilidad del mismo en c\'odigo abierto'' y la ``participaci\'on del
+		p\'ublico en general a gran escala''.
+		
+		A partir de lo nombrado anteriormente podemos revisr los tipos de
+		conversaci\'on:
+		\begin{itemize}
+		  \item Early/static: web sites con contenido est\'atico (con el que las
+		  personas no pueden interactuar), esto lo vimos de forma m\'as clara en
+		  la Figura \ref{fig:oneWayCommunication}.
+		  \item Early web applications: El contenido es din\'amico y privado, el cual
+		  cambia basada en las entradas del usuario, comunicaci\'on entre aplicaci\'on y
+		  personas, esto lo vimos de forma m\'as clara en la Figura
+		  \ref{fig:twoWayCommunication}.
+		  \item Share easily: Social web application: contenido publico din\'amico que
+		  cambia seg\'un la entrada de muchas personas, esto lo vimos de forma m\'as
+		  clara en la Figura \ref{fig:ManyWayCommunication}, y sus caracter\'isticas
+		  seg\'un \cite{Kamthan2009} son:
+		  
+		  \begin{itemize}
+		  	\item Enfoque en la actividad primaria (para que interact\'uan)
+		  	\item Identifican objetos sociales (con que interact\'uan)
+		  	\item Elegir el core de las caracter\'isticas (acciones)
+		  \end{itemize}
+		\end{itemize}
+		
+	\section{Model-Driven Development}
+	\label{sec:MDD}
+	[91tr028.pdf] nos comenta que por los a\~nos $80$s algunas de las
+	compa\~n\'ias m\'as representativas a nivel mundial, como por ejemplo
+	Integrated Development Environments (IDE - StP), Higher Order Software (ahora
+	conocida como Hamilton Technologies, Inc., HTI), incursionaron por primera vez
+	en el campo del \ac{MDE} con \ac{MDD} que con los a\~nos se convertiria en una
+	metodolog\'ia de desarrollo de software enfocada en el dise\~no de modelos, y/o
+	abstracciones, los cuales se acercarian en mayor medida a los conceptos de
+	algun dominio en particular, m\'as que a conceptos de computaci\'on como
+	algoritmos. Esto significaba incrementar la productividad al maximizar la
+	compatibilidad entre sistemas, simplificando el proceso de dise\~no y
+	promoviendo la comunicaci\'on entre individuos y equipos de trabajo en el
+	sistema, \cite{Frattini2007} nos comenta que las funcionalidades del mismo
+	pueden primero ser definidas como un \ac{PIM}, despu\'es de lo cual se comienza
+	a pensar reci\'en en un \ac{PDM} correspondiente a la web, el \ac{PIM} puede
+	ser traducido a uno o m\'as \ac{PSM} para la implementaci\'on deseada. En
+	este contexto se definio una \ac{MDA}, en especifico no se refiere a los
+	componentes del sistema, sino al dise\~no que lo dirige y en este los
+	requerimientos funcionales y/o casos de uso, mientras tanto que la arquitectura
+	propiamente dicha la provee la infraestructura a trav\'es de requerimientos no
+	funcionales.
+	
+%Aumentar una fuente a este parrafo	
+	Resalt\'o como aspectos importantes en el \ac{MDD} que los elementos clave
+	son aquellos que expresan el/los resultados de las diferentes actividades a
+	desarrollarse son los mismos modelos.
+	Que el nivel de abstracci\'on en el desarrollo de software debe ser llevado a
+	un nivel de modelos.
+	Que se debe separar los requerimientos funcionales y su implementaci\'on de
+	los aspectos no funcionales y otros.
+	
+	\begin{figure}[here]
+		\centering
+		\includegraphics[width=0.9\textwidth]{figure/fig_MDDProcess.png}
+		\caption{Proceso: Model-Driven Development}
+		\label{fig:MDDProcess}
+	\end{figure}
+	 
+	En la Figura \ref{fig:MDDProcess} se muestran las etapas del proceso de
+	\ac{MDD} desde la etapa de captura de requerimientos
+	hasta la etapa de liberaci\'on. Como se puede notar en la segunda etapa del
+	proceso se realiza la definici\'on del contexto del \ac{PIM} etapa en la cual se
+	define el proceso de negocio en el cual la abstracci\'on ser\'a modelada, as\'i como
+	tambi\'en en la etapa de dise\~no se realiza los preparativos para el desarrollo
+	del \ac{PDM} en la etapa de codificaci\'on e integraci\'on.
+	
+	\section{Web Modeling Language}
+	\label{sec:WebML}
+%	El lenguaje est\'a orientado a proporcionar una especificaci\'on de alto nivel de%
+%	aplicaciones web, las cuales pueden ser traducidas en c\'odigo ejecutable por
+%	medio de un \ac{CASE}, 
+	
+	
+	\cite{Ceri2000} nos comenta que \ac{WebML} est\'a basado en otras propuestas de
+	lenguajes de dise\~no web como por ejemplo:
+	
+	\begin{itemize}
+	  \item HDM: Pionero en \ac{MDD} de aplicaciones hipermedia (HDM-lite, HDM,
+	  RMM, Strudel, OOHDM) cuyos lenguajes construyen constructores
+	  navegacionales, a diferencia de Web que incluye composici\'on ortogonal y
+	  primitivas de navegaci\'on.
+	  \item Araneus que fue una propuesta de dise\~no web e ingenier\'ia reversa en
+	  la que la data se describe por medio de un \ac{ERM} y el modelo de
+	  navegaci\'on se realiza mediante un Navigation Conceptual Model (NCM).
+	  Araneus posee un ciclo de vida el cual est\'a compuesto por: un modelado
+	  conceptual, un dise\~no l\'ogico y un Araneus Data Model (ADM) para los
+	  aspectos de navegaci\'on.
+	  Posee primitivas predefinidas de navegaci\'on pero no modela la presentaci\'on a
+	  un nivel abstracto.
+	  \item OOHDM: El cual dirigio las t\'ecnicas de modelado conceptual de
+	  \ac{WebML} era una metodolog\'ia para dise\~no de hipertexto que comparte
+	  junto a \ac{WebML} la visi\'on de dimensiones ortogonales.
+	  \item \ac{UML}: Ha servido de base para muchas metodolog\'ias incluso para
+	  dise\~no web, un ejemplo de ello puede ser visto en \cite{Moreno2006}
+	  en el cual mediante una extensi\'on de \ac{UML} se logra modelar como si de
+	  \ac{WebML} se tratase, esto se realiza mediante la utilizaci\'on de
+	  diagramas de clases\cite{Fowler2003}.
+	\end{itemize}
+	 
+	\cite{Ceri2000} nos comenta que las herramientas que antes exist\'ian, entre
+	ellas las antes nombradas, ofrec\'ian poco apoyo para acortar la brecha entre la
+	recolecci\'on de requerimientos y las fases subsiguientes del proceso de
+	desarrollo de aplicaciones web, es por esta raz\'on que el W3I3 Project (fundado
+	por la Comunidad Europea bajo el Fourth Framework Program) se enfoc\'o en
+	``Intelligent Information Infrastructure'' para ``data intensive web
+	application'', el proyecto fue dirigido por Otto Versand (e-commerce) y
+	PTT(KPN) (web hosting service) los cuales produjeron un lenguaje de modelado
+	web llamado \ac{WebML} y un \ac{CASE} que lo soporte llamado
+	Toriisoft\footnote{9}. \ac{WebML} estaba dirigido para ser un lenguaje de alto
+	nivel que pudiera cumplir con cubrir especificaciones independientes de la
+	plataforma de data intensive web application, una personalizaci\'on one-to-one,
+	acceso a m\'ultiples dispositivos y Toriisoft pod\'ia cumplir con estos aspectos
+	adem\'as de cubrir el ciclo de vida entero y siguiendo un enfoque dirigido por
+	modelos para dise\~no web centrado en el uso de Web ya que como comenta
+	\cite{Lowe2003} los enfoques de modelado web eran raramente dirigidos a las
+	conexiones entre aspectos de dise\~no detallado y la amplia informaci\'on del
+	ambiente, particularmente en t\'erminos del flujo de informaci\'on entre el
+	sistema, la organizaci\'on y entidades externas, lo cual si se lograba con un
+	dise\~no dirigido por modelos.
+
+%Proveer una cita bibliogr\'afica para el concepto de CASE	
+	A lo anteriormente comentado \cite{Nugraha2007} y \cite{Matera2003} comentan
+	que \ac{WebML} es un lenguaje de modelado \ac{DSL}, el cual describe la
+	composici\'on, navegaci\'on, contenido, organizaci\'on y representaci\'on en un
+	hipertexto, todo ello para especificar la estructura del contenido de una
+	aplicaci\'on web mientras que \cite{Ceri2000} nos dice que \ac{WebML} es una
+	notaci\'on para especificar websites complejos en un nivel conceptual y capaz de
+	describir a alto nivel un website bajo distintas dimensiones ortogonales como
+	lo hacia HDM y OOHDM, como por ejemplo:
+	
+	\begin{itemize}
+	  \item Su contenido (modelo estructural)
+	  \item Las p\'aginas que lo componen (modelo de composici\'on)
+	  \item La topolog\'ia de sus links entre p\'aginas (modelo de navegaci\'on)
+	  \item Requerimientos gr\'aficos
+	  \item Las capas para renderizacion de p\'aginas (modelo de presentaci\'on)
+	  \item Las caracter\'isticas de personalizaci\'on para el contenido de entrega
+	  one-to-one (modelo de personalizaci\'on).
+	\end{itemize}
+	
+	\cite{Brambilla2010} comenta tambi\'en que \ac{WebML} es una metodolog\'ia de
+	un alto nivel de notaci\'on para datos, servicios y procesos centrados en el desarrollo
+	de aplicaciones web. Ya que este permite especificar el modelo de datos de una
+	aplicaci\'on web y uno o m\'as modelos de hipertexto que puede ser basado en
+	especificaci\'on de procesos de negocio y que puede explotar la invocaci\'on de
+	servicios web, personalizar la l\'ogica del back-end y las interfaces web
+	enriquecidas.
+
+	\begin{figure}[here]
+    	\centering
+    	\includegraphics[width=0.9\textwidth]{figure/fig_WebMLLifeCicle.PNG}
+		\caption{Ciclo de Vida de Software en WebML}
+		\label{fig:WebML_LifeCicle}
+    \end{figure}
+
+
+%	\begin{figure}[here]
+%		\includegraphics[width=0.9\textwidth]{figure/fig_WebMLProcess.png}
+%		\caption{Proceso: Web Modeling Language}
+%		\label{fig:WebMLProcess}
+%	\end{figure}
+	
+%Consultar si es correcto requisitos o requerimientos
+	Como se muestra en la Figura \ref{fig:WebML_LifeCicle} el enfoque de \ac{WebML}
+	esta dividido en diferentes fases, \cite{Ceri2003} nos comenta que el dise\~no
+	fue inspirado en la espiral de Boehm, proceso el cual debe de ser aplicado de
+	una manera iterativa e incremental en la cual varias fases son repetidas y
+	refinadas hasta que los resultados cumplan con los requisitos de la aplicaci\'on.
+	
+	A pesar de que podemos notar varias fases, se puede diferenciar
+	un total de $3$ estados principales cuando se modela y/o trabaja con
+	\ac{WebML}, las cuales \cite{Brambilla2010} denomina como las etapas m\'as
+	importantes del proceso de desarrollo, las cuales son las etapas de Dise\~no de
+	datos, Dise\~no de hipertexto y el Dise\~no de la Arquitectura ya que el
+	lenguaje est\'a orientado a proporcionar una especificaci\'on de alto nivel de
+	aplicaciones web.
+	
+	\fbox{\parbox[b]{\linewidth}{\textbf{\underline{\emph{Nota:}}} Haciendo un
+	parentesis. \cite{Brambilla2010} nos comenta tambi\'en que estas
+	aplicaciones web pueden ser traducidas en c\'odigo ejecutable, como se
+	comento anteriormente por medio de un \ac{CASE}, como Toriisoft por
+	ejemplo, la cual debe de proveer algunas propiedades como son: 
+	
+	\begin{itemize}
+	  \item Una representaci\'on visual que transmita las caracter\'isticas esenciales
+	  de sus primitivas lo que puede ser visualizado en diagramas, pudiendo sus
+	  conceptos ser representados mediante un \ac{ERM} y/o \ac{UML}.
+	  \item Estar provisto de una representaci\'on textual basada en \ac{XML}.
+	\end{itemize}
+	
+	Un \ac{CASE} con estas caracter\'isticas \cite{Acerbis2007} comenta que es
+	m\'as f\'acil el dominar la complejidad del desarrollo de aplicaciones web.}}
+	
+	Dentro de las etapas nombradas anteriormente (Dise\~no de Datos, de
+	Hipertexto y de Arquitectura) se pueden diferenciar estados muy importantes y
+	que se ven durante la mayor parte del desarrollo de aplicaciones basadas en web
+	mediante \ac{WebML} los cuales \cite{Ceri2000} les nombra como dimensiones
+	ortogonales o como \cite{Matera2003} y \cite{Frattini2007} lo identifican, con
+	el nombre de Modelado Conceptual y estos son:
+	
+	\begin{itemize}
+	  \item \ac{WebML} Data Model o Structural Model - Est\'a
+	  estrechamente ligado a la etapa ``Data Design'' en la cual se modela mediante
+	  diagramas \ac{ERM} y/o \ac{UML} de clases primitivos con un valor a\~nadido de
+	  relaciones (llamadas derivadas) en las cuales se utiliza un lenguaje
+	  declarativo (como \ac{OQL} y/o \ac{OCL}, en este contexto es mayormente usado
+	  el modelado mediante \ac{ERM} en la cual las entidades son definidas como
+	  containers de elementos de dato y las relaciones definidas como conexiones
+	  sem\'anticas entre entidades. Las entidades tienen propiedades nombradas,
+	  llamadas atributos y tipos asociados \cite{Matera2003}. Las entidades pueden
+	  ser organizadas en generalizaciones jer\'arquicas y las relaciones pueden ser
+	  restringidas por medio de cardinalidad limitada. En esta fase podemos nombrar
+	  algunas actividades importantes.		  
+
+	  \begin{itemize}
+	    \item Modelado de grupos - En la cual se modela Los requerimientos de
+	    grupos de usuarios en entidades y relaciones.
+	    \item Identificaci\'on de sincronizaci\'on de objetos - Similar al ciclo de
+	    vida del productor consumidor en la cual vemos como los actores trabajan
+	    con cada objeto y su interacci\'on con estos.
+	    \item Identificaci\'on de objetos compartidos - Aqu\'i vemos que objetos son
+	    usados en alguna fase determinada.
+  	  \end{itemize}
+  	  
+  	  \cite{Ceri2000} enfatiza este modelo a las entidades, las cuales como
+  	  comenta: son la base de las relaciones sem\'anticas.
+
+	  \item WebML Hypertext Model - Est\'a estrechamente ligado a la
+	  etapa de ``Hypertext Design'' en la cual se modela las interfaces de Front-End de la
+	  aplicaci\'on web y en la cual se realiza una organizaci\'on interna en t\'erminos
+	  de componentes, o tambien llamados en \ac{WebML} \textbf{Content Units}.
+	  Es aqu\'i donde se inicia el dise\~no propiamente dicho y en donde se producen
+	  esquemas de site views en el \textit{top} del esquema de datos previamente modelado,
+	  es aqu\'i donde se utilizan elementos de contenido como son:
+	  
+%%%%%%%%%%%%%%%%  Modificaciones a ralizar.	  
+	  \begin{itemize}
+		\item Site Views - Es el producto del modelado espec\'ifico para un conjunto
+		de requerimientos, el cual consiste en el conjunto de las \textbf{\'areas}
+		las cuales son las principales secciones del hipertexto y comprende
+		recursivamente otras \textbf{sub-\'areas} o \textbf{p\'aginas} que se
+		encuentran en uno de los varios contenedores de informaci\'on entregados por
+		el usuario.
+		\item Content Units - Este representa una abstracci\'on de un objeto el cual
+		ser\'a publicado en la aplicaci\'on web. Habiendo varios tipos del mismo, como por
+		ejemplo:
+			  
+		  \begin{itemize}
+		    \item Data Unit - Existe en una relaci\'on $1 \to 1$, entre un atributo y
+		    una instancia de entidad.
+		    \item Multi-data unit - Existe en una relaci\'on de $n \to n$, entre
+		    atributos e instancias de entidades.
+		    \item Index unit - Para complementar el Index Unit existe en una
+		    relaci\'on $ n \to 1$, entre una lista de atributos a una instancia de
+		    entidad (la cual se le considera como: una selecci\'on)
+		    \item Scroller Unit - Se utiliza para realizar una b\'usqueda en un
+		    conjunto ordenado de objetos
+		    \item Entry Unit - Su funci\'on fundamental es la de implementar
+		    formularios y poder servir de interfaz para los content units anteriores.
+		  \end{itemize}
+			  
+%			  \begin{figure}[here]
+%				\includegraphics[width=0.9\textwidth]{figure/fig_ContentUnit.png}
+%				\caption{Content Units}
+%				\label{fig:ContentUnits}
+%			  \end{figure}
+
+		\item Pages - Llamadas tambien sub \'areas, las cuales seran el contenedor de
+		los Content Units y seran los que se muestren como parte l\'ogica al
+		desarrollador y parte visual al usuario final, estas pueden ser de diferentes
+		tipos:
+
+		  \begin{itemize}
+		    \item Home Page
+		    \item Default
+		    \item Landmark - De estas se dividen por tipo de enlace entre ellas como:
+		    Link/Unit y Link/Pages, llamados comunmente links contextuales y no
+		    contextuales respectivamente.
+		  \end{itemize}
+	  \end{itemize}
+			
+        \begin{figure}[here]
+        	\centering
+        	\includegraphics[width=0.9\textwidth]{figure/fig_ModelingWebML.png}
+			\caption{Modelado en WebML}
+			\label{fig:ModelingWebML} 
+        \end{figure}
+        
+        En la Figura \ref{fig:ModelingWebML} se muestra un ejemplo en el cual
+        podemos ver todos los elementos comentados anteriormente, as\'i como
+        algunos de tipo behavioral (de comportamiento).
+		
+		Habiendo visto la mayor parte de los elementos de los que consta el Web
+		Hypertext Model siendo su unidad b\'asica la unidad de contenido cabe nombrar
+		que \cite{Davies2009} comento acerca de los Unit Types y su comportamiento
+		tomando una postura orientada a objetos y comentando que estos debieran tener
+		un comportamiento polim\'orfico, \'osea deber\'ian tener varios comportamientos o
+		disponibilidades para los usuarios. Pero a este comentario tambi\'en se dio un
+		contraparte, en la cual dice que el cliente/servidor puede romper el
+		polimorfismo para aplicaciones web sociales, entre los aspectos m\'as
+		importantes el causante puede ser que el navegador no sea compatible con estas
+		unidades, es por ello que propone algunos puntos para que los Unit Types
+		conserven su aspecto polim\'orfico, como son:
+		
+		\begin{itemize}
+		  \item El comportamiento de las unidades debe de ser extensible y deben
+		  poseer la capacidad de  poder modificarse.
+		  \item Los contenedores o tags\footnote{5} deben ser referenciales es por
+		  ello que se hace una relaci\'on $1 \to 1$ entre puntero e instrucciones por
+		  objeto o archivo.
+		  \item El Type Structure\footnote{6} debe ser ``jer\'arquicamente heredado'' en
+		  otras palabras, el contenido debe de ser por cada tag heredado.
+		  \item Las relaciones deben de ser \'integramente inicializables \'osea que las
+		  relaciones entre unidades de contenido como hiperv\'inculos tradicionales son
+		  links de unidad a unidad, lo que vendr\'ian a ser relaciones.
+%aqu\'i va el nombre para las unidades de tipo operacional
+		  \item En aplicaciones sociales basadas en web se definen como relaciones
+		  entre unidades y unidades externas\footnote{7}).
+		  \item Se debe buscar que el control de acceso sea de tipo fluid-granular
+		  donde:
+		  
+		  	\begin{itemize}
+		  	  \item Fluidity: Existencia de distinci\'on marcada entre un usuario y un
+		  	  administrador de la aplicaci\'on.
+		  	  \item Granularity: Control sobre cada campo de la unidad.
+		  	\end{itemize}
+		  	
+		  \item El direccionamiento debe ser independiente del dominio, por ejemplo:
+		  si se mueve el contenido todo deber\'ia de funcionar igual.
+		  \item En el momento de la construcci\'on debe existir algun
+		  tipo de versionamiento comprensible.
+		  \item Si se desarrolla alg\'un componente que utilice m\'etodos de borrado,
+		  estos deben ser controlados por el usuario (existencia de un borrado
+		  verdadero de los archivos propios\footnote{8})
+		  \item Al momento de la construcci\'on se debe considerar que las licencias de
+		  software deben ser free/open source: para poder inspeccionar y modificar el
+		  c\'odigo.
+		\end{itemize}
+		
+		\cite{Ceri2000} define esta dimensi\'on como un conjunto de hipertextos para el
+		website en el cual cada hipertexto define un siteview y cada siteview est\'a
+		compuesto por submodelos, los cuales representan la fase de ``Architecture
+		Design'' en la cual se realiza el modelado de la apariencia gr\'afica y los
+		estilos a ser utilizados en la aplicaci\'on web respectivamente, y estos son:
+		
+		\begin{itemize}
+		  \item [a.] Presentation Model - Representa la interfaz gr\'afica o
+		  look and feel de las p\'aginas identificadas en el modelo de composici\'on la
+		  cual el usuario final vera cuando acceda a la aplicaci\'on, independiente de
+		  la data que ha de mostrarse. Estas en WebML son renderizadas mediante hojas
+		  de estilo.
+		  \item [b.] Personalization Model - Que representa la variaci\'on de estilos
+		  que tendr\'a la aplicaci\'on en su parte gr\'afica. Este submodelo va enlazado con
+		  las entidades llamadas User and Group en la cuales se puede definir
+		  reglas de negocio espec\'ificas para usuarios y grupos a los que estos
+		  pertenecen (puede ser hecho con \ac{OQL}).
+		  \item [c.] Composition Model - En la cual se especifica que content units
+		  pertenecen a la p\'agina y que p\'agina pertenece a que hipertexto.
+		  \item [d.] Navigation Model - Expresa como es que los content units y las
+		  paginas ser\'an enlazadas en el hipertexto mediante links( o enlaces) los cuales se
+		  dividen en:
+		  
+		  \begin{itemize}
+		    \item Enlaces contextuales: Conecta unidades dependiendo de una sem\'antica
+		    expresada por el esquema de la aplicaci\'on. Un enlace contextual acarrea
+		    informaci\'on (llamado contexto), sint\'acticamente se denota por un elemento
+		    ``INFOLINK''.
+		    \item Enlaces no contextuales: Conecta p\'aginas que sean independientes
+		    de las unidades que ellos contengan, sint\'acticamente se denota por un elemento
+		    ``HYPERLINK''.
+		  \end{itemize}  
+		  
+		\end{itemize}
+		
+		Adem\'as de los enlaces un navigation model debe cumplir con poseer una l\'ogica
+		de hypertexto valida, \'osea que se cumplas las siguientes reglas:
+		 
+		\begin{itemize}
+		  \item Reachability: No debe haber paginas sin alg\'un tipo de enlace
+		  (posiblemente el homepage rompe esta regla).
+		  \item Flujo de contexto: Si alguna unidad de contenido necesita en alg\'un
+		  momento de su ciclo de vida de informaci\'on contextual esta debe ser dada por
+		  un link contextual desde otra unidad(es) o p\'agina(s).
+		  \item Unicidad de contexto: Si no existe o si hay m\'as de una forma de
+		  recibir contexto,  solo una debe de ser habilitada y las dem\'as deshabilitadas.
+		\end{itemize}
+		
+		\cite{Ceri2000} nos habla de la existencia de $3$ actores principales en todo
+		el proceso de dise\~no de Web:
+		
+		\begin{itemize}
+		  \item Un experto de datos el cual dise\~na el ``structural model''.
+		  \item Un arquitecto de aplicaciones el cual dise\~na p\'aginas y la navegaci\'on
+		  entre ellas.
+		  \item Un arquitecto de estilos el cual dise\~na los estilos de presentaci\'on de
+		  las p\'aginas.
+		\end{itemize}
+		
+		Adicionalmente a estos $3$ actores de dise\~no tambi\'en es necesario un actor
+		administrador del website, quien dise\~na las opciones de usuario y
+		personalizaci\'on, incluyendo las reglas de negocio.
+		
+		Estos actores participaran en el proceso de dise\~no de WebML de forma iterativa
+		y como comenta \cite{Matera2003} y \cite{Frattini2007} se realiza las
+		siguientes etapas.
+		
+		\begin{itemize}
+		  \item Especificaci\'on y/o an\'alisis de Requerimientos (tambi\'en llamada
+		  Requirement Collection): Es la etapa en la cual se recolecta informaci\'on
+		  acerca del dominio de la aplicaci\'on, funciones esperadas, limitaciones y se
+		  le espec\'ifica a trav\'es de descripciones f\'aciles de entender.
+			\begin{itemize}
+			  \item INPUT - Requerimientos de negocio
+			  \item OUTPUT - Identificaci\'on de grupos de usuario, especificaci\'on de
+			  requerimientos funcionales, identificaci\'on de objetos de informaci\'on CORE y
+			  descomposici\'on de la aplicaci\'on web en site views.
+			  \item Adicionalmente \cite{Fowler2003} nos comenta que es necesario el uso
+			  de determinados diagramas \ac{UML} como son:
+	
+			  \begin{itemize}
+			    \item Diagrama de actividades - Para poder modelar los escenarios
+			    y actividades as\'incronas
+			    \item Diagrama de casos de uso - en la cual se realiza una variante
+			    determinada y se utiliza arbol jerarquico de usuarios, en el cual se
+			    puede describir los niveles de acceso de los mismos hacia y/o desde la
+			    aplicaci\'on web.
+			    \end{itemize}
+	
+			\end{itemize}
+		  
+		  \item Data Design: Se dise\~na el Structural Model y si ya existieran
+		  esquemas legados se hace ingenier\'ia reversa.
+		  \item Hypertext Design ``in the large'': Se identifican p\'aginas y unidades,
+		  enlaz\'andolos, en pocas palabras se define el "esqueleto" del site view las
+		  cuales se mejoraran iterativamente. (Para esta etapa as herramientas
+		  basadas en Web deben soportar el r\'apido prototipado y retroalimentaci\'on).
+		  \item Hypertext Design ``in the small'': En esta segunda etapa de dise\~no de
+		  hipertexto se enfocan en tratar cada p\'agina y unidad individualmente.
+		  Durante el dise\~no de la p\'agina el arquitecto de la aplicaci\'on web puede
+		  descubrir que una p\'agina requiere informaci\'on adicional o alg\'un cambio de
+		  conceptos sem\'anticos.
+		  \item Presentation Design: Se dise\~na el estilo para las p\'aginas cuando ya
+		  estas son lo suficientemente estables.
+		  \item User and Group Design: El administrador define las caracter\'isticas de
+		  los perfiles de usuarios basados en requerimientos de personalizaci\'on.
+%******* aqu\'i comienza desde el inicio en una nueva iteraci\'on *******
+		  \item Customization Design: Se realiza la personalizaci\'on del website
+		  mediante reglas de negocio.
+			
+		\end{itemize}
+
+	\end{itemize}
+	
+%Secci\'on para la explicaci\'on de RUP3C	
+	\section{RUP3C}
+	\label{sec:RUP3C}
+	RUP3C fue desarrollado para poder resolver la falencia de una metodolog\'ia para
+	el desarrollo de aplicaciones groupware. Esta metodolog\'ia se desarroll\'o en base
+	a $3$ aspectos:
+	
+	\begin{enumerate}
+	  \item Office Automation
+	  \item Hipertexto
+	  \item Enfoque grupal 
+	\end{enumerate}
+	
+	Dentro de estos $3$ aspectos actualmente podemos notar que el punto $1$ y $2$
+	poseen al menos una forma de desarrollo de aplicaciones como \cite{Gerosa2005}
+	nos comenta, pero en lo referente a desarrollo de aplicaciones groupware era
+	casi imposible y aun inclusive hoy en d\'ia se requiere de programadores
+	calificados, ya que carec\'ia de una gu\'ia para desarrollar aplicaciones mientras
+	se generaban artefactos relacionados. Estas fueron algunas de las razones para
+	el desarrollo del modelo RUP3C el cual \cite{Gerosa2005} nos comenta que su
+	nombre proviene de una extensi\'on de la metodolog\'ia RUP a la cual se le
+	incremento el enfoque de desarrollo groupware bas\'andose en $3$ puntos, los
+	cuales son:
+	
+	\begin{itemize}
+	  \item Comunicaci\'on: Ya que se basa en un intercambio de mensajes y
+	  negociaci\'on de compromisos.
+	  \item Coordinaci\'on: Es la administraci\'on de recursos para resolver conflictos
+	  y de esta manera facilitar la cooperaci\'on.
+	  \item Cooperaci\'on: Esta es la producci\'on conjunta de miembros de un grupo
+	  dentro de un espacio compartido (para completar tareas).
+	\end{itemize}
+	
+	Aspectos b\'asicos del dise\~no: Asociaci\'on
+	
+	\begin{itemize}
+	  \item Administrador de versiones
+	  \item Registro de accesos
+	  \item An\'alisis est\'atico
+	  \item Sistema de recomendaci\'on
+	  \item Mecanismo de b\'usqueda y ranking 
+	\end{itemize}
+	
+	
+    \begin{figure}[here]
+    	\centering
+    	\includegraphics[width=0.9\textwidth]{figure/fig_rup3cModel.png}
+		\caption{Modelo: RUP3C}
+		\label{fig:RUP3CModel}
+    \end{figure}
+	
+	
+	Algo que \cite{Gerosa2005} nos comenta es que es muy importante seguir la
+	filosof\'ia de ``un problema por versi\'on'', es por ello que se puede notar en la
+	Figura \ref{fig:RUP3CModel} como cada uno de los $3$ puntos base de esta
+	metodolog\'ia posee una parte del ciclo de interacci\'on con el usuario as\'i como
+	consigo mismas\footnote{3}.
+	
+\chapter{PROPUESTA}		   		
+\label{chap:Proposal}
+	En este cap\'itulo presentaremos el desarrollo de nuestra propuesta dividida en
+	$5$ secciones divididas de la siguiente manera:
+	
+	\begin{enumerate}
+	  \item \textbf{Comunicaci\'on:} En esta secci\'on daremos una descripci\'on de
+	  como se realizara la captura de requerimientos o especificamente en como
+	  nuesto modelo se desarrollara la primera parte del ciclo de vida de nuestra
+	  propuesta.
+	  \item \textbf{Planeaci\'on:} Para esta secci\'on se dara una breve rese\~na
+	  de como se realizara la planeaci\'on o divisi\'on de tiempo en el desarrollo
+	  de un proyecto.
+	  \item \textbf{Modelado:} En esta secci\'on daremos el panorama de
+	  \textit{an\'alisis} y \textit{dise\~no} de nuestra propuesta.
+	  \item \textbf{Construcci\'on:} Para esta secci\'on se mostrara la
+	  construcci\'on de las custom units necesarias para el desarrollo de una
+	  aplicaci\'on social\footnote{Para este cap\'itulo y secci\'on se esta
+	  presentando en esta etapa el como se desarrollo nuestra propuesta, para
+	  el siguiente cap\'itulo es donde se presentara un caso de estudio con la
+	  utilizaci\'on de cada una de estas etapas.}.
+	  \item \textbf{Despliegue:} Aunque esta etapa no se tomara para nuestra
+	  propuesta cabe mencionar que toda metodologia ha de tener siempre una etapa
+	  de \textit{Despliegue} o \textit{liberaci\'on} del producto.
+	\end{enumerate}
+	
+	\section{Comunicaci\'on}
+	\label{sec:communication}
+	En esta secci\'on  presentaremos nuestra propuesta de la variaci\'on del ciclo
+	de vida de la metodolog\'ia de desarrollo de software: \ac{WebML} para soportar
+	el paradigma social.
+	
+%	\begin{figure}[here]
+%    	\includegraphics[width=0.9\textwidth]{figure/fig_WebMLLifeCicle.PNG}
+%		\caption{Ciclo de Vida de Software en WebML}
+%		\label{fig:WebML_LifeCicle}
+%    \end{figure}
+    
+    \begin{figure}[here]
+    	\includegraphics[width=0.9\textwidth]{figure/fig_SocialWebMLLifeCicle.PNG}
+		\caption{Propuesta de Ciclo de Vida de Software en Social WebML}
+		\label{fig:SocialWebML_LifeCicle}
+    \end{figure}
+    
+	Como se observa Figura \ref{fig:WebML_LifeCicle} vista anteriormente cuando se
+	describia los estados por los que el software desarrollado bajo la metodolog\'ia
+	\ac{WebML} pasa, nos detendremos en la primera etapa, la \textit{Especificaci\'on
+	de Requerimientos}, aquella que	para esta secci\'on posee mayor relevancia y
+	aquella que representa nuestra propuesta inicial ya que es donde se realizar\'a
+	la captura de requerimientos sociales, esto se ve reflejado en la Figura
+	\ref{fig:SocialWebML_LifeCicle} en la cual, enmarcada en lineas punteadas
+	rojas, se encuentra una nueva rama en el proceso o para ser mas espec\'ifico un
+	desgloce de la misma en dos nuevas etapas, las cuales han sido etiquetadas
+	como:
+	
+
+	
+	\begin{enumerate}
+	  \item \textbf{Especificaci\'on de Requerimientos de Negocio:} En esta etapa se
+	  realizaria todas las acciones tradicionales de \textbf{captura de
+	  requerimientos}, elicitaci\'on, ``espeficicaci\'on", educci\'on, etc., con
+	  respecto al negocio del aplicativo por intermedio del stakeholder y/o
+	  usuario, esto siguiendo las bases de \ac{UML} y \ac{WebML}.
+	  \item \textbf{Especificaci\'on de Requerimientos Sociales:} En esta etapa
+	  se presenta parte de nuestra propuesta, la cual se realizar\'a una
+	  \textbf{captura} de \textit{requerimientos sociales} o un conjunto de
+	  \textit{necesidades sociales} inicialmente comprendidas como parte de un
+	  conjunto de patrones sociales de dise\~no, los cuales podemos ver en
+	  la Tabla \ref{tab:socialPatternDesign} en la cual se presenta un resumen del
+	  trabajo realizado por \cite{Frattini2007} y por \cite{Bozzon2009}, adicional
+	  de una referencia de cuales son los otros patrones sociales de dise\~no con
+	  los que se relaciona.
+	  
+	  	\begin{table}[htbp]
+			\begin{tabular}{|c|l|l|}
+			\hline
+				\textbf{C\'odigo} & \textbf{Nombre} & \textbf{Patrones Relacionados}  \\
+				\hline \multicolumn{3}{|c|}{\textbf{Front-End Patterns}} \\\hline
+				\multicolumn{3}{|c|}{\textbf{Navigation patterns}} \\\hline
+				1 & Aggregation -- Mashup & 04, 20, 24 \\ \hline
+				2 & Browse by connections & 14, 20 \\ \hline
+				3 & Browse by tag -- Folksonomy & 06, 20 \\ \hline
+				\multicolumn{3}{|c|}{\textbf{Contribution patterns}} \\ \hline
+				4 & Exportation & 20, 21, 22, 25 \\ \hline
+				5 & Flagging & 18, 20, 22 \\ \hline
+				6 & Organization -- Grouping -- Tagging & 03, 18, 20, 21, 23, 24 \\ \hline
+				7 & Publication & 06, 19, 21, 23, 24 \\ \hline
+				8 & Rating & 17, 20, 23 \\ \hline
+				9 & Recommendation -- Suggestion & 12, 19, 20, 23 \\ \hline
+				\multicolumn{3}{|c|}{\textbf{Social patterns}} \\ \hline
+				10 & Group creation & 19, 20 \\ \hline
+				11 & Group participation & 12, 13, 18, 20, 22 \\ \hline
+				12 & Invitation & 18, 19, 23 \\ \hline
+				13 & Permission setting & 20 \\ \hline
+				14 & Relationship setting & 17, 20, 22 \\ \hline
+				15 & Social visualization & 17, 22, 23 \\ \hline
+				16 & Talk & 18, 20 \\ \hline
+				\multicolumn{3}{|c|}{\textbf{Back-End Patterns}} \\ \hline
+				17 & Evaluation & 21, 22 \\ \hline
+				18 & Notification & 09, 12, 14, 16 \\ \hline
+				19 & Payment & 23 \\ \hline
+				20 & Permission check & 13 \\ \hline
+				21 & Relevance adjustment & 17, 22 \\ \hline
+				22 & Reputation adjustment & 17 \\ \hline
+				23 & Reward & 17, 22 \\ \hline
+				24 & Syndication & 06, 07 \\ \hline
+				25 & Importation &  \\ \hline
+			\end{tabular}
+			\caption{Patrones Sociales de Dise\~no}
+			\label{tab:socialPatternDesign}
+		\end{table}
+	
+	  De entro los patrones sociales de dise\~no mostrados, aquellos los cuales son
+	  mas relevantes en este trabajo son:
+	  
+	  \begin{itemize}
+	    \item \textbf{Aggregation: } Tambien conocido como \textit{MashUp} en donde
+	    la actividad mas importante es la de poder incrustar ``servicios'' de otros
+	    proveedores dentro de nuestra aplicaci\'on, pudiendo ser: juegos, canales
+	    IRC, widgets, etc.
+	    \item \textbf{Publication: } La actividad más importante es la de compartir
+	    contenido (comentarios, fotos, videos, etc.) a otros individuos, asociados
+	    de una determinada forma al individuo que lo ``publico''.
+	    \item \textbf{Organization: } Tambien conocido como \textit{Grouping} o
+	    \textit{Tagging} mediante la cual se podra hacer una ``referencia'' a otros
+	    individuos o contenido creado por los mismos.
+	  \end{itemize}
+	  
+	  En la Figura \ref{fig:SocialFlowDiagram} podemos un Diagrama de Flujo del
+	  comportamiento b\'asico de un individuo, seg\'un nuestra propuesta, para ello
+	  se tienen que explicar algunos terminos, importantes que daran aun mas
+	  sentido a la figura anterior.
+	  
+	  	\begin{itemize}
+			\item \textbf{\ac{FOAF}}:\footnote{Para este contexto se tomara en cuenta
+			uno de los primeros comentarios en este trabajo, acerca de los estudios
+			realizados acerca de los grados de separaci\'on entre dos personas} Este
+			termino, m\'as usado en Web Sem\'antica, se usa para describir los grados de
+			separaci\'on entre $2$ individuos, su uso m\'as allegado a la web sem\'antica,
+			sin salir del contexto es mejor explicado en \cite{Brambilla2007} donde
+			busca modelar la Web Sem\'antica basado en la metodologia \ac{WebML} siendo
+			uno de los principales conceptos: \ac{FOAF}, este aspecto es utilizado para
+			la mayoria de as caracteristicas que sirvieron para comparar \ac{WebML} con
+			otras, en donde esta metodologia añadida al conceto semantico resulto en
+			poseer o soportar todas las caracteristicas relevantes total o parcialmente.
+			\item \textbf{Compartir Informaci\'on:} Representa una de las acciones m\'as
+			imprtantes enel proceso de socializaci\'on ya que es otro nombre que le damos a
+			la caracter\'istica de: \textit{Comunicaci\'on}, la cual la estamos diviendo en
+			$2$ tipos de Informaci\'on.
+			\begin{itemize}
+				\item \textbf{Propia:} Este tipo de informaci\'on es aquella que le
+				pertenece de una u otra forma al individuo. Por ejemplo, fotos
+				personales, comentarios, etc.
+				\item \textbf{No Propia:} En este aspecto nos referimos cuando la
+				informaci\'on a ser compartida, no nacio desde el individuo, sino que fue
+				extraida desde otra fuente; un amigo, un articulo, etc. Este tipo de
+				informaci\'on actua de igual forma que nuestra sociedad, solo aquellos que
+				conocemos la conocera, si es que nosotros deseamos compartirla, pero al
+				igual que nuestra sociedad, aluien m\'as puede conocer esta informaci\'on por
+				un amigo, o un amigo de un amigo y asi sicesivamente, algo que nosotros
+				conocemos como \ac{FOAF}.
+			\end{itemize}
+			\item \textbf{Perfil:} Representa a un connjunto de caracter\'isticas que
+			describen a un individuo, gustos, disguntos, necesidades, actividades, etc.
+			Los cuales brindan algun tipo de informaci\'on para conocer mejor al
+			individuo y poder diferenciarlo dentro de una sociedad (virtual), algo que
+			nos brinda una \textit{diferenciaci\'on}.
+		\end{itemize}
+	Regresando a la Figura \ref{fig:SocialFlowDiagram}, podemos notar unas primeras
+	acciones desde y hacia el mismo individuo: \textit{individualizar} y
+	\textit{pertenecer}, ambos ligados al mismo proceso: identificaci\'on del
+	individuo en la Internet, el primer paso como la creaci\'on de un perfil \'unico
+	(individualizar) para su identificaci\'on y como segundo paso, el cual se
+	repetira posiblemente ``eternamente'', la identificaci\'on y/o presentaci\'on del
+	individuo haia una red, una comunidad, una sociedad (pertenecer) en la cual
+	este se desemvolvera de una u otra forma siguiendo un conjunto de reglas
+	establecidas por sus miembros, momento desde el cual el individuo adicional de
+	ser individuo tambien llega a ser mimebro de ``esa'' comunidad. En la cual
+	podra ``compartir'' informaci\'on con otros miembros, actualizar su perfil,
+	entablar (aceptar o rechazar o ser aceptado o rechazado) una amistad.
+	
+	Estas caracteristicas no solo se presentan en un unico individuo sino en todos
+	los individuos sociales que al final es capacidad de todo el mundo por la misma
+	presencia de un \ac{FOAF}.
+	\end{enumerate}
+
+
+	\begin{figure}[here]
+		\centering
+		\includegraphics[angle=90,width=0.7\textwidth]{figure/fig_socialFlowDiagram.PNG}
+		\caption{Diagrama de Flujos de Interacci\'on de un Individuo Social}
+		\label{fig:SocialFlowDiagram}	
+	\end{figure}
+		
+	
+	
+
+	
+	
+	\section{Modelado}
+	\label{sec:modelling}
+	En esta secci\'on abarcaremos todas las bases par realizar el an\'alisis y
+	dise\~no de una aplicaci\'on social basa en web, como se muestra en la Figura
+	\ref{fig:SocialWebMLModelling} abarca las etapas de Dise\~no y/o Modelado de
+	Base de Datos, Hypertexto y la Arquitectura.
+	
+	\begin{figure}[here]
+		\centering
+		\includegraphics[width=1.0\textwidth]{figure/fig_SocialWebMLModelado.PNG}
+		\caption{Modelado: Social WebML Modelling}
+		\label{fig:SocialWebMLModelling}
+	\end{figure}
+	
+		
+		\subsection{Modelado de la Base de Datos}
+		\label{sec:proposalDB}
+		
+		\begin{figure}[here]
+			\centering
+			\includegraphics[angle=90,width=1.0\textwidth]{figure/fig_proposalBD.png}
+			\caption{Propuesta: Base de Datos (Inicial) para Social WebML}
+			\label{fig:proposalDB}
+		\end{figure}
+			  
+		Como se puede ver en la Figura \ref{fig:proposalDB} estamos dividiendo en $2$
+		conjuntos ``l\'ogicos'', los cuales representan la visi\'on actual de
+		\ac{WebML} y nuestra propuesta, estando etiquetadas las mismas en el
+		gr\'afico, la descripci\'on de las tablas pertenecientes al sub--conjunto
+		\ac{WebML} fueron descritas en el Cap\'itulo: \ref{chap:Process}, Secci\'on:
+		\ref{sec:WebML}.
+		
+		En el conjunto \textbf{Social WebML} se propone un total de $4$ tablas,
+		etiquetadas con los nombres:
+		
+		\begin{itemize}
+		  \item Tag
+		  \item Post
+		  \item Individual 
+		  \item \textbf{Profile}
+		\end{itemize}
+		
+		Pasaremos a explicar el porque de cada una de estas tablas, comenzando desde
+		la tabla \textbf{Individual}, como se puede ver se esta usando herencia de
+		tablas, el cual como lo indica \cite{Zdonik1990} cuando se refiere a
+		la herencia de tipos en bases de datos orientadas a objetos, en este caso
+		se agregara todos los elementos de la tabla padre a la tabla hija (tabla
+		heredada) adicionandole ciertas caracter\'isticas (ciertos atributos), al
+		igual como si de ``Herencia de Clases'' se tratase, el cual \cite{Fowler2003}
+		explica al referirse a \textbf{subclassing}, este atributo el cual se esta
+		adicionando es \textit{\textbf{oidGlobal}}, el cual almacenara un
+		identificador \'unico, no solo a nivel de aplicaci\'on sino a nivel web, este
+		actualmente se le considera el identificador generado por el estandar
+		OpenSocial, como se indica en \cite{OpenSocial} la finalidad de poseer un \'unico
+		identificador es lograr un \'unico medio de acceso a la Internet o como
+		\cite{Smarr2010} nos comenta, evitar dispersar la identidad y ser de
+		diferentes individuos para diferentes aplicaciones, en otras palabras la unificaci\'on de
+		la identidad, lograr reconocer a un usuario: como un \textbf{individuo
+		\'unico}, con sus problemas, con anhelos, sus deseos y de esta forma brindarle
+		lo que quiere infiriendo desde su comportamiento.
+		
+		La tabla \textbf{Profile} como se puede notar apenas consta de $2$ atributos y
+		su relaci\'on con la tabla \textbf{Individual} es diferente a lo comunmente
+		visto, esta tabla a diferencia de las tablas que seran almacenadas en una base
+		de datos, esta se consideraria desde este punto como una tabla temporal o como
+		\cite{Brambilla2003} lo llama: ``Virtual o Volatile Entity'', la
+		cual almacenara todos los objetos y/o entidades en el ambito de la sesi\'on
+		de una aplicaci\'on o tambien llamada memoria principal, en lugar de usar la
+		base de datos para almacenar los atributos presentes en el modelo los cuales
+		ser\'an obtenidos gracias a la informaci\'on que el \textbf{Individuo} (como
+		llamaremos al usuario social desde ahora) permita compartir con el aplicativo
+		y utilizados dependiendo de las necedidades y objetivos del aplicativo social.
+		El atributo \textbf{\textit{oid}} indica en una relaci\'on $1 \to 1$ a que
+		individuo en la red pertenece la informaci\'on que se esta capturando y el
+		atributo \textbf{personalInformation} representa no un solo atributo sino un
+		conjunto de los mismos, los cuales seran, como se dijo anteriormente,
+		almacenados temporalmente dependiendo de las necesidades y objetivos del
+		aplicativo social, con lo cual se brindar\'ia un servicio personalizado a cada
+		individuo.
+		
+		La tabla \textbf{Post} como se puede notar esta relacionado con la tabla
+		\textbf{Individual} en un relaci\'on $N \to 1$ es decir muchos \textit{post's}
+		pueden ser hechos por un \underline{\'unico} \textit{individuo}, con esto
+		queremos dar a entender que un individuo puede expresar uno o muchos
+		``contenidos'', siendo estos: ideas, imagenes, audios, videos, etc.
+		dependiendo del contexto sobre el cual este desarrollandose su interacci\'on,
+		decimos interacci\'on, ya que mediante la \textbf{comunicaci\'on} de los
+		contenidos antes nombrados es como los individuos sociales interactuan unos
+		con otros, siendo esta la finalidad de la presencia de esta tabla en la cual
+		cada contenido ``compartido'' pertenece unicamente a un individuo, pero sobre
+		este puede existir una interacci\'on sobre otro individuo, el cual quiera
+		compartir un contenido sobre el contenido antes nombrado, pero siempre
+		guardando la unicidad entre un \textit{post} y el \textit{individuo} que lo
+		comunic\'o. 
+		
+		%Anhadir comentario relacionado a los patrones sociales.
+		%averiguar nombre de los tags @ de las redes sociales
+		Por \'ultimo la tabla \textbf{Tag} relacionada indirectamente a la tabla
+		\textbf{Post} ya que guardan una relaci\'on $N \to N$ guarda el mismo
+		significado que actualmente vemos en los blogs, el cual se le adiciona el
+		potencial de los ``tags @'' de las redes sociales, con la cual se busca adem\'as
+		de una referenciaci\'on complementa el objetivo de la tabla
+		\textbf{Individual} y de esta forma obtener una representatividad, una marcada
+		presencia del individuo dentro de la Social Web, no solo por quien es, sino
+		tambien por lo que hace.
+		
+		Gracias a estas $4$ tablas logramos a\~nadir el valor social al modelo de
+		datos en \ac{WebML}, representado por:
+		
+		\fbox{\parbox[b]{\linewidth}{ 
+		\begin{itemize}
+		  \item Individualidad: Abstraido gracias a la presencia de la tabla
+		  \textbf{Individual} y \textbf{Profile}.
+		  \item Comunicaci\'on: Conseguida a trav\'es de la presencia de la
+		  interaci\'on de las tablas \textbf{Individual} y \textbf{Post}.
+		  \item Referenciaci\'on y representatividad: Esto por una interacci\'on de
+		  las tablas \textbf{Individual}, \textbf{Post} y en especial del enlace que
+		  se logra por la presencia de la tabla \textbf{Tag}.
+		\end{itemize}
+		}}
+		
+		\subsection{Modelado del Hypertexto}
+		\label{sec:proposalHypertext}
+		
+		\begin{figure}[here]
+			\centering
+			\includegraphics[width=0.9\textwidth]{figure/fig_proposalUserHierarchical.png}
+			\caption{Propuesta: Jerarquia de usuarios en Social WebML}
+			\label{fig:proposalUser}
+		\end{figure}
+		
+		En la Figura \ref{fig:proposalUser} se representa mediante un Diagrama de
+		Casos de Uso el cual fue extendido en \cite{Ceri2003} para crear una jerarquia
+		de actores y poder de esta forma disen\~ar hypertextos espec\'ificos para cada
+		uno, inicialmente \cite{Frattini2007} nos comenta que existiria una jerarquia
+		de actores de $3$ niveles siendo los hypertextos asociados los de:
+		\textit{visitante o anonimo, miembro y administrador}; en la se
+		extiende esta estructura para dise\~nar un nivel adicional
+		disgregando al \textit{miembro} en $2$ actores adicinales que a ser heredados de este \'ultimo
+		poseen todos sus atributos y adicionalmente se le a\~naden nuevos, estos son:
+		\textbf{Usuario Aplicaci\'on} e \textbf{Individuo}; el primero para soportar
+		todas las interacciones tradicionales de las aplicaciones web en donde la
+		comunicaci\'on entre el website y el usuario era o uni o bi--direccinal,
+		conservando as\'i la posibilidad de mantenerse an\'onimo seg\'un sea la
+		necesidad de usuario, y la presencia del actor \textit{Individuo} ya nos
+		brinda la idea de la existencia de un ambiente de desenvolvimiento o la de un
+		hypertexto de tipo social. Se mantuvo la existencia del actor \textit{Usuario
+		Aplicaci\'on} conjunta con \textit{Individuo} para en una primera instancia
+		proveer del poder de decisi\'on al individuo de que y como querer comportarse
+		durante su viaje por el mundo de la Social Web, pero como lo dijo
+		\cite{O'Reilly2007} debemos de llegar a un punto en el cual exista la
+		computaci\'on ubicua, en donde no notemos la diferencia de nuestra conexi\'on
+		con el mundo virtual, hacerlo mas llevadero y por lo tanto hacer mas placentero
+		este viaje, para ello es que la entrada del aspecto social el cual ayude a
+		brindarnos una personalizaci\'on de servicios es muy importante.
+		
+		\begin{figure}[here]
+			\centering 
+			\includegraphics[width=0.8\textwidth]{figure/fig_SocialUnits.png}
+			\caption{Propuesta: Unidades Sociales}
+			\label{fig:proposalSocialUnits}
+		\end{figure}
+	
+		Enla Figura \ref{fig:proposalSocialUnits} podemos identificar los aspectos
+		sociales que se implementaran en nuestra propuesta, mediante el dise\~no y
+		codificaci\'on de Custom Units (cuyo nombre son los que recibe la creaci\'on
+		de nuevas unidades de contenido o de operaci\'on en el \ac{CASE} WebRatio
+		siendo estas Ad--hoc a las necesidades del programador), los cuales son:
+		
+		\begin{itemize}
+		  \item[a.] \textbf{Social} Login Unit
+		  \item[b.] Get \textbf{Social} Data Unit
+		  \item[c.] \textbf{Social} Comment Unit
+		  \item[d.] \textbf{Social} Tag Unit
+		\end{itemize}
+				
+		En el caso de \textbf{Social Login Unit} esta tiene como finalidad proveer al
+		dise\~no de hypertexto de la caracter\'istica social de \textbf{Individualidad}
+		la cual mediante la implementaci\'on de OpenSocial utilizaremos o en
+		determinados casos generaremos el uso de un \'unico individuo desde y para la
+		aplicaci\'on.
+		
+		La finalidad de la unidad \textbf{Get Social Data Unit} fue la previa
+		utilizaci\'on de la unidad \textit{Social Login Unit} de la cual se extraeria
+		una conexi\'on hacia la informaci\'on gen\'erica del individuo almacenado en
+		la red y de la cual dependiendo del negocio del aplicativo extraer
+		informaci\'on relevante para el usuario y para el aplicativo, la cual
+		previamente el individuo acepto compartir con los dem\'as, que pudiese ayudar a personalizar el contenido brindado por la
+		aplicaci\'on social.
+		
+		Para \textbf{Social Comment Unit} se tiene como base brindar una opci\'on de
+		soluci\'on a la caracteristica social de \textit{Comunicaci\'on many-to-many}
+		desde, hacia y por el individuo que haga uso de una determinada aplicaci\'on
+		social.
+		
+		Finalmente para el caso del \textbf{Social Tag Unit} la carater\'istica de la
+		\textit{Referenciaci\'on} fue la base para su dise\~no en la cual busca una
+		representatividad tanto del individuo como de su forma de ser y actuar, lo cual
+		le brinda con el tiempo una identidad mas marcada y \'unica.
+		
+\chapter{CASO DE ESTUDIO}	
+\label{chap:studyCase}	
+En este capitulo se presenta un caso de estudio [aqui falta un adjetivo para
+decir que no es uno de verdad] para describir el uso de la metodología Social
+WebML en el desarrollo de la aplicaci\'on \textit{``WebRatio Travel Agency''},
+esta aplicaci\'on estara basada inicialmente en el portal de una agencia de
+viajes, la cual estar\'a complementada con el paradigma social implementado
+desde la propuesta de Social WebML.
+
+	\section{Contexto}
+	\label{sec:context}
+	\textbf{Web Ratio Travel Agency (WRTA)} es una agencia de viajes que brinda su
+	servicio de informaci\'on y reservaci\'on a sus clientes desde su p\'agina web. En esta
+	p\'agina una usuario puede ver todos los aspectos acerca de los viajes
+	ofertados por la agencia, por ejemplo: \textit{viajes, reservacines, costos,
+	fechas, etc.}; adicional puede recibir noticias, promociones por temporada,
+	etc.
+	Actualmente WRTA se siente en la necesidad de brindar un servicio m\'as
+	personalizado a sus clientes, como por ejemplo permitir a sus clientes
+	\textbf{comentar} y \textbf{recomendar} los lugares hacia donde han ido y
+	sobre todo el servicio que han utilizado y de esta manera lograr promocionar el
+	servicio que brindan. 
+	Principalmente por estas razones es que WRTA ha decidido adiconar ciertas
+	funcionalidades que le permitan cubrir las necesidades que posee para lo cual
+	se hara uso de la metodolog\'ia de desarrollo \ac{WebML} y Social WebML con lo
+	cual cubriremos las necesidades de negocio y las necesidades sociales,
+	identificadas en primera instancia, por WRTA.
+	
+	\section{WRTA - An\'alisis de Requerimientos del Negocio}
+	\label{sec:reqAnalysis}
+		
+	En esta secci\'on se realizara la identificaci\'on de actores, grupos  y
+	escenarios de desarrollo de sus funciones.
+	
+	Inicialmente para la aplicaci\'on se presenta la existencia de los actores
+	\textbf{administrador} y \textbf{usuario} en si mismos.
+	
+	\begin{itemize}
+	  \item \textbf{Administrador: } Actor a cargo de la administraci\'on de
+	  la aplicaci\'on en su totalidad.
+	  \item \textbf{Usuario: } Actor el cual puede revisar informaci\'on referente
+	  a viajes, realizar operacines sobre los mismos como reservas o petici\'on de
+	  informacion, etc.
+	\end{itemize}
+	
+		\subsection{Identificaci\'on de grupos}
+		\label{ssec:groupIdentification}
+		Para la identificaci\'on de los grupos se tomara como base los actores
+		previamente identificados adicionandole la presencia de un actor de tipo
+		\textbf{an\'onimo}, los cuales tomaran el nombre de grupos.
+
+		\begin{itemize}
+		   \item \textbf{Grupo -- Administrador: } Registro pre existente en la
+		   aplicaci\'on con el rol de \textit{Admin}.
+		   \item \textbf{Grupo -- Usuario: } Registrado por si mismo en la
+		   aplicaci\'on.
+		   \item \textbf{Grupo -- (Usuario) An\'onimo: } No registrado en la
+		   aplicaci\'on y limitado a la visibilidad de ciertos contenidos.
+		\end{itemize}
+		  
+		\begin{table}[htbp]
+			\begin{tabular}{|l|l|}
+				\hline
+				\multicolumn{2}{|c|}{\textbf{GRUPOS}} \\\hline
+				\multicolumn{2}{|c|}{\textbf{Grupo -- Administrator}} \\\hline
+				Descripci\'on		& Administraci\'on de la aplicaci\'on en su totalidad.\\\hline 
+				Escenarios			& Inscripci\'on \underline{de} viajes.					\\
+									& Inscripci\'on \underline{de} promociones.				\\
+									& Inscripci\'on \underline{de} descuentos.				\\
+									& Administraci\'on del ciclo de vida de un viaje.		\\\hline
+			    Data Profile 		& UserName, Password, Email.							\\\hline 
+				Acceso de lectura   & Informaci\'on de viajes y de usuarios.				\\\hline
+				Acceso de escritura & Informaci\'on de viajes y de usuarios.				\\\hline
+				\multicolumn{2}{|c|}{\textbf{Grupo -- Usuario}} \\\hline
+				Descripci\'on 		& Agrupa los usuarios que se registran en la apliaci\'on.\\\hline
+				Escenarios 			& Inscripci\'on \underline{a} un viaje: normal, promoci\'on o
+				descuento.																	\\\hline 
+				Data Profile 		& UserName, Password, Nombre, Apellido, Email.			\\\hline
+				Acceso de lectura	& Informaci\'on de viajes.								\\\hline
+				Acceso de escritura & Informaci\'on de usuario (limitado a su propia
+				informaci\'on) 																\\\hline
+				\multicolumn{2}{|c|}{\textbf{Grupo -- (Usuario) An\'onimo}} \\\hline
+				Descripci\'on 		& Agrupa a los visitantes o personas no registradas.    \\\hline
+				Escenarios 			& Registro de usuario.									\\\hline
+				Data Profile 		& Perfil no requerido									\\\hline 
+				Acceso de lectura	& Informaci\'on de la empresa.							\\\hline
+				Acceso de escritura & Ninguna												\\\hline
+				
+			\end{tabular}
+			
+			\caption{WRTA: Descripci\'on de Grupos}
+			\label{tab:descriptionTable}
+		\end{table}
+		
+		
+		En la Tabla \ref{tab:descriptionTable} se presenta cada grupo con un poco
+		m\'as de detalle, siendo el campo \textit{Descripci\'on}: la principal
+		acci\'on a realizar por los integrantes del grupo, \textit{Escenarios}
+	    representa las acciones generales a realizarse por defecto dentro del
+	    grupo (los cuales representan a los requerimientos
+	    funcionales\footnote{Algunos de estos requerimientos podrian ser
+	    desconocidos u obviados durante una primera sesi\'on de an\'alisis, sin
+	    embargo como se explico en la Figura \ref{fig:WebML_LifeCicle},
+	    \ac{WebML} es un proceso iterativo, por consiguiente en sesiones
+	    posteriores se identificarian requerimientos adicionales} en el
+	    aplicativo), \textit{Data Profile}: la informaci\'on resaltante a ser
+	    almacenada acerca de cada uno de lo integrantes de este grupo,
+	    \textit{Accesos de lectura y escritura} se refiere a la facultad que posee
+	    el grupo de poder acceder a la informaci\'on almacenada en la aplicaci\'on
+	    ya sea solo para visualizaci\'on o modificaci\'on.
+	    
+		\subsection{An\'alisis de Requerimientos Funcionales}
+		\label{ssec:functionalReq}
+		
+		\begin{figure}[here]
+			\centering 
+			\includegraphics[width=0.5\textwidth]{figure/fig_WRTA_Hierarchy.png}
+			\caption{WRTA: Jerarquia de Grupos}
+			\label{fig:WRTA_Hierarchy}
+		\end{figure}
+	    
+	    En la Figura \ref{fig:WRTA_Hierarchy} se presenta en un Diagrama de Casos
+	    de Uso que representa la jerarquia de los actores que intervienen en la
+	    aplicaci\'on, siendo agregado el usuario an\'onimo, de los cuales los nodos en esta jerarquia
+	    representan lo que se convertira en los \textit{SiteView} en el modelado
+	    del hypertexto.
+	    
+	    En la Tabla \ref{tab:descriptionTable} se presento el campo
+	    \textbf{Escenarios} mediante la cual se realizaria la primera captura de
+	    requerimientos funcionales, para lo cual se hara uso de los grupos y los
+	    escenarios en los cuales estos interactuan, esto se hara mediante la
+	    utilizaci\'on de un Diagrama de Actividades \cite{Matera2003} en t\'erminos
+	    de \ac{UML}, en donde se podr\'a analizar cada grupo por separado y su
+	    interacci\'on con los dem\'as.
+	    
+	    \begin{figure}[here]
+			\centering 
+			\includegraphics[width=0.9\textwidth]{figure/fig_WRTA_flowDiagram.png}
+			\caption{WRTA: Diagrama de Flujo entre grupos de actores}
+			\label{fig:WRTA_flowDiagram}
+		\end{figure}
+
+		En la Figura \ref{fig:WRTA_flowDiagram} se presenta la interacci\'on que poseen
+		los grupos de usuario unos entre otros asi como sus acciones principales (a
+		transformarse en requerimientos funcionales) representados anteriormente con
+		el nombre de \textit{Escenarios}.
+ 
+	    
+		\subsection{Identificaci\'on de Objetos Core de Informaci\'on}
+		\label{ssec:coreObjects}
+		Mediante la identificaci\'on de grupos y el an\'alisis de requerimientos
+		funcionales se pudo distinguir $3$ objetos core de infromaci\'on que despues
+		pasaran a ser parte de la etapa de modelado, estos son:
+		
+		\begin{itemize}
+		  \item \textbf{Usuarios y grupos:} Representa la informaci\'on
+		  fundamental acerca de los usuarios de la aplicaci\'on, los roles
+		  pueden ser derivados de los grupos a los que ellos pertenecen as\'i
+		  como sus permisos de lectura/escritura sobre diferentes objetos.
+		  \item \textbf{Informaci\'on del Viaje:} Propiedades como: fechas de inicio y
+		  fin de promociones y viajes, lugares, etc.
+		  \item \textbf{Boletos:} Inforamci\'on principal para la administraci\'on de
+		  los viajes, objeto importante en la fase de ``Inscripci\'on a un Viaje''.
+		\end{itemize}
+		
+		\subsection{Identificaci\'on de SiteViews}
+		\label{ssec:siteViews}
+		En la tabla \ref{tab:associationUG_SV} se refleja en m'as detalle cada uno de
+		los SiteViews identificados cuando se identifico los grupos de usuarios
+		asociado a los escenarios o requerimientos funcionales de cada uno de ellos.
+		
+		\begin{table}[htbp]
+			\begin{tabular}{|l|l|l|}
+			\hline
+			Administrador	& Usuario	& An\'onimo\\ \hline
+			Inscripci\'on de un Viaje & Inscripci\'on a un Viaje
+			& Registrarse como usuario \\\hline
+			Inscripci\'on de una Promoci\'on & \multicolumn{1}{c|}{---} &
+			\multicolumn{1}{c|}{---}\\
+			\hline Administraci\'on del Viaje & Acceso a la aplicaci\'on & \multicolumn{1}{c|}{---}
+			\\
+			\hline
+			\end{tabular}
+		\caption{Relaci\'on entre los SiteViews (Grupos) con Requerimientos
+		Funcionales}
+		\label{tab:associationUG_SV}
+		\end{table}
+		
+	\section{WRTA - An\'alisis de Requerimientos Sociales}
+	\label{sec:socReqAnalysis}
+	En esta secci\'on se realizara un complemento al an\'alisis de
+	requerimientos de negocio para a\~nadirle el paradigma social.
+	
+		\subsection{Identificaci\'on de Grupos -- Sociales}
+		\label{ssec:socialGroup}
+		En la Figura \ref{fig:WRTA_Hierarchy} se presento el modelo jerarquico de
+		grupos para WRTA, en esta secci\'on se realizara una actualizaci\'on al
+		Diagrama de Casos de Uso utilizado para representar un aspecto social dentro
+		de WRTA, en la cual se utiliza los terminos \textit{Visitante}, en lugar de
+		\textit{An\'onimo} y el  actor (grupo) \textit{Usuario} se ha dividido en $2$
+		grupos ``simb\'olicos'', se utiliza el t\'ermino simb\'olico ya que en
+		realidad la divisi\'on de este grupo no significara la divisi\'on en $2$
+		SiteViews como se hizo con los dem\'as grupos sino que la informaci\'on de
+		cada grupo ser\'a tratada de forma diferente, estos actores (grupos) son:
+		
+		\begin{itemize}
+		  \item \textbf{Usuario Registrado en WRTA:} Este grupo es representado por
+		  las personas que deseen guardar su identidad global para otros fines y se
+		  inscriben de forma tradicional a la aplicaci\'on brindadndo solo cierta
+		  informaci\'on al aplicativo y recbiendo un tratamiento del mismo de forma
+		  tradicional igualmente.
+		  \item \textbf{Individuo Social:} Este grupo esta representado por el
+		  \textit{Individuo} Social que posee ya, una identidad en la Internet y desea
+		  utilizar esta identidad para formar parte m\'as activa en la aplicaci\'on,
+		  esto se logra a trav\'es de un acceso al aplicativo brindando credenciales
+		  globales al aplicativo; por ejemplo OpenID, FacebookConnect, etc.
+		\end{itemize}
+		 
+		\begin{figure}[here]
+			\centering 
+			\includegraphics[width=0.5\textwidth]{figure/fig_WRTA_Socialhierarchy.png}
+			\caption{WRTA: Jerarquia de Grupos v2.0 -- Grupo Social}
+			\label{fig:WRTA_SocialHierarchy}
+		\end{figure} 
+
+		Adicionalmente al realizar el an\'alisis de grupos se hizo un an\'alisis
+		usando un Diagrama de Actividades, visto en la Figura \ref{fig:WRTA_flowDiagram},
+		para representar los requerimientos funcionales representativos de la
+		aplicaci\'on. Para complementar los requerimientos funcionales del aplicativo
+		se a\~nade los requerimientos sociales, para WRTA usaremos los requerimientos
+		sociales vistos anteriormente en la Figura \ref {fig:SocialFlowDiagram} en el
+		Cap\'itulo \ref{chap:Proposal} de este trabajo.
+
+	\section{WRTA - Dise\~no de Datos}
+	\label{sec:dataDesign}
+	Para el modelado de la base de datos se usra como base el \ac{ERM} visto en la
+	Figura \ref{fig:proposalDB}, esta estar\'a modelada con el \ac{IDE}
+	WebRatio\footnote{http://www.webratio.com} como se puede ver en la Figura
+	\ref{fig:WRTA_fig_WR_DataModel}.
+
+	\begin{figure}[here]
+		\centering 
+		\includegraphics[width=0.9\textwidth]{figure/fig_WR_DataModel.png}
+		\caption{WRTA: Modelo (Inicial) de Base de Datos -- WebRatio}
+		\label{fig:WRTA_fig_WR_DataModel}
+	\end{figure} 
+		
+		
+	En esta figuran se muestra como se ha modelado la base de datos inicial
+	mostrada anteriormente con WebRatio; se ha modelado las relaciones
+	\textit{many--to--many}, ya que el \ac{IDE} transforma estas relaciones en
+	sus relaciones analogas \textit{one--to--many} y \textit{many--to--one} con la
+	tabla intermedia respectiva de forma autom\'atica, como puede verse en la
+	Figura \ref{fig:WRTA_fig_WR_autoModelling}, donde las Tablas: \textit{User},
+	\textbf{Group}, \textbf{Module} y \textbf{TAG} se han transformado de forma
+	automatica en tablas \textbf{group\_module}, \textbf{tag\_post} y
+	\textbf{user\_group}.
+	
+	\begin{figure}[here]
+		\centering 
+		\includegraphics[width=0.4\textwidth]{figure/fig_WR_autoModelling.png}
+		\caption{WRTA: Mapeo Autom\'atico del \ac{ERM} -- WebRatio}
+		\label{fig:WRTA_fig_WR_autoModelling}
+	\end{figure} 
+	
+	Algo importante a comentar es la existencia de la Tabla \textbf{PROFILE}, la
+	cual posee una presentaci\'on distinta en el modelado, esto es porque se le ha
+	cambiado un atributo en su estructura con la cual esta se vuelve una una
+	entidad volatil, especificamente para el ambito de la sesi\'on como se ve en la
+	Figura \ref{fig:profileTableProperties}.
+	
+	\begin{figure}[here]
+		\centering 
+		\includegraphics[width=0.5\textwidth]{figure/fig_profileProperties.png}
+		\caption{WRTA: Properties -- Tabla PROFILE}
+		\label{fig:profileTableProperties}
+	\end{figure}
+	
+	
+	
+	
+	
+	
+	
+\chapter{CONCLUSIONES} % 1 to 2 pages
+\label{chap:Conclusions}
+%Testing Bib\TeX with \cite{Bay1}
+
+\begin{comment}
+$\CheckedBox$ Testing Bib\TeX with Emanuele's Thesis $\rightarrow$ \cite{Andreis2010}\\
+$\CheckedBox$ Testing Bib\TeX with Alessandro's Thesis $\rightarrow$ \cite{Bozzon2009}\\
+$\CheckedBox$ Testing Bib\TeX with Brambilla's In-collection $\rightarrow$
+\cite{Brambilla2010}\\
+$\CheckedBox$ Testing Bib\TeX with Fraternali's In-collection $\rightarrow$ \cite{Fraternali2010}\\
+$\CheckedBox$ Testing Bib\TeX with Matera's Article $\rightarrow$ \cite{Matera2003}\\
+$\CheckedBox$ Testing Bib\TeX with Matteo's Thesis $\rightarrow$ \cite{Frattini2007}\\
+Draftt thesis --Bib\TeX with Nugraha's Thesis $\rightarrow$ \cite{Nugraha2007}\\
+Testing Bib\TeX with Ko's Article $\rightarrow$ \cite{Ko2010}\\
+Testing Bib\TeX with White's Article $\rightarrow$ \cite{White2004}\\
+Testing Bib\TeX with OReillys Article $\rightarrow$ \cite{O'Reilly2007}\\
+
+
+
+
+----------------------------to read-------------------------\\
+Testing Bib\TeX with Ceri's Article $\rightarrow$ \cite{Ceri2010}\\
+Testing Bib\TeX with Ceri's Article $\rightarrow$ \cite{Ceri2001}\\
+Testing Bib\TeX with Acerbis $\rightarrow$ \cite{Acerbis2007}\\
+Testing Bib\TeX with Moreno $\rightarrow$ \cite{Moreno2006}\\
+Testing Bib\TeX with Brambilla $\rightarrow$ \cite{Brambilla2006}\\
+Testing Bib\TeX with Rieder $\rightarrow$ \cite{Rieder2009}\\
+Testing Bib\TeX with Ruiz $\rightarrow$ \cite{Ruiz2010}\\
+
+
+
+-----------Web------------------------------\newline
+Testing with Facebook API $\rightarrow$ \cite{Facebook}\newline
+
+
+
+\end{comment}
+
+
+\backmatter
+\pagestyle{plain} 
+
+% Bibliography
+%\bibliographystyle{authordate4}% se comento en preamble.tex los newcomand de
+% reference
+\bibliographystyle{ieeetr}
+\bibliography{main2}
+
+\end{document}

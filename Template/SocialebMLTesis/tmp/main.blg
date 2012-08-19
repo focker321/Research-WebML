@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: ieeetr.bst
+Database file #1: main2.bib
+Warning--entry type for "Owyang2009" isn't style-file defined
+--line 633 of file main2.bib
+Warning--can't use both author and editor fields in Ceri2003
+You've used 33 entries,
+            1876 wiz_defined-function locations,
+            685 strings with 9184 characters,
+and the built_in function-call counts, 7206 in all, are:
+= -- 666
+> -- 299
+< -- 1
++ -- 114
+- -- 81
+* -- 491
+:= -- 1067
+add.period$ -- 39
+call.type$ -- 33
+change.case$ -- 29
+chr.to.int$ -- 0
+cite$ -- 34
+duplicate$ -- 379
+empty$ -- 750
+format.name$ -- 81
+if$ -- 1763
+int.to.chr$ -- 0
+int.to.str$ -- 33
+missing$ -- 30
+newline$ -- 109
+num.names$ -- 36
+pop$ -- 127
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 207
+stack$ -- 0
+substring$ -- 313
+swap$ -- 115
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 63
+width$ -- 35
+write$ -- 308
+(There were 2 warnings)

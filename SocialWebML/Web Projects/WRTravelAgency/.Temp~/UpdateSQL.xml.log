@@ -1,56 +1,59 @@
-[25 jun 2012 22:24:33] DEBUG Executing SQL script
-[25 jun 2012 22:24:33] INFO ================================================================================
-[25 jun 2012 22:24:33] INFO outputPath= '/Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/UpdateSQL.xml'
-[25 jun 2012 22:24:33] INFO onError= 'continue'
-[25 jun 2012 22:24:33] INFO statementSeparator= ';'
-[25 jun 2012 22:24:33] INFO derby.system.home= '/Users/nuss/Documents/WebRatio/workspace/.metadata/.plugins/com.webratio.commons.db/derby'
-[25 jun 2012 22:24:33] INFO password= ''
-[25 jun 2012 22:24:33] INFO url= 'jdbc:mysql://localhost:3306/WRTA'
-[25 jun 2012 22:24:33] INFO username= 'root'
-[25 jun 2012 22:24:33] INFO autoCommit= 'false'
-[25 jun 2012 22:24:33] INFO outputLogPath= '/Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/UpdateSQL.xml.log'
-[25 jun 2012 22:24:33] INFO driverClass= 'com.mysql.jdbc.Driver'
-[25 jun 2012 22:24:33] INFO encoding= ''
-[25 jun 2012 22:24:33] INFO eventSocketPort= '49382'
-[25 jun 2012 22:24:33] INFO sqlScript= '/Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/UpdateSQL.sql'
-[25 jun 2012 22:24:33] INFO ================================================================================
-[25 jun 2012 22:24:33] INFO Connecting to the Database...
-[25 jun 2012 22:24:33] INFO Database connection estabilished
-[25 jun 2012 22:24:33] INFO transaction isolation: 4
-[25 jun 2012 22:24:33] DEBUG ================================================================================
-[25 jun 2012 22:24:33] DEBUG Executing SQL script file: /Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/UpdateSQL.sql
-[25 jun 2012 22:24:33] DEBUG Executing statement:  create table `group` ( `oid`  integer  not null, `groupname`  varchar(255), primary key (`oid`) )
-[25 jun 2012 22:24:33] DEBUG Executing statement:    create table `module` ( `oid`  integer  not null, `moduleid`  varchar(255), `modulename`  varchar(255), primary key (`oid`) )
-[25 jun 2012 22:24:33] DEBUG Executing statement:    create table `user` ( `oid`  integer  not null, `username`  varchar(255), `password`  varchar(255), `email`  varchar(255), primary key (`oid`) )
-[25 jun 2012 22:24:33] DEBUG Executing statement:    create table `ticket` ( `oid`  integer  not null, `fecha_compra`  date, `fecha_viaje`  date, primary key (`oid`) )
-[25 jun 2012 22:24:33] DEBUG Executing statement:    create table `destino` ( `oid`  integer  not null, `promocion`  varchar(255), `distancia`  double precision, `nombre`  varchar(255), primary key (`oid`) )
-[25 jun 2012 22:24:34] DEBUG Executing statement:    create table `tipo_viaje` ( `oid`  integer  not null, `tipo`  varchar(255), primary key (`oid`) )
-[25 jun 2012 22:24:34] DEBUG Executing statement:    create table `individuo` ( `user_oid`  integer  not null, `oidglobal`  integer  not null, primary key (`user_oid`) )
-[25 jun 2012 22:24:34] DEBUG Executing statement:    create table `post` ( `oid`  integer  not null, `contenido`  varchar(255), primary key (`oid`) )
-[25 jun 2012 22:24:34] DEBUG Executing statement:    create table `tag` ( `oid`  integer  not null, `nombre_tag`  varchar(255), `representatividad`  varchar(255), primary key (`oid`) )
-[25 jun 2012 22:24:34] DEBUG Executing statement:    alter table `group`  add column  `module_oid`  integer
-[25 jun 2012 22:24:34] DEBUG Executing statement:  alter table `group`   add index fk_group_module (`module_oid`), add constraint fk_group_module foreign key (`module_oid`) references `module` (`oid`)
-[25 jun 2012 22:24:34] DEBUG Executing statement:    create table `group_module` ( `group_oid`  integer not null, `module_oid`  integer not null, primary key (`group_oid`, `module_oid`) )
-[25 jun 2012 22:24:35] DEBUG Executing statement:  alter table `group_module`   add index fk_group_module_group (`group_oid`), add constraint fk_group_module_group foreign key (`group_oid`) references `group` (`oid`)
-[25 jun 2012 22:24:35] DEBUG Executing statement:  alter table `group_module`   add index fk_group_module_module (`module_oid`), add constraint fk_group_module_module foreign key (`module_oid`) references `module` (`oid`)
-[25 jun 2012 22:24:35] DEBUG Executing statement:    alter table `user`  add column  `group_oid`  integer
-[25 jun 2012 22:24:35] DEBUG Executing statement:  alter table `user`   add index fk_user_group (`group_oid`), add constraint fk_user_group foreign key (`group_oid`) references `group` (`oid`)
-[25 jun 2012 22:24:35] DEBUG Executing statement:    create table `user_group` ( `user_oid`  integer not null, `group_oid`  integer not null, primary key (`user_oid`, `group_oid`) )
-[25 jun 2012 22:24:35] DEBUG Executing statement:  alter table `user_group`   add index fk_user_group_user (`user_oid`), add constraint fk_user_group_user foreign key (`user_oid`) references `user` (`oid`)
-[25 jun 2012 22:24:36] DEBUG Executing statement:  alter table `user_group`   add index fk_user_group_group (`group_oid`), add constraint fk_user_group_group foreign key (`group_oid`) references `group` (`oid`)
-[25 jun 2012 22:24:36] DEBUG Executing statement:    alter table `ticket`  add column  `destino_oid`  integer
-[25 jun 2012 22:24:36] DEBUG Executing statement:  alter table `ticket`   add index fk_ticket_destino (`destino_oid`), add constraint fk_ticket_destino foreign key (`destino_oid`) references `destino` (`oid`)
-[25 jun 2012 22:24:36] DEBUG Executing statement:    alter table `ticket`  add column  `tipo_viaje_oid`  integer
-[25 jun 2012 22:24:36] DEBUG Executing statement:  alter table `ticket`   add index fk_ticket_tipo_viaje (`tipo_viaje_oid`), add constraint fk_ticket_tipo_viaje foreign key (`tipo_viaje_oid`) references `tipo_viaje` (`oid`)
-[25 jun 2012 22:24:36] DEBUG Executing statement:    alter table `ticket`  add column  `user_oid`  integer
-[25 jun 2012 22:24:36] DEBUG Executing statement:  alter table `ticket`   add index fk_ticket_user (`user_oid`), add constraint fk_ticket_user foreign key (`user_oid`) references `user` (`oid`)
-[25 jun 2012 22:24:36] DEBUG Executing statement:    alter table `post`  add column  `individuo_oid`  integer
-[25 jun 2012 22:24:37] DEBUG Executing statement:  alter table `post`   add index fk_post_individuo (`individuo_oid`), add constraint fk_post_individuo foreign key (`individuo_oid`) references `individuo` (`user_oid`)
-[25 jun 2012 22:24:37] DEBUG Executing statement:    create table `tag_post` ( `tag_oid`  integer not null, `post_oid`  integer not null, primary key (`tag_oid`, `post_oid`) )
-[25 jun 2012 22:24:37] DEBUG Executing statement:  alter table `tag_post`   add index fk_tag_post_tag (`tag_oid`), add constraint fk_tag_post_tag foreign key (`tag_oid`) references `tag` (`oid`)
-[25 jun 2012 22:24:37] DEBUG Executing statement:  alter table `tag_post`   add index fk_tag_post_post (`post_oid`), add constraint fk_tag_post_post foreign key (`post_oid`) references `post` (`oid`)
-[25 jun 2012 22:24:37] DEBUG Executing statement:    alter table `individuo`   add index fk_individuo_user (`user_oid`), add constraint fk_individuo_user foreign key (`user_oid`) references `user` (`oid`)
-[25 jun 2012 22:24:37] DEBUG ================================================================================
-[25 jun 2012 22:24:37] DEBUG SQL SCRIPT SUCCESSFULLY EXECUTED
-[25 jun 2012 22:24:37] INFO Database connection closed
-[25 jun 2012 22:24:37] DEBUG Total time: 4758 milliseconds
+[29 jul 2012 11:23:39] DEBUG Executing SQL script
+[29 jul 2012 11:23:39] INFO ================================================================================
+[29 jul 2012 11:23:39] INFO outputPath= '/Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/UpdateSQL.xml'
+[29 jul 2012 11:23:39] INFO onError= 'continue'
+[29 jul 2012 11:23:39] INFO statementSeparator= ';'
+[29 jul 2012 11:23:39] INFO derby.system.home= '/Users/nuss/Documents/WebRatio/workspace/.metadata/.plugins/com.webratio.commons.db/derby'
+[29 jul 2012 11:23:39] INFO password= ''
+[29 jul 2012 11:23:39] INFO url= 'jdbc:mysql://localhost:3306/WRTA'
+[29 jul 2012 11:23:39] INFO username= 'root'
+[29 jul 2012 11:23:39] INFO autoCommit= 'false'
+[29 jul 2012 11:23:39] INFO outputLogPath= '/Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/UpdateSQL.xml.log'
+[29 jul 2012 11:23:39] INFO driverClass= 'com.mysql.jdbc.Driver'
+[29 jul 2012 11:23:39] INFO encoding= ''
+[29 jul 2012 11:23:39] INFO eventSocketPort= '49459'
+[29 jul 2012 11:23:39] INFO sqlScript= '/Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/UpdateSQL.sql'
+[29 jul 2012 11:23:39] INFO ================================================================================
+[29 jul 2012 11:23:39] INFO Connecting to the Database...
+[29 jul 2012 11:23:39] INFO Database connection estabilished
+[29 jul 2012 11:23:39] INFO transaction isolation: 4
+[29 jul 2012 11:23:39] DEBUG ================================================================================
+[29 jul 2012 11:23:39] DEBUG Executing SQL script file: /Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/UpdateSQL.sql
+[29 jul 2012 11:23:39] DEBUG Executing statement:  create table `group` ( `oid`  integer  not null, `groupname`  varchar(255), primary key (`oid`) )
+[29 jul 2012 11:23:39] DEBUG Executing statement:    create table `module` ( `oid`  integer  not null, `moduleid`  varchar(255), `modulename`  varchar(255), primary key (`oid`) )
+[29 jul 2012 11:23:39] DEBUG Executing statement:    create table `user` ( `oid`  integer  not null, `username`  varchar(255), `password`  varchar(255), `email`  varchar(255), primary key (`oid`) )
+[29 jul 2012 11:23:40] DEBUG Executing statement:    create table `viaje` ( `oid`  integer  not null, `fecha_viaje`  date, `titulo_viaje`  varchar(255), `resumen_viaje`  varchar(255), primary key (`oid`) )
+[29 jul 2012 11:23:40] DEBUG Executing statement:    create table `destino` ( `oid`  integer  not null, `promocion`  varchar(255), `distancia`  double precision, `nombre`  varchar(255), primary key (`oid`) )
+[29 jul 2012 11:23:40] DEBUG Executing statement:    create table `tipo_viaje` ( `oid`  integer  not null, `tipo`  varchar(255), primary key (`oid`) )
+[29 jul 2012 11:23:40] DEBUG Executing statement:    create table `individuo` ( `user_oid`  integer  not null, `oidglobal`  integer  not null, primary key (`user_oid`) )
+[29 jul 2012 11:23:40] DEBUG Executing statement:    create table `post` ( `oid`  integer  not null, `contenido`  varchar(255), primary key (`oid`) )
+[29 jul 2012 11:23:40] DEBUG Executing statement:    create table `tag` ( `oid`  integer  not null, `nombre_tag`  varchar(255), `representatividad`  varchar(255), primary key (`oid`) )
+[29 jul 2012 11:23:40] DEBUG Executing statement:    create table `ticket` ( `oid`  integer  not null, `fecha_viaje`  date, primary key (`oid`) )
+[29 jul 2012 11:23:40] DEBUG Executing statement:    alter table `group`  add column  `module_oid`  integer
+[29 jul 2012 11:23:40] DEBUG Executing statement:  alter table `group`   add index fk_group_module (`module_oid`), add constraint fk_group_module foreign key (`module_oid`) references `module` (`oid`)
+[29 jul 2012 11:23:40] DEBUG Executing statement:    create table `group_module` ( `group_oid`  integer not null, `module_oid`  integer not null, primary key (`group_oid`, `module_oid`) )
+[29 jul 2012 11:23:40] DEBUG Executing statement:  alter table `group_module`   add index fk_group_module_group (`group_oid`), add constraint fk_group_module_group foreign key (`group_oid`) references `group` (`oid`)
+[29 jul 2012 11:23:41] DEBUG Executing statement:  alter table `group_module`   add index fk_group_module_module (`module_oid`), add constraint fk_group_module_module foreign key (`module_oid`) references `module` (`oid`)
+[29 jul 2012 11:23:41] DEBUG Executing statement:    alter table `user`  add column  `group_oid`  integer
+[29 jul 2012 11:23:41] DEBUG Executing statement:  alter table `user`   add index fk_user_group (`group_oid`), add constraint fk_user_group foreign key (`group_oid`) references `group` (`oid`)
+[29 jul 2012 11:23:41] DEBUG Executing statement:    create table `user_group` ( `user_oid`  integer not null, `group_oid`  integer not null, primary key (`user_oid`, `group_oid`) )
+[29 jul 2012 11:23:41] DEBUG Executing statement:  alter table `user_group`   add index fk_user_group_user (`user_oid`), add constraint fk_user_group_user foreign key (`user_oid`) references `user` (`oid`)
+[29 jul 2012 11:23:41] DEBUG Executing statement:  alter table `user_group`   add index fk_user_group_group (`group_oid`), add constraint fk_user_group_group foreign key (`group_oid`) references `group` (`oid`)
+[29 jul 2012 11:23:41] DEBUG Executing statement:    alter table `viaje`  add column  `destino_oid`  integer
+[29 jul 2012 11:23:41] DEBUG Executing statement:  alter table `viaje`   add index fk_viaje_destino (`destino_oid`), add constraint fk_viaje_destino foreign key (`destino_oid`) references `destino` (`oid`)
+[29 jul 2012 11:23:41] DEBUG Executing statement:    alter table `viaje`  add column  `tipo_viaje_oid`  integer
+[29 jul 2012 11:23:42] DEBUG Executing statement:  alter table `viaje`   add index fk_viaje_tipo_viaje (`tipo_viaje_oid`), add constraint fk_viaje_tipo_viaje foreign key (`tipo_viaje_oid`) references `tipo_viaje` (`oid`)
+[29 jul 2012 11:23:42] DEBUG Executing statement:    alter table `viaje`  add column  `user_oid`  integer
+[29 jul 2012 11:23:42] DEBUG Executing statement:  alter table `viaje`   add index fk_viaje_user (`user_oid`), add constraint fk_viaje_user foreign key (`user_oid`) references `user` (`oid`)
+[29 jul 2012 11:23:42] DEBUG Executing statement:    alter table `post`  add column  `individuo_oid`  integer
+[29 jul 2012 11:23:42] DEBUG Executing statement:  alter table `post`   add index fk_post_individuo (`individuo_oid`), add constraint fk_post_individuo foreign key (`individuo_oid`) references `individuo` (`user_oid`)
+[29 jul 2012 11:23:42] DEBUG Executing statement:    create table `tag_post` ( `tag_oid`  integer not null, `post_oid`  integer not null, primary key (`tag_oid`, `post_oid`) )
+[29 jul 2012 11:23:42] DEBUG Executing statement:  alter table `tag_post`   add index fk_tag_post_tag (`tag_oid`), add constraint fk_tag_post_tag foreign key (`tag_oid`) references `tag` (`oid`)
+[29 jul 2012 11:23:42] DEBUG Executing statement:  alter table `tag_post`   add index fk_tag_post_post (`post_oid`), add constraint fk_tag_post_post foreign key (`post_oid`) references `post` (`oid`)
+[29 jul 2012 11:23:42] DEBUG Executing statement:    alter table `ticket`  add column  `viaje_oid`  integer
+[29 jul 2012 11:23:42] DEBUG Executing statement:  alter table `ticket`   add index fk_ticket_viaje (`viaje_oid`), add constraint fk_ticket_viaje foreign key (`viaje_oid`) references `viaje` (`oid`)
+[29 jul 2012 11:23:42] DEBUG Executing statement:    alter table `individuo`   add index fk_individuo_user (`user_oid`), add constraint fk_individuo_user foreign key (`user_oid`) references `user` (`oid`)
+[29 jul 2012 11:23:42] DEBUG ================================================================================
+[29 jul 2012 11:23:43] DEBUG SQL SCRIPT SUCCESSFULLY EXECUTED
+[29 jul 2012 11:23:43] INFO Database connection closed
+[29 jul 2012 11:23:43] DEBUG Total time: 3624 milliseconds

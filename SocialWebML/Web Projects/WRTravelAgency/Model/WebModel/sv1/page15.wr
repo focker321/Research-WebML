@@ -1,0 +1,155 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#page15" name="Home" gr:x="250" gr:y="-38">
+  <ContentUnits/>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:SubPage pageId="sv1#page15#alt4#page16">
+          <layout:Grid>
+            <layout:Row>
+              <layout:Cell/>
+              <layout:Cell>
+                <layout:Unit unitId="sv1#page15#alt4#page16#_gsdu3">
+                  <layout:Link link="sv1#page15#alt4#page16#_gsdu3#ln22"/>
+                </layout:Unit>
+              </layout:Cell>
+              <layout:Cell>
+                <layout:Unit unitId="sv1#page15#alt4#page16#enu4">
+                  <layout:Field field="sv1#page15#alt4#page16#enu4#fld10"/>
+                  <layout:Field field="sv1#page15#alt4#page16#enu4#fld11"/>
+                  <layout:Field field="sv1#page15#alt4#page16#enu4#fld12"/>
+                  <layout:Link link="sv1#page15#alt4#page16#enu4#ln16"/>
+                  <layout:Link link="sv1#page15#alt4#page16#enu4#ln17"/>
+                </layout:Unit>
+              </layout:Cell>
+            </layout:Row>
+            <layout:Row>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell>
+                <layout:Unit unitId="sv1#page15#alt4#page16#socialLoginUnit3">
+                  <layout:Link link="sv1#page15#alt4#page16#socialLoginUnit3#ln21"/>
+                </layout:Unit>
+              </layout:Cell>
+            </layout:Row>
+          </layout:Grid>
+        </layout:SubPage>
+      </layout:Cell>
+      <layout:Cell>
+        <layout:SubPage pageId="sv1#page15#alt4#page17">
+          <layout:Grid>
+            <layout:Row>
+              <layout:Cell/>
+              <layout:Cell/>
+            </layout:Row>
+            <layout:Row>
+              <layout:Cell>
+                <layout:Unit unitId="sv1#page15#alt4#page17#enu5">
+                  <layout:Link link="sv1#page15#alt4#page17#enu5#ln18"/>
+                  <layout:Link link="sv1#page15#alt4#page17#enu5#ln19"/>
+                  <layout:Field field="sv1#page15#alt4#page17#enu5#fld13"/>
+                  <layout:Field field="sv1#page15#alt4#page17#enu5#fld14"/>
+                  <layout:Field field="sv1#page15#alt4#page17#enu5#fld15"/>
+                  <layout:Field field="sv1#page15#alt4#page17#enu5#fld16"/>
+                </layout:Unit>
+              </layout:Cell>
+              <layout:Cell/>
+            </layout:Row>
+          </layout:Grid>
+        </layout:SubPage>
+      </layout:Cell>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Alternative id="sv1#page15#alt4" name="Acceso o Registro" defaultPage="sv1#page15#alt4#page16" gr:x="0" gr:y="0">
+    <Page id="sv1#page15#alt4#page16" name="Acceso" linkVisibilityPolicy="hide" gr:x="0" gr:y="0">
+      <ContentUnits>
+        <EntryUnit id="sv1#page15#alt4#page16#enu4" name="Formulario de Login" linkOrder="sv1#page15#alt4#page16#enu4#ln16 sv1#page15#alt4#page16#enu4#ln17" gr:x="187" gr:y="0">
+          <Field id="sv1#page15#alt4#page16#enu4#fld10" name="Username" type="string" modifiable="true">
+            <VRules>
+              <MandatoryValidationRule id="sv1#page15#alt4#page16#enu4#fld10#mnd7" name="Required"/>
+            </VRules>
+          </Field>
+          <Field id="sv1#page15#alt4#page16#enu4#fld11" name="Password" type="password" modifiable="true">
+            <VRules>
+              <MandatoryValidationRule id="sv1#page15#alt4#page16#enu4#fld11#mnd8" name="Required"/>
+            </VRules>
+          </Field>
+          <Link id="sv1#page15#alt4#page16#enu4#ln16" name="Acceder" to="sv1#lgu4" type="normal" validate="true" gr:bendpoints="-76,66,410,-89;-430,63,56,-92">
+            <LinkParameter id="sv1#page15#alt4#page16#enu4#ln16#par34" name="Account_Username" source="sv1#page15#alt4#page16#enu4#fld10" target="sv1#lgu4.username"/>
+            <LinkParameter id="sv1#page15#alt4#page16#enu4#ln16#par35" name="Password_Password" source="sv1#page15#alt4#page16#enu4#fld11" target="sv1#lgu4.password"/>
+            <LinkParameter id="sv1#page15#alt4#page16#enu4#ln16#par36" name="RememberMe_Remember Credentials (cookies)" source="sv1#page15#alt4#page16#enu4#fld12" target="sv1#lgu4.rememberCredentials"/>
+          </Link>
+          <Field id="sv1#page15#alt4#page16#enu4#fld12" name="RememberMe" type="boolean" modifiable="true"/>
+          <Link id="sv1#page15#alt4#page16#enu4#ln17" name="Registrar Nuevo Usuario" to="sv1#page15#alt4#page17" type="normal" automaticCoupling="true" validate="false" gr:bendpoints="161,51,258,-211;160,237,257,-25"/>
+        </EntryUnit>
+        <MultiMessageUnit id="sv1#page15#alt4#page16#mssu11" name="Mensaje de Error de Acceso" gr:x="0" gr:y="1"/>
+        <SocialLoginUnit gr:x="188" gr:y="116" id="sv1#page15#alt4#page16#socialLoginUnit3" name="Ingresar con Facebook" app_id="294923613865105" linkOrder="sv1#page15#alt4#page16#socialLoginUnit3#ln21">
+          <Link id="sv1#page15#alt4#page16#socialLoginUnit3#ln21" name="Link21" to="sv1#page15#alt4#page16#_gsdu3" type="automatic" validate="true">
+            <LinkParameter id="sv1#page15#alt4#page16#socialLoginUnit3#ln21#par58" name="name_Nombre" source="name" target="sv1#page15#alt4#page16#_gsdu3.Nombre"/>
+            <LinkParameter id="sv1#page15#alt4#page16#socialLoginUnit3#ln21#par59" name="uid_UID" source="uid" target="sv1#page15#alt4#page16#_gsdu3.UID"/>
+          </Link>
+        </SocialLoginUnit>
+        <GetSocialDataUnit gr:x="18" gr:y="116" id="sv1#page15#alt4#page16#_gsdu3" name="Extraer Social-Data" linkOrder="sv1#page15#alt4#page16#_gsdu3#ln22">
+          <Link id="sv1#page15#alt4#page16#_gsdu3#ln22" name="Link22" to="sv1#cru6" type="normal" validate="true">
+            <LinkParameter id="sv1#page15#alt4#page16#_gsdu3#ln22#par60" name="name_Nombre_Individuo" source="name" target="sv1#cru6.ent4#att11"/>
+            <LinkParameter id="sv1#page15#alt4#page16#_gsdu3#ln22#par61" name="uid_UID_SN" source="uid" target="sv1#cru6.ent4#att13"/>
+          </Link>
+        </GetSocialDataUnit>
+      </ContentUnits>
+    </Page>
+    <Page id="sv1#page15#alt4#page17" name="Nuevo Usuario" gr:x="14" gr:y="272">
+      <ContentUnits>
+        <EntryUnit id="sv1#page15#alt4#page17#enu5" name="Registro" linkOrder="sv1#page15#alt4#page17#enu5#ln18 sv1#page15#alt4#page17#enu5#ln19" gr:x="215" gr:y="0" fieldOrder="sv1#page15#alt4#page17#enu5#fld13 sv1#page15#alt4#page17#enu5#fld14 sv1#page15#alt4#page17#enu5#fld15 sv1#page15#alt4#page17#enu5#fld16">
+          <Field id="sv1#page15#alt4#page17#enu5#fld13" name="UserName" type="string" modifiable="true">
+            <VRules>
+              <MandatoryValidationRule id="sv1#page15#alt4#page17#enu5#fld13#mnd9" name="Required"/>
+            </VRules>
+          </Field>
+          <Field id="sv1#page15#alt4#page17#enu5#fld14" name="Password" type="password" modifiable="true">
+            <VRules>
+              <ValueLengthValidationRule id="sv1#page15#alt4#page17#enu5#fld14#vl1" name="RequiredMin" errorMessage="El password debe contener al menos 2 caracteres y a lo mucho 30." predicate="min" value="2"/>
+              <ValueLengthValidationRule id="sv1#page15#alt4#page17#enu5#fld14#vl2" name="RequiredMax" errorMessage="El password debe contener al menos 2 caracteres y a lo mucho 30." predicate="max" value="30"/>
+              <MandatoryValidationRule id="sv1#page15#alt4#page17#enu5#fld14#mnd10" name="Required" errorMessage="Password should contain at least two characters and at most 30 characters."/>
+            </VRules>
+          </Field>
+          <Field id="sv1#page15#alt4#page17#enu5#fld15" name="Password" type="password" modifiable="true">
+            <VRules>
+              <CompareValidationRule id="sv1#page15#alt4#page17#enu5#fld15#cmp1" name="Match" errorMessage="Passwords no concuerdan" valueField="sv1#page15#alt4#page17#enu5#fld14" predicate="eq"/>
+              <MandatoryValidationRule id="sv1#page15#alt4#page17#enu5#fld15#mnd11" name="Required" errorMessage="El password debe contener al menos 2 caracteres y a lo mucho 30."/>
+            </VRules>
+          </Field>
+          <Field id="sv1#page15#alt4#page17#enu5#fld16" name="Email" type="string" modifiable="true">
+            <VRules>
+              <EMailValidationRule id="sv1#page15#alt4#page17#enu5#fld16#email1" name="Email Valido" errorMessage="Por favor ingrese un e-mail valido."/>
+              <MandatoryValidationRule id="sv1#page15#alt4#page17#enu5#fld16#mnd12" name="Required"/>
+            </VRules>
+          </Field>
+          <Link id="sv1#page15#alt4#page17#enu5#ln18" name="Crear Nuevo Usuario" to="sv1#cru4" type="normal" validate="true" gr:bendpoints="-104,129,320,82;-325,131,99,84">
+            <LinkParameter id="sv1#page15#alt4#page17#enu5#ln18#par37" name="Email_email" source="sv1#page15#alt4#page17#enu5#fld16" target="sv1#cru4.email"/>
+            <LinkParameter id="sv1#page15#alt4#page17#enu5#ln18#par38" name="Password_password" source="sv1#page15#alt4#page17#enu5#fld14" target="sv1#cru4.password"/>
+            <LinkParameter id="sv1#page15#alt4#page17#enu5#ln18#par39" name="Account_userName" source="sv1#page15#alt4#page17#enu5#fld13" target="sv1#cru4.userName"/>
+            <LinkParameter id="sv1#page15#alt4#page17#enu5#ln18#par42" name="1_Group.oid(defaultGroup)" target="sv1#cru4.User2DefaultGroup.groupOID" sourceValue="2"/>
+            <LinkParameter id="sv1#page15#alt4#page17#enu5#ln18#par55" name="Account_PASSING" source="sv1#page15#alt4#page17#enu5#fld13" passing="true"/>
+            <LinkParameter id="sv1#page15#alt4#page17#enu5#ln18#par56" name="Password_PASSING" source="sv1#page15#alt4#page17#enu5#fld14" passing="true"/>
+          </Link>
+          <Link id="sv1#page15#alt4#page17#enu5#ln19" name="Acceder" to="sv1#page15#alt4#page16" type="normal" automaticCoupling="true" validate="false" gr:bendpoints="6,-74,110,97"/>
+        </EntryUnit>
+        <MultiMessageUnit id="sv1#page15#alt4#page17#mssu12" name="Mensaje de Error de Registro" gr:x="0" gr:y="6"/>
+      </ContentUnits>
+    </Page>
+  </Alternative>
+  <layout:CustomLocation name="Top Location">
+    <layout:Unit unitId="sv1#page15#alt4#page16#mssu11"/>
+    <layout:Unit unitId="sv1#page15#alt4#page17#mssu12"/>
+  </layout:CustomLocation>
+</Page>

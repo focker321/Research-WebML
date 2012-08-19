@@ -1,0 +1,114 @@
+% Packages and their settings
+% \usepackage[italian]{babel}
+% \usepackage[latin1]{inputenc}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{palatino}%era palatino times
+%\usepackage[scaled=0.9]{beramono}
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{lstcustom}
+%para girar paginas
+\usepackage{lscape}
+
+
+\usepackage{appendix}
+
+
+\usepackage[thmmarks]{ntheorem}
+\usepackage[plainpages=false,pdfpagelabels,hypertexnames=false]{hyperref}
+\usepackage{longtable}
+%\usepackage{authordate1-4}
+\usepackage{pdfpages}
+\usepackage{anysize}
+
+
+ 
+\usepackage{color}
+\definecolor{rosa}{rgb}{1,0.5,0.5} % valores de las componentes roja, verde y azul (RGB)
+% Listings
+\lstset{
+  basicstyle=\ttfamily\tiny,
+  basewidth=0.6em,
+  showstringspaces=false,
+  frame=lines,
+  keywordstyle=\bfseries,
+  captionpos=b,
+  numbers=left,
+  numberstyle=\tiny\ttfamily,
+  breaklines=true,
+  aboveskip=0.4cm
+}
+\renewcommand*{\lstlistingname}{Listing}
+
+% Bibliography
+%\renewcommand*{\bibtitle}{References}
+%\renewcommand*{\bibheadtitle}{References}
+
+% Theorems
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{definizione}{Definition}[section]
+\newtheorem{proposizione}{Proposition}[section]
+
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\upshape}
+\theoremstyle{nonumberplain}
+
+\theoremheaderfont{\scshape}\theorembodyfont{\upshape}
+\theoremstyle{nonumberplain}
+\theoremseparator{}
+\theoremsymbol{\rule{1ex}{2ex}}
+\newtheorem{proof}{Demostraci\'on}
+
+% Layout stuff
+\frenchspacing
+\raggedbottom
+\linespread{1.3}%espaciado y medio
+\setlength{\doublerulesep}{\arrayrulewidth}
+\setlength{\parskip}{0.05cm}
+\setlength{\parsep}{0cm}
+
+% Epigraph
+\epigraphfontsize{\Large}
+
+% Numbering
+\setsecnumdepth{subsection}
+\maxsecnumdepth{subsection}
+
+% Heading styles
+\renewcommand{\chapnumfont}{\centering\normalfont\small\scshape}
+\renewcommand{\chaptitlefont}{\centering\normalfont\huge\bfseries\scshape}
+\setlength{\beforechapskip}{-10pt}
+\setsecheadstyle{\Large\bfseries\scshape\raggedright}
+\setsubsecheadstyle{\large\scshape\raggedright}
+\setsubsubsecheadstyle{\normalsize\scshape\raggedright}
+\setparaheadstyle{\large\bfseries\raggedright}
+\setsubparaheadstyle{\normalsize\bfseries\itshape\raggedright}
+\renewcommand{\printchaptername}{}
+\renewcommand{\chapternamenum}{\scshape---~Cap\'itulo~}
+\renewcommand{\afterchapternum}{~---\\\vspace{-0.2cm}}
+
+% Lists
+\renewcommand*{\descriptionlabel}[1]{\hspace\labelsep\normalsize\normalfont\sffamily #1}
+
+% Captions and floats
+\captionnamefont{\small\scshape}
+\captiontitlefont{\small}
+
+% Headers/footers styles
+\makeevenfoot{Ruled}{\sffamily\bfseries\thepage}{}{}
+\makeoddfoot{Ruled}{}{}{\sffamily\bfseries\thepage}
+
+% ToC
+\renewcommand{\cftchapterfont}{\normalfont\scshape\bfseries}
+
+\usepackage{pslatex}
+

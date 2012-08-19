@@ -17,8 +17,6 @@ import com.webratio.rtx.core.DescriptorHelper;
 public class SocialLoginUnitService extends AbstractService implements RTXContentUnitService, RTXOperationUnitService{
 	String myResult="";
 	String app_id="";
-
-	// bean;
 	
 	public SocialLoginUnitService(String id, RTXManager mgr, Element descr) {
 		super(id, mgr, descr);

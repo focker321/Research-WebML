@@ -1,0 +1,29 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="160" gr:y="304" id="sv2#area1#page8" name="404">
+  <ContentUnits>
+    <MultiMessageUnit gr:x="-1" gr:y="-1" id="sv2#area1#page8#mssu5" name="Sorry!">
+      <Message xml:space="preserve">Lo sentimos, ha sucedido un error no contemplado, por favor vuelva a intentarlo mas tarde.
+
+
+WeRatio Travel Agency, Technical Support!</Message>
+    </MultiMessageUnit>
+  </ContentUnits>
+  <layout:Grid>
+    <layout:Row>
+      <layout:Cell>
+        <layout:Unit unitId="sv2#area1#page8#mssu5"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

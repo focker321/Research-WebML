@@ -1,5 +1,12 @@
 <SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv2" name="Administrador" protected="true" landmarks="sv2#area1 sv2#lou1" homePage="sv2#area1#page6">
   <OperationUnits>
-    <LogoutUnit gr:x="638" gr:y="168" id="sv2#lou1" name="LogOut" siteView="sv1" landmark="true"/>
+    <LogoutUnit gr:x="150" gr:y="150" id="sv2#lou1" name="LogOut" siteView="sv1" landmark="true"/>
+    <CreateUnit gr:x="607" gr:y="283" id="sv2#cru2" name="Crear Viaje" entity="ent1">
+      <OKLink id="sv2#cru2#oln2" name="OKLink2" to="sv2#area1#page6" automaticCoupling="true"/>
+      <KOLink id="sv2#cru2#kln3" name="KOLink3" to="sv2#area1#page8" automaticCoupling="true"/>
+    </CreateUnit>
+    <GetUnit gr:x="603" gr:y="162" id="sv2#gtu1" name="GetUser" contextParameters="UserCtxParam">
+      <Link id="sv2#gtu1#ln9" name="Link9" to="sv2#cru2" automaticCoupling="true" type="transport" validate="true"/>
+    </GetUnit>
   </OperationUnits>
 </SiteView>

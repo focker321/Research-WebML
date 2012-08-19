@@ -1,113 +1,122 @@
-[01 jul 2012 12:54:55] Building database metadata model
-[01 jul 2012 12:54:55] Properties: {partialRefresh=false, processColumnsUsingSelect=, includePrimaryKeys=true, eventSocketClient=com.webratio.commons.net.EventSocketClient@76497934, includeTables=true, username=root, outputLogPath=/Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/DB.xml.log, readIndexes=null, driverClass=com.mysql.jdbc.Driver, includeSynonyms=true, metaDataProviderClass=com.webratio.commons.db.metadata.MySQLMetaDataProvider, outputPath=/Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/DB.xml, schemaRegex=null, readProcedures=null, includeViews=true, derby.system.home=/Users/nuss/Documents/WebRatio/workspace/.metadata/.plugins/com.webratio.commons.db/derby, url=jdbc:mysql://localhost:3306/WRTA, tableRegex=null, readSQLDefinitions=true, includeForeignKeys=false, retrieveAllNames=false, tablesToRefresh=, eventSocketPort=49526}
-[01 jul 2012 12:54:55] URL: jdbc:mysql://localhost:3306/WRTA
-[01 jul 2012 12:54:55] Product name: MySQL
-[01 jul 2012 12:54:55] Product version: 5.1.44
-[01 jul 2012 12:54:55] Driver name: MySQL-AB JDBC Driver
-[01 jul 2012 12:54:55] Driver version: mysql-connector-java-5.1.20 ( Revision: tonci.grgin@oracle.com-20111003110438-qfydx066wsbydkbw )
-[01 jul 2012 12:54:55] Driver major version: 5
-[01 jul 2012 12:54:55] Driver minor version: 1
-[01 jul 2012 12:54:55] Identifier quote string: 1
-[01 jul 2012 12:54:55] Retrieving schemas
-[01 jul 2012 12:54:55] Retrieving [TABLE, VIEW, SYNONYM] for schema ''
-[01 jul 2012 12:54:55]   Found 'destino' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'group' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'group_module' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'individuo' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'module' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'post' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'tag' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'tag_post' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'ticket' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'tipo_viaje' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'user' [type = TABLE]
-[01 jul 2012 12:54:55]   Found 'user_group' [type = TABLE]
-[01 jul 2012 12:54:55] Retrieving columns for 'destino' [type = TABLE]
-[01 jul 2012 12:54:55]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:55]   Found column: promocion [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:55]   Found column: distancia [type = DOUBLE][SQL/XOPEN type = 8][size = 22][dec. digits = 0]
-[01 jul 2012 12:54:55]   Found column: nombre [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:55] Retrieving primary keys for 'destino' [type = TABLE]
-[01 jul 2012 12:54:55]   Found primary key column: oid
-[01 jul 2012 12:54:55] Retrieving columns for 'group' [type = TABLE]
-[01 jul 2012 12:54:55]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:55]   Found column: groupname [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:55]   Found column: module_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:55] Retrieving primary keys for 'group' [type = TABLE]
-[01 jul 2012 12:54:55]   Found primary key column: oid
-[01 jul 2012 12:54:55] Retrieving columns for 'group_module' [type = TABLE]
-[01 jul 2012 12:54:55]   Found column: group_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:55]   Found column: module_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:55] Retrieving primary keys for 'group_module' [type = TABLE]
-[01 jul 2012 12:54:55]   Found primary key column: group_oid
-[01 jul 2012 12:54:55]   Found primary key column: module_oid
-[01 jul 2012 12:54:55] Retrieving columns for 'individuo' [type = TABLE]
-[01 jul 2012 12:54:56]   Found column: user_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: oidglobal [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56] Retrieving primary keys for 'individuo' [type = TABLE]
-[01 jul 2012 12:54:56]   Found primary key column: user_oid
-[01 jul 2012 12:54:56] Retrieving columns for 'module' [type = TABLE]
-[01 jul 2012 12:54:56]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: moduleid [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: modulename [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:56] Retrieving primary keys for 'module' [type = TABLE]
-[01 jul 2012 12:54:56]   Found primary key column: oid
-[01 jul 2012 12:54:56] Retrieving columns for 'post' [type = TABLE]
-[01 jul 2012 12:54:56]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: contenido [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: individuo_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56] Retrieving primary keys for 'post' [type = TABLE]
-[01 jul 2012 12:54:56]   Found primary key column: oid
-[01 jul 2012 12:54:56] Retrieving columns for 'tag' [type = TABLE]
-[01 jul 2012 12:54:56]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: nombre_tag [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: representatividad [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:56] Retrieving primary keys for 'tag' [type = TABLE]
-[01 jul 2012 12:54:56]   Found primary key column: oid
-[01 jul 2012 12:54:56] Retrieving columns for 'tag_post' [type = TABLE]
-[01 jul 2012 12:54:56]   Found column: tag_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: post_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56] Retrieving primary keys for 'tag_post' [type = TABLE]
-[01 jul 2012 12:54:56]   Found primary key column: tag_oid
-[01 jul 2012 12:54:56]   Found primary key column: post_oid
-[01 jul 2012 12:54:56] Retrieving columns for 'ticket' [type = TABLE]
-[01 jul 2012 12:54:56]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: fecha_compra [type = DATE][SQL/XOPEN type = 91][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: fecha_viaje [type = DATE][SQL/XOPEN type = 91][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: destino_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: tipo_viaje_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: user_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56] Retrieving primary keys for 'ticket' [type = TABLE]
-[01 jul 2012 12:54:56]   Found primary key column: oid
-[01 jul 2012 12:54:56] Retrieving columns for 'tipo_viaje' [type = TABLE]
-[01 jul 2012 12:54:56]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: tipo [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:56] Retrieving primary keys for 'tipo_viaje' [type = TABLE]
-[01 jul 2012 12:54:56]   Found primary key column: oid
-[01 jul 2012 12:54:56] Retrieving columns for 'user' [type = TABLE]
-[01 jul 2012 12:54:56]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: username [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: password [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: email [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: group_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56] Retrieving primary keys for 'user' [type = TABLE]
-[01 jul 2012 12:54:56]   Found primary key column: oid
-[01 jul 2012 12:54:56] Retrieving columns for 'user_group' [type = TABLE]
-[01 jul 2012 12:54:56]   Found column: user_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56]   Found column: group_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
-[01 jul 2012 12:54:56] Retrieving primary keys for 'user_group' [type = TABLE]
-[01 jul 2012 12:54:56]   Found primary key column: user_oid
-[01 jul 2012 12:54:56]   Found primary key column: group_oid
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'destino' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'group' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'group_module' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'individuo' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'module' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'post' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'tag' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'tag_post' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'ticket' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'tipo_viaje' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'user' [type = TABLE]
-[01 jul 2012 12:54:56] Retrieving auto-increment columns for 'user_group' [type = TABLE]
-[01 jul 2012 12:54:56] Database connection closed
+[29 jul 2012 11:23:44] Building database metadata model
+[29 jul 2012 11:23:44] Properties: {partialRefresh=false, processColumnsUsingSelect=, includePrimaryKeys=true, eventSocketClient=com.webratio.commons.net.EventSocketClient@51b48197, includeTables=true, username=root, outputLogPath=/Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/DB.xml.log, readIndexes=null, driverClass=com.mysql.jdbc.Driver, includeSynonyms=true, metaDataProviderClass=com.webratio.commons.db.metadata.MySQLMetaDataProvider, outputPath=/Users/nuss/Documents/WebRatio/workspace/WRTravelAgency/.Temp~/DB.xml, schemaRegex=null, readProcedures=null, includeViews=true, derby.system.home=/Users/nuss/Documents/WebRatio/workspace/.metadata/.plugins/com.webratio.commons.db/derby, url=jdbc:mysql://localhost:3306/WRTA, tableRegex=null, readSQLDefinitions=true, includeForeignKeys=false, retrieveAllNames=false, tablesToRefresh=, eventSocketPort=49464}
+[29 jul 2012 11:23:44] URL: jdbc:mysql://localhost:3306/WRTA
+[29 jul 2012 11:23:44] Product name: MySQL
+[29 jul 2012 11:23:44] Product version: 5.1.44
+[29 jul 2012 11:23:44] Driver name: MySQL-AB JDBC Driver
+[29 jul 2012 11:23:44] Driver version: mysql-connector-java-5.1.20 ( Revision: tonci.grgin@oracle.com-20111003110438-qfydx066wsbydkbw )
+[29 jul 2012 11:23:44] Driver major version: 5
+[29 jul 2012 11:23:44] Driver minor version: 1
+[29 jul 2012 11:23:44] Identifier quote string: 1
+[29 jul 2012 11:23:44] Retrieving schemas
+[29 jul 2012 11:23:44] Retrieving [TABLE, VIEW, SYNONYM] for schema ''
+[29 jul 2012 11:23:44]   Found 'destino' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'group' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'group_module' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'individuo' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'module' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'post' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'tag' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'tag_post' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'ticket' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'tipo_viaje' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'user' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'user_group' [type = TABLE]
+[29 jul 2012 11:23:44]   Found 'viaje' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving columns for 'destino' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: promocion [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: distancia [type = DOUBLE][SQL/XOPEN type = 8][size = 22][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: nombre [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'destino' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: oid
+[29 jul 2012 11:23:44] Retrieving columns for 'group' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: groupname [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: module_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'group' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: oid
+[29 jul 2012 11:23:44] Retrieving columns for 'group_module' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: group_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: module_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'group_module' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: group_oid
+[29 jul 2012 11:23:44]   Found primary key column: module_oid
+[29 jul 2012 11:23:44] Retrieving columns for 'individuo' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: user_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: oidglobal [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'individuo' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: user_oid
+[29 jul 2012 11:23:44] Retrieving columns for 'module' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: moduleid [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: modulename [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'module' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: oid
+[29 jul 2012 11:23:44] Retrieving columns for 'post' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: contenido [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: individuo_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'post' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: oid
+[29 jul 2012 11:23:44] Retrieving columns for 'tag' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: nombre_tag [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: representatividad [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'tag' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: oid
+[29 jul 2012 11:23:44] Retrieving columns for 'tag_post' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: tag_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: post_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'tag_post' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: tag_oid
+[29 jul 2012 11:23:44]   Found primary key column: post_oid
+[29 jul 2012 11:23:44] Retrieving columns for 'ticket' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: fecha_viaje [type = DATE][SQL/XOPEN type = 91][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: viaje_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'ticket' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: oid
+[29 jul 2012 11:23:44] Retrieving columns for 'tipo_viaje' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: tipo [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'tipo_viaje' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: oid
+[29 jul 2012 11:23:44] Retrieving columns for 'user' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: username [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: password [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: email [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: group_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'user' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: oid
+[29 jul 2012 11:23:44] Retrieving columns for 'user_group' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: user_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: group_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'user_group' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: user_oid
+[29 jul 2012 11:23:44]   Found primary key column: group_oid
+[29 jul 2012 11:23:44] Retrieving columns for 'viaje' [type = TABLE]
+[29 jul 2012 11:23:44]   Found column: oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: fecha_viaje [type = DATE][SQL/XOPEN type = 91][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: titulo_viaje [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: resumen_viaje [type = VARCHAR][SQL/XOPEN type = 12][size = 255][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: destino_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: tipo_viaje_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44]   Found column: user_oid [type = INT][SQL/XOPEN type = 4][size = 10][dec. digits = 0]
+[29 jul 2012 11:23:44] Retrieving primary keys for 'viaje' [type = TABLE]
+[29 jul 2012 11:23:44]   Found primary key column: oid
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'destino' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'group' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'group_module' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'individuo' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'module' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'post' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'tag' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'tag_post' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'ticket' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'tipo_viaje' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'user' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'user_group' [type = TABLE]
+[29 jul 2012 11:23:44] Retrieving auto-increment columns for 'viaje' [type = TABLE]
+[29 jul 2012 11:23:44] Database connection closed

@@ -1,0 +1,163 @@
+\begin{thebibliography}{10}
+
+\bibitem{Gerosa2005}
+M.~A. Gerosa, M.~Pimentel, H.~Fuks, and C.~J.~P. de~Lucena, ``Component kits
+  based on the 3c collaboration model for groupware development,'' {\em
+  Scientia - Estudos Interdisciplinares em Computacao}, 2005.
+
+\bibitem{Fraternali2010}
+P.~Fraternali, M.~Tisi, M.~Silva, and L.~Frattini, ``Building community-based
+  web application with a model-driven approach and design patterns,'' in {\em
+  Handbook of Research on Web 2.0, Web 3.0, Web X.0 - Technologies, Business,
+  and Social Applications}, San Murugesan, 2010.
+
+\bibitem{Frattini2007}
+L.~Frattini and M.~Silva, ``Methodology and patterns for developing
+  community-based web applications with a model-driven approach,'' Master's
+  thesis, Politecnico di Milano - Facolt\`a di Ingegneria dell'Informazione,
+  2007.
+
+\bibitem{Bozzon2009}
+A.~Bozzon, {\em Model-driven development of Search Based Web Applications}.
+\newblock PhD thesis, Politecnico di Milano - Facolt\`a di Ingegneria
+  dell'Informazione, 2009.
+
+\bibitem{Brambilla2006}
+M.~Brambilla, ``Generation of webml web application models from business
+  process specifications,'' in {\em The 6th International Conference on Web
+  Engineering (ICWE2006)}, pp.~85--86, ACM Press, 2006.
+
+\bibitem{Ceri2010}
+S.~Ceri, P.~Dolog, M.~Matera, and W.~Nejdl, ``Model-driven design of web
+  applications with client-side adaptation,'' {\em Lecture Notes in Computer
+  Science}, vol.~6189/2010, pp.~158--172, 2010.
+
+\bibitem{Fraternali2011}
+P.~Fraternali, M.~Brambilla, and C.~Vaca, {\em Social BPM (Bpm and Workflow
+  Handbook Series) - Chapter: A Model-driven Approach to Social BPM
+  Applications}.
+\newblock Future Strategies and Workflow Management Coalition (WfMC), 2011.
+
+\bibitem{OReilly2007}
+T.~O'Reilly, ``What is web 2.0: Design patterns and business models for the
+  next generation of software,'' MPRA Paper 4578, University Library of Munich,
+  Germany, Mar 2007.
+
+\bibitem{Gruber2008}
+T.~Gruber, ``Collective knowledge systems: Where the social web meets the
+  semantic web,'' {\em J. Web Sem.}, vol.~6, no.~1, pp.~4--13, 2008.
+
+\bibitem{Bani2011}
+H.~Bani-Salameh, C.~Jeffery, and I.~A. Doush, ``Introducing social development
+  environment,'' {\em ICICS 2011}, 2011.
+
+\bibitem{Arroyo2007}
+N.~A. Vazquez, ``?`web 2.0?, ?`web social? y ?`qu\'e es eso?,'' {\em Educación
+  y Biblioteca}, vol.~161, pp.~69 -- 74, 2007.
+
+\bibitem{Heymann2007}
+P.~Heymann, G.~Koutrika, and H.~Garcia-Molina, ``Fighting spam on social web
+  sites: A survey of approaches and future challenges,'' {\em IEEE Internet
+  Computing}, vol.~11, pp.~36--45, Nov. 2007.
+
+\bibitem{Davies2009}
+T.~R. Davies and M.~D. Mintz, ``Design features for the social web: The
+  architecture of deme,'' {\em 8th Int'l Workshop on Web-Oriented Software
+  Technologies (IWWOST 2009)}, 2009.
+
+\bibitem{Owyang2009}
+J.~Owyang, ``The future of the social web: In five eras,'' 2009.
+
+\bibitem{Smarr2010}
+J.~Smarr and J.~Panzer, ``Bridging the islands: Building fluid social
+  experiences across websites.'' Google IO -- 2010, 2010.
+
+\bibitem{Forrester2009}
+J.~Owyang, {\em The Future Of The Social Web}.
+\newblock Forrester, first~ed., 2009.
+
+\bibitem{Porter2008}
+J.~Porter, {\em Designing for the social web}.
+\newblock Thousand Oaks, CA, USA: New Riders Publishing, first~ed., 2008.
+
+\bibitem{Kamthan2009}
+P.~Kamthan, ``A methodology for integrating the social web environment in
+  software engineering education,'' {\em IJICTE}, vol.~5, no.~2, pp.~21--35,
+  2009.
+
+\bibitem{Cohen2008}
+S.~G. Cohen, J.~L. Stanley, A.~S. Peterson, and R.~W. Krut, ``{Application of
+  Feature-Oriented Domain Analysis to the Army Movement Control Domain},'' {\em
+  Software Engineering Institute, Carnegie Mellon University,
+  CMU/SEI-91-TR-28}, 2008.
+
+\bibitem{Ceri2000}
+S.~Ceri, P.~Fraternali, and A.~Bongio, ``Web modeling language (webml): a
+  modeling language for designing web sites,'' {\em Comput. Netw.}, vol.~33,
+  pp.~137--157, June 2000.
+
+\bibitem{Moreno2006}
+N.~Moreno, P.~Fraternalli, and A.~Vallecillo, ``A uml 2.0 profile for webml
+  modeling,'' in {\em Workshop proceedings of the sixth international
+  conference on Web engineering}, ICWE '06, (New York, NY, USA), ACM, 2006.
+
+\bibitem{Fowler2003}
+M.~Fowler, {\em UML Distilled: A Brief Guide to the Standard Object Modeling
+  Language}.
+\newblock Boston, MA, USA: Addison-Wesley Longman Publishing Co., Inc., 3~ed.,
+  2003.
+
+\bibitem{Lowe2003}
+D.~Lowe and R.~Tongrungrojana, ``Webml+ for communication of information flows:
+  An empirical study,'' in {\em ICWE'03}, pp.~218--221, 2003.
+
+\bibitem{Nugraha2007}
+R.~N. Pratama, ``Model-driven development of a collaborative web application,''
+  Master's thesis, Hamburg University of Technology, 2007.
+
+\bibitem{Matera2003}
+M.~Matera, A.~Maurino, S.~Ceri, and P.~Fraternali, ``Model-driven design of
+  collaborative web applications,'' {\em Software-Practice and Experience},
+  vol.~33, pp.~1--32, 2003.
+
+\bibitem{Brambilla2010}
+M.~Brambilla, P.~Fraternali, and E.~Molteni, ``A tool for model-driven design
+  of rich internet applications based on ajax,'' in {\em Handbook of Research
+  on Web 2.0, 3.0, and X.0: Technologies, Business, and Social Applications},
+  ch.~31, pp.~96--118, San Murugesan, 2010.
+
+\bibitem{Ceri2003}
+S.~Ceri, P.~Fraternali, A.~Bongio, M.~Brambilla, S.~Comai, and M.~Matera, {\em
+  Designing Data-Intensive Web Applications}.
+\newblock Morgan Kaufmann Publisher, 2003.
+
+\bibitem{Acerbis2007}
+R.~Acerbis, A.~Bongio, M.~Brambilla, and S.~Butti, ``Webratio 5: An
+  eclipse-based case tool for engineering web applications,'' in {\em ICWE},
+  pp.~501--505, 2007.
+
+\bibitem{Brambilla2007}
+M.~Brambilla and F.~M. Facca, ``Building semantic web portals with webml.,'' in
+  {\em ICWE} (L.~Baresi, P.~Fraternali, and G.-J. Houben, eds.), vol.~4607 of
+  {\em Lecture Notes in Computer Science}, pp.~312--327, Springer, 2007.
+
+\bibitem{Zdonik1990}
+S.~B. Zdonik and D.~Maier, eds., {\em Readings in Object-Oriented Database
+  Systems}.
+\newblock Morgan Kaufmann, 1990.
+
+\bibitem{OpenSocial}
+Google, ``Google code - opensocial.''
+
+\bibitem{Brambilla2003}
+M.~Brambilla, S.~Ceri, S.~Comai, P.~Fraternali, and I.~Manolescu,
+  ``Model-driven development of web services and hypertext applications,'' {\em
+  SCI 2003 (Systemics, Cybernetics and Informatics Multiconference)},
+  pp.~37--42, July 2003.
+
+\bibitem{Andreis2010}
+E.~D. Andreis, ``Pattern per la realizzazione di comunit\`a web 2.0 con
+  webratio,'' Master's thesis, Politecnico di Milano - Facolt\`a di Ingegneria
+  dell'Informazione, 2010.
+
+\end{thebibliography}

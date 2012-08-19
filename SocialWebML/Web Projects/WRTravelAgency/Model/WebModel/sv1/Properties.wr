@@ -1,16 +1,27 @@
-<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1" name="Publico" layout:style="FertileEnvironment" homePage="sv1#page3">
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1" name="P&#250;blico" layout:style="FertileEnvironment" homePage="sv1#page15">
   <OperationUnits>
-    <LoginUnit gr:x="470" gr:y="400" id="sv1#lgu1" name="Login">
-      <KOLink id="sv1#lgu1#kln1" name="KOLink1" to="sv1#page3#alt1#page5#mssu2">
-        <LinkParameter id="sv1#lgu1#kln1#par1" name="Acceso Invalido_Shown Messages" sourceValue="Acceso Invalido" target="sv1#page3#alt1#page5#mssu2.shownMessages"/>
+    <CreateUnit id="sv1#cru4" name="Crear Usuario" gr:x="100" gr:y="390" entity="User" skipBlankRecords="false">
+      <KOLink id="sv1#cru4#kln7" name="KOLink3" to="sv1#page15#alt4#page17#mssu12">
+        <LinkParameter id="sv1#cru4#kln7#par57" name="No se pudo registrar el Usuario, por favor comuniquese con el Administrador._Shown Messages" sourceValue="No se pudo registrar el Usuario, por favor comuniquese con el Administrador." target="sv1#page15#alt4#page17#mssu12.shownMessages"/>
+      </KOLink>
+      <OKLink id="sv1#cru4#oln6" name="OKLink6" to="sv1#lgu4">
+        <LinkParameter id="sv1#cru4#oln6#par53" name="userName_Username" target="sv1#lgu4.username" sourceLinkParameter="sv1#page15#alt4#page17#enu5#ln18#par55"/>
+        <LinkParameter id="sv1#cru4#oln6#par54" name="password_Password" target="sv1#lgu4.password" sourceLinkParameter="sv1#page15#alt4#page17#enu5#ln18#par56"/>
+      </OKLink>
+    </CreateUnit>
+    <LoginUnit id="sv1#lgu4" name="Login" gr:x="0" gr:y="230">
+      <KOLink id="sv1#lgu4#kln8" name="KOLink6" to="sv1#page15#alt4#page16#mssu11" gr:bendpoints="1,-154,-350,3">
+        <LinkParameter id="sv1#lgu4#kln8#par49" name="Accesso non riuscito_Shown Messages" target="sv1#page15#alt4#page16#mssu11.shownMessages" sourceValue="Acceso no Permitido"/>
       </KOLink>
     </LoginUnit>
-    <CreateUnit gr:x="760" gr:y="390" id="sv1#cru1" name="CreateUnit1" entity="ent4">
-      <OKLink id="sv1#cru1#oln1" name="OKLink1" to="sv1#lgu1" gr:bendpoints="-338,38,469,12">
-        <LinkParameter id="sv1#cru1#oln1#par10" name="individual_Username" sourceValue="individual" target="sv1#lgu1.username"/>
-        <LinkParameter id="sv1#cru1#oln1#par11" name="individual_Password" sourceValue="individual" target="sv1#lgu1.password"/>
+    <CreateUnit gr:x="140" gr:y="220" id="sv1#cru6" name="Crear Individuo" entity="ent4">
+      <OKLink id="sv1#cru6#oln7" name="OKLink7" to="sv1#lgu4">
+        <LinkParameter id="sv1#cru6#oln7#par62" name="individuo_Username" sourceValue="individual" target="sv1#lgu4.username"/>
+        <LinkParameter id="sv1#cru6#oln7#par63" name="individuo_Password" sourceValue="individual" target="sv1#lgu4.password"/>
       </OKLink>
-      <KOLink id="sv1#cru1#kln2" name="KOLink2" to="sv1#page3#alt1#page1" automaticCoupling="true" gr:bendpoints="-89,74,239,-11"/>
+      <KOLink id="sv1#cru6#kln10" name="KOLink10" to="sv1#page15#alt4#page16#mssu11" gr:bendpoints="4,-113,-191,37">
+        <LinkParameter id="sv1#cru6#kln10#par64" name="Sorry!!, no lograste entrar :P_Shown Messages" sourceValue="Sorry!!, no lograste entrar :P" target="sv1#page15#alt4#page16#mssu11.shownMessages"/>
+      </KOLink>
     </CreateUnit>
   </OperationUnits>
   <layout:UnitConfiguration unitType="GetSocialDataUnit" layout:unitLayout="WRTravelAgencyStyles/GetSocialDataUnit"/>

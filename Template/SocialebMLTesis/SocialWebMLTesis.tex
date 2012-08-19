@@ -1,0 +1,586 @@
+% The class: the leet one
+\documentclass[a4paper]{memoir}
+
+% DISCLAIMER
+% Questo file e` stato prodotto a puro scopo personale e lo condivido con il solo
+% scopo di condividerlo: in nessun modo l'intento di questo file e` quello di proporre
+% o imporre una struttura ad un documento di tesi
+%
+% In nessun modo sono responsabile dell'(ab)uso di questo file o di altri file che
+% ne possono derivare
+%
+% Federico (fmaggi@elet.polimi.it)
+
+% GUIDELINE
+% - Consiglio di usare PDFLaTeX e di conseguenza figure in .pdf
+% - Per vari motivi separo il frontespizio dal resto della tesi: compilatelo a parte
+%   ed includetelo togliendo il commento al comando di seguito che include il PDF frontespizio/main
+% - Non servono altri package a meno di scopi particolari: ho incluso tutto il necessario
+%   in preamble.tex
+% - Mi riferisco sempre alla ``nuova'' filosofia di usare LaTeX quindi per problemi, errori o
+%   situazioni di panico, perfavore rifatevi a questi due riferimenti e a nient'altro:
+%      - memoir: http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/memman.pdf
+%      - cose da non fare: http://www.ctan.org/tex-archive/info/l2tabu/italian/l2tabuit.pdf
+% - Se vi state chiedendo come mai il margine piu` esterno e` maggiore di quello interno allora non
+%   avete letto `memman.pdf' :-D
+% - Per COMPILARE: 1) latex, 2) bibtex, 3) latex, 4) latex
+% - Se ancora non lo usate consiglio l'ambiente AUCTeX+RefTeX sotto Emacs
+
+% Dedicated settings
+\input{preamble}
+ 
+\begin{document}
+\pagestyle{empty}
+%\includepdf[pages=1]{frontTitlePage/main}
+
+\frontmatter
+\pagestyle{plain}
+
+% Dedication
+\begin{epigraphs}
+  \qitem{
+    Dedicated to ...
+  }{\small Santiago Hern\'an Apaza Delgado}
+\end{epigraphs}
+
+% Acknowkedgements
+\chapter*{Acknowledgments}
+Thank you....
+
+% Abstract (in English and Spanish)
+
+\chapter*{Abstract}
+\label{chap:abstract}
+
+\textit{The work aims to investigate the methodology, tools and components necessary to specify, extend, and automatically generate web applications taking as its starting point a set of specifications which will be modeled and/or treated from the perspective of BPMN thus seeks to extend "WebML" to "Social WebML.}
+
+
+
+% Preface and conventions
+\chapter*{Conventions}
+\label{chap:preface}
+In this chapter are some lexical and syntactic and typographic conventions used in the drafting of the document ...
+
+\section*{Notations}
+\label{sec:notations}
+Below is a list of notations used in the document, with an explanation of the meaning ...
+
+\section*{Acronyms}
+\label{sec:acronyms}
+Below is a list of definitions of all the acronyms that appear in the document ...
+\begin{acronym}
+  \setlength{\itemsep}{0pt}\small
+  \acro{BPMN}{\emph{Business Process Modeling Notation}}
+  \acro{WebML}{\emph{Web Modeling Language}}
+  \acro{MDD}{\emph{Model-Driven Development}}
+  \acro{MDA}{\emph{Model-Driven Architecture}}
+  \acro{PIM}{\emph{Platform Independent Model}}
+  \acro{PDM}{\emph{Platform Definition Model}}
+  \acro{PSM}{\emph{Platform Specific Model}}
+  \acro{DSL}{\emph{Domain Specific Language}}
+  \acro{OQL}{\emph{Object Query Language}}
+  \acro{OCL}{\emph{Object Constraint Language}}
+  \acro{ERN}{\emph{Entity-Relationship Notation}}
+  \acro{ERM}{\emph{Entity-Relationship Model}}
+  \acro{ERD}{\emph{Entity-Relationship Diagram}}
+  \acro{CASE}{\emph{Computer Aided Software Engineering}}
+  \acro{XML}{\emph{eXtensible Markup Language}}
+  \acro{UML}{\emph{Unified Modeling Language}}
+  \acro{FOAF}{\emph{Friend Of A Friend}}
+  
+\end{acronym}
+
+% Lists
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+% Main text
+\mainmatter
+\pagestyle{Ruled}
+
+% Objective of the work
+% Description of work done
+% Main results and innovative aspects
+% Outline of the thesis
+\chapter{Introduction} % 2 to 3 pages
+\label{chap:Introduction}
+Introductory text
+\begin{enumerate}
+	\item Objective of the work
+	\item description of work done
+	\item main results and innovative aspects
+	\item outline of the thesis
+\end{enumerate}
+
+
+
+% History of social networks
+% social network connector services
+% Examples of socially enabled applications in the business context
+\chapter{Social Networks and Socially enabled applications} % 10 to 15 pages
+\label{chap:Social Networks and Socially enabled applications}
+	\begin{enumerate}
+		\item history of social networks
+		\item social network connector services
+		\item examples of socially enabled applications in the business context
+	\end{enumerate}
+
+\chapter{Process}
+\label{chap:Process}
+	\section{Web 2.0}
+	\cite{O'Reilly2007} quotes that Web 2.0 appear when it's accompanied by some features, although  it doesn't mean that these are the only ones to characterize the excellence in Web 2.0.
+	\cite{O'Reilly2007} and \cite{Frattini2007} say that the next principles summarize the Web 2.0:
+	\begin{itemize}
+		\item \textbf{The web as a platform:} to services more complex
+		\item \textbf{Harness collective intelligence:} user contributions are the most important resources to be exploited
+		\item \textbf{Blogging and the wisdom of the crowds:} people are the main actor
+		\item \textbf{Data as the next Intel Inside:} data owning, can be turned into opportunities for companies
+		\item \textbf{End of software release cycle:} user must become in developers.
+		\item \textbf{Lightweight programming models:} ``remixability'' of contents and services.
+		\item \textbf{Software above the level of single device:} not personal computer usage only; it must turn in ubiquitous computing
+		\item \textbf{Rich user experience:} Users prefer easy-to-use, essential and effective interfaces.
+	\end{itemize}
+	
+	\section{Model-Driven Development}
+	As one the booms in web 2.0 is that in [a�o cuando nacio y una peke explikacion....] where we can see that systems functionalities may first be defined as \ac{PIM}, after this given a \ac{PDM} corresponding to the Web, the \ac{PIM} may then be translated to one or more \ac{PSM} for the actual implementation \cite{Frattini2007}.
+	``Architecture'' in a model-driven approach does not refer to the system components.
+	The design addresses the functional (use cases) requirements while architecture provides the infrastructure through nonfunctional requirements.
+		\subsection{Model-driven development process}
+		\begin{itemize}
+			\item Models are the key elements; express the results of the different activities
+			\item The level of abstraction of software development $\rightarrow$the model level.
+			\item Functional requirements and their implementation are separated from non-functional aspects, etc.
+		\end{itemize}
+	
+	\begin{figure}[here]
+	\includegraphics[width=0.9\textwidth]{figure/MDDProcess.png}
+	\caption{The MDD Process}
+	\label{fig:MDD_Process}
+	\end{figure}
+	
+	
+	% WebML
+	% WebRatioo WebML
+	\section{\ac{WebML}} % 10 to 15 pages
+	\label{sect:WebML}
+	\cite{Nugraha2007} and \cite{Matera2003} say \ac{WebML} is a modeling language (\ac{DSL}) which describes the composition, navigation, and content, organization and representation in a hypertext, for specifying the content structure of a Web application. The language is geared towards providing a high-level specification of web applications, which can then be transformed into executable code by means of a \ac{CASE} tool which must provide a visual representation, conveying the essential feature of its primitives what can be visualized in diagrams, drawing from the concepts of \ac{ERD} and \ac{UML}. Also is provided with an \ac{XML}-based textual representation. Thanks to all these is easier to master the complexity of Web application development. 
+	
+	\cite{Brambilla} says \ac{WebML} also is a methodology with a high-level notations for data, service and process centric web application. It allows specifying the data model of a web application and one or more hypertext models that can be based on business process specification and can exploit web service invocation, custom back-end logic and rich web interfaces.
+	
+	As reported in the Figure ~\ref{fig:WebML_Process} the \ac{WebML} approach have different phases, \cite{Ceri2003} reports that this design was inspired by Boehm's spiral mode, the \ac{WebML} process must be applied in an iterative and incremental manner in which various phases are repeated and refined until results meet the application requirements.
+	
+	\begin{figure}[here]
+		\includegraphics[width=0.9\textwidth]{figure/WebMLProcess.png}
+		\caption{The MDD Process}
+		\label{fig:WebML_Process}
+	\end{figure}
+	
+	Although we can see several phases, we can differentiate 4 very pronounced states when we model/work with \ac{WebML} that \cite{Brambilla} names as follow:
+	
+	\begin{itemize}
+		\item \textbf{WebML Data Model:} \ac{ERM}, \ac{UML} class diagram primitives + relationships called derived + declarative languages like \ac{OQL} and \ac{OCL}
+		\item \textbf{WebML Hypertext Model:} Definitions of the front-end interfaces of the Web Application (about internal organization in terms of components $\rightarrow$ content units)
+		\item \textbf{Presentation mode:} Graphic appearance
+		\item \textbf{Personalization model:} Styles
+	\end{itemize}
+
+	\section{WebML Method at a glance:}
+	As we saw furthermore to be able to distinguish four marked phases we will try to exploit each one of the basic phases doing an analysis with the classical methodologies \cite{Matera2003}\cite{Frattini2007}:
+	
+	\begin{enumerate}
+		\item \textbf{Requirements analysis:}Collecting information about the application domain and expected functions, and specify them through easy-to-understand descriptions.
+		\begin{enumerate}
+			\item \textbf{Input:} Business Requirements
+			\item \textbf{Output:}
+				\begin{enumerate}
+					\item Identification of the groups of users
+					\item Specification of functional requirements
+					\item Identification of core information objects
+					\item Decomposition of the web application into site views
+				\end{enumerate}
+			\item \textbf{Some diagramas to use \cite {Fowler2003}}
+				\begin{enumerate}
+					\item \textbf{Activity diagrams} $\rightarrow$ Usage scenarios, Activity asynchronous
+					\item \textbf{Use cases} $\rightarrow$ Groups of users (hierarchical)
+				\end{enumerate}
+		\end{enumerate}
+		\item \textbf{Conceptual modelling:} Consists of data design and hyper-textual design, here we can see the first two marked phases named previously:
+		\begin{enumerate}
+			\item \textbf{Data design:} Data schema possibly enriched through derived objects, we can report some important activities:
+			\begin{enumerate}
+				\item \textbf{Group modelling:} Requirements of user groups into entities and relationships.
+				\item \textbf{Identification of synchronization objects:} Similar to producer-consumer life cycle in which we see which actor works with each object and his interactions with this.
+				\item \textbf{Identification of shared objects:} Here we see what object is used in what phase.
+			\end{enumerate}	
+			Here we have 2 notation: \ac{ERN} and \ac{UML} but commonly is used the \ac{ERN} where entities are defined as \textit{containers} of data elements and relationships defined as \textit{semantic connections} between entities. Entities have named properties, called attributes with and associated type. Entities can be organized in generalization hierarchies and relationships can be restricted by means of cardinality constrains \cite{Matera2003}.
+			\item \textbf{Hypertext design:} Here we start to design and produce site views sachems on top of the data schema previously defined.
+			\begin{itemize}
+				\item \textbf{Site view:} Specific set of requirements. It consists of areas which are main sections of the hypertext and comprises recursively other sub-areas or pages which are the actual container of information delivered to the user.
+				\item \textbf{Content Units:} Publish piece
+				\begin{itemize}
+					\item \textbf{Data Unit:} one attribute $\rightarrow$ one entity instance
+					\item \textbf{Multi-data Unit:} $\eta$ attributes $\rightarrow$ $\eta$ entity instance
+					\item \textbf{Index Unit:} list attribute $\rightarrow$ one entity instance  (choose one)
+					\item \textbf{Scroller Unit:} browsing ordered set of objects
+					\item \textbf{Entry Unit:} forms
+					\begin{figure}[here]
+						\includegraphics[width=0.9\textwidth]{figure/Unit.png}
+						\caption{Unit Content}
+						\label{fig:Unit}
+					\end{figure}
+				\end{itemize}
+				\item \textbf{Pages:}
+				\begin{itemize}
+					\item[H] (ome Pages) 
+					\item[D] (efault)
+					\item[L] (andmark)
+					\item Links / unit = contextual link
+					\item Link / pages = non contextual link
+				\end{itemize}
+				\item \textbf{Behaviors:}
+				\begin{itemize}
+					\item \textbf{Automatic links (A)} absence of a users' interaction, page accessed
+					\item \textbf{Transport link (dashed arrow)} pass context information
+					\item \textbf{Set Unit} set globally parameters
+					\item \textbf{Get Unit} get globally parameters (e.g. id user, etc)
+				\end{itemize}
+				\item \textbf{Output Link:}
+				\begin{itemize}
+					\item \textbf{OK} success
+					\item \textbf{KO} fails
+				\end{itemize}
+			\end{itemize}
+				\begin{figure}[here]
+					\includegraphics[width=0.9\textwidth]{figure/WebMLModel.png}
+					\caption{The WebML Model}
+					\label{fig:WebML_Model}
+				\end{figure}
+		\end{enumerate}
+	\end{enumerate}
+
+	
+
+
+
+	\section{WebRatio WebML}
+	
+	
+	
+% Definition of a reference architecture for Social-WebML
+% Illustration of components
+% Interfaces, and tools
+\section{Social WebML} % 10 to 15 pages
+\label{sect:Social WebML}
+	\begin{enumerate}
+		\item Definition of a reference architecture for Social-WebML
+		\item Illustration of components
+		\item Interfaces, and tools
+	\end{enumerate}
+  
+	\pagebreak
+	\begin{figure}[here]
+	\includegraphics[width=0.9\textwidth]{figure/SWebMLProcess.png}
+	\caption{Proposal for Social WebML}
+	\label{fig:SocialWebML}
+	\end{figure}
+	
+	As is reported in the Figure ~\ref{fig:SocialWebML} we are adding two phases more or actually we are breaking down the \textit{Requirements Specification} phase that currently is following basis of Software Engineering Classic, moreover in our proposal we are introducing 2 new phases that internally are very similar only is changing  the way in how we deal and what things use, for instance we are highlighting the latter phase with the name of \textit{Business Requirements Specification} in which phase we will do all the analyze of functional requirements of the business, by the other hand in \textit{Social Requirements Specification} phase we do not to try to specify requirements about the business or at least only requirements about the business in change we analyze those that keep relation with \textit{the business} and specially with the interaction with communities, social networks, etc. those that would be able to help of anyway to improve the performance of the business, ...............\textcolor{rosa}{love[here we will try a very short explanation about social WebML]}
+ 
+% Social WebML extensions
+% Rules of mapping
+\chapter{Models and Transformation} % 30 pages *** maybe no
+\label{chap:Models and Transformation}
+
+\chapter{Prototype implementation} % 10 to 15 pages
+\label{chap:Prototype implementation}
+Description of the components implemented in the thesis
+
+\chapter{Case study and Evaluation} % n pages
+\label{chap:Case study and Evaluation}
+
+
+%Description of a case study application, Social WebML models, examples of the generated code, deployment and testing, experiments with users 
+
+
+In this chapter we present a case study for describing the development of the \textit{''Web ratio Travel Agent''} application, the application based in a extension of a classical Travel Agent.
+In order not to move the reader's attention from the Social \ac{WebML} development process to the real complexity of a Travel Agent business context, we decided to simplify a real case.
+	
+\section{Context}
+\section{Requirement Analysis}
+	\subsection{Business Requirements}
+		Actors
+		\begin{itemize}
+			\item \textbf{Administrator:} It is in charge of managing the while ``application''.
+				\begin{itemize}
+					\item Create a new ``travel'' (dates, places, etc. notification about themselves).
+					\item Define kind of ``travel'' (pleasure, studies, interchange, etc.).
+				\end{itemize}
+			\item \textbf{Users:} They can subscribe to a ``travel''.
+				\begin{itemize}
+					\item Booking a trip
+					\item $[$pre--condition$]$ $\rightarrow$ they first must be registered in the application.
+				\end{itemize}
+		\end{itemize}
+	\subsection{Identification of Groups}
+		\label{subsec:Identification of Group}
+		\begin{itemize}
+			\item Administrator (pre--inserted by a system administrator)
+			\item User (registered by himself)
+			\item Anonymous (Non--registered people)
+		\end{itemize}
+		These features are described more deeply in the Table ~\ref{tab:definitionAttributes}
+		
+
+		
+		\begin{table}[htbp]
+
+		\begin{tabular}{|l|l|}
+		\hline
+		 & \textbf{Description} \\ \hline
+		\textbf{Administrator} &  \\ \hline
+		Description & Is in charge of managing the whole ?application? \\ \hline
+		Data Profile & UserName, Password, Name, Surname, Email, Avatar, Affiliation \\ \hline
+		Object Accessed &  \\ \hline
+		? in read mode & Travel Data, User Data \\ \hline
+		? in write mode & Travel Data (including tracks and subjects), User Data (personal profile modifications) \\ \hline
+		Relevant Usage scenarios & Travel Set-Up, ?discounts?, Promotions Set-Up, Travel Management Closing \\ \hline
+		\textbf{User} &  \\ \hline
+		Description & It clusters the contact users that are registered at the application to take part in a travel. \\ \hline
+		Data Profile & UserName, Password, name, Surname, Email, Avatar, Affiliation \\ \hline
+		Object Accessed &  \\ \hline
+		? in read mode & Travel data (including tracks and subjects) \\ \hline
+		? in write mode & UserData(only about themselves) \\ \hline
+		Relevant Usage scenarios & Inscription to a travel (take part in a promotion) \\ \hline
+		\textbf{Anonymous} &  \\ \hline
+		Description & It represents all the usera that do not play a role in a travel management, but that might need to access the public site view of the application. \\ \hline
+		Data Profile & No profile required \\ \hline
+		Object Accessed &  \\ \hline
+		? in read mode & Travel Data (including tracks and subjects) \\ \hline
+		? in write mode & NONE \\ \hline
+		Relevant Usage scenarios & User Registration, Travel Program Closing \\ \hline
+		\end{tabular}
+		
+		\caption{Group Description Table}
+		\label{tab:descriptionTable}
+		\end{table}
+		
+		
+		\subsubsection{Definition of each group}
+		\paragraph{Registered user}
+		
+		\begin{table}[htbp]
+		 
+		\begin{tabular}{|l|l|l|}
+		\hline
+		\multicolumn{ 1}{|c|}{\textbf{Data Profile}} & \textbf{Attribute} &  \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} &  & UserName \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} &  & PassWord \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} &  & Name \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} &  & Surname \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} &  & Email \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} &  & Avatar \\ \cline{ 2- 3}
+		\multicolumn{ 1}{|l|}{} & ?? & Affiliation \\ \hline
+		\end{tabular}
+		\label{tab:definitionAttributes}
+		\caption{Definition of Registered users}
+		   
+		\end{table}
+		\begin{quotation}
+		\textbf{Note:} Some of these requirements might not to be known during the first analysis session.
+		However, since \ac{WebML} process is iterative, requirements could even be discovered or defined or even re--defined during the following phases, so generating process iteration.
+		\end{quotation}
+ 
+		Another way to express the previously ideas is using a Use Cases Diagram with a Hierarchical Actors -- Driven Approach as the seen in Figure ~\ref{fig:hierarchicalActors}.
+		
+		\begin{figure}[here]
+			\includegraphics[width=0.9\textwidth]{figure/hierarchical.png}
+			\caption{Hierarchical Actors Diagram}
+			\label{fig:hierarchicalActors}
+		\end{figure}
+		
+	\subsection{Functional Requirements Analysis}
+		\subsubsection{Representative Usage Scenarios}
+			Here we can use also Use Cases Diagrams in \ac{UML} terminology \cite{Matera2003}.
+		\subsubsection{Activities Flow}
+			Here we can use also Use Activity Diagrams in \ac{UML} terminology \cite{Matera2003} where we can analyze each group separately, this is done with each group identified in the ~\ref{subsec:Identification of Group}.
+			
+			\begin{figure}[here]
+				\includegraphics[width=0.9\textwidth]{figure/flowdiagram.png}
+				\caption{Activities Flow Diagram}
+				\label{fig:flowDiagram}
+			\end{figure}
+					
+	\subsection{Identification of Core Information Objects}
+		Group analysis and Functional Analysis.
+		\begin{itemize}
+			\item \textbf{User and group:} Fundamental for representing data about the application users, their roles can be derivate from the group, they belong to and access right over information objects and services.
+			\item \textbf{Travel Data:} Properties like dates ('[' start | end ']') promotions, perform, places, quantity tracks and subjects.
+			\item \textbf{Tickets:} Main information object accessed and managed in the central phase of \textit{``Inscription to a Travel''}.
+		\end{itemize}
+	\subsection{Identification of Site Views}
+		For each phase and for each involved user group, one site view must be defined able to support the group.
+		
+		\begin{table}[htbp]
+		\begin{tabular}{|l|l|l|l|}
+		\hline
+		 & Administrator & User & Anonymous \\ \hline
+		Travel Set -- Up & Travel Set -- Up & \multicolumn{1}{c|}{---} & \multicolumn{1}{c|}{---} \\ \hline
+		Inscription & Promotion Set -- Up & Inscription to a Travel & Registration \\ \hline
+		Travel Program & Travel Management Closing & Login Suspended & Travel Program Browsing \\ \hline
+		\end{tabular}
+		\caption{Association between User Group and Site Views int he different Travel Agents Phases}
+		\label{tab:associationUG_SV}
+		\end{table}
+		\begin{quotation}
+			\textbf{Note:} With this part the Requirement Specification is finished, it is now when we attached the Social Requirements Specification.
+		\end{quotation}
+		
+\section{WRTA Social Requirements Analysis}
+	\subsection{Social Requirements}
+		Here we present the use of an Interaction Diagram to specify the interaction between Users of the \textit{WR Travel Agency} and their friends from a \textit{Social Network} or \ac{FOAF}.
+		
+		\begin{figure}[here]
+			\includegraphics[width=0.9\textwidth]{figure/interactionDiagram.png}
+			\caption{Interaction Diagram}
+			\label{fig:interactionDiagram}
+		\end{figure}
+		
+		Here we have to define some terms, e.g.:
+		\begin{itemize}
+			\item \textbf{Member:} It is a person (male, female, boy, girl, etc.) who belongs to a Social Network in which he stores, shows, updates, etc. data ``about'' himself, and he is who change the state of the application context by his behavior. \cite{Frattini2007} says that a member is characterized by his behavior, credibility and his directly responsibly for his actions within the group.
+			\item \textbf{\ac{FOAF}:\footnote{More specifically we will talk about \textit{``Friend of n'th level''}}} Show the relation between 2 or more members in which from a \textit{source member} to a \textit{target member} can be share data (profile, relations, etc).
+			\item \textbf{Shared Information:} Data given about oneself to another member or members with prior approval  Here we have to classes of Share Information:
+			\begin{itemize}
+				\item \textbf{Own:} Show given data with the consent from one self.
+				\item \textbf{Non -- Own:} Give or show information from another\footnote{There are cases where it can be seen only for a limited number of members (\textit{visibility})} with or without the consent from information's owner  It can be perform thanks to \ac{FOAF}
+			\end{itemize}
+			\item \textbf{Profile:} It is a collection of personal data associated to a specific member.
+		\end{itemize}
+	\subsection{'[' Survey|Lifting ']' of Social requirements}
+		Here we have to select parts of last phase specifically those which were seen in the Figure ~\ref{fig:interactionDiagram}, To be more concrete those most outstanding to make a feedback with Business Requirements or improve/complete next phases.
+		
+		\begin{itemize}
+			\item Get a \ac{FOAF}
+			\item Get non--own valid information
+			\item Get Data Profile
+			\item Prepare Promotion
+			\item Show Promotion
+		\end{itemize}
+
+\section{Data Design}
+In the Figure ~\ref{fig:ERM} we present \ac{ERM} for WR Travel Agency.
+	\begin{figure}[here]
+		\includegraphics[width=0.9\textwidth]{figure/ERM.png}
+		\caption{Entity-Relationship Model}
+		\label{fig:ERM}
+	\end{figure}
+
+\chapter{Conclusions and Future Works} % 1 to 2 pages
+\label{chap:Conclusions and Future Works}
+%Testing Bib\TeX with \cite{Bay1}
+$\CheckedBox$ Testing Bib\TeX with Emanuele's Thesis $\rightarrow$ \cite{Andreis2010}\\
+$\CheckedBox$ Testing Bib\TeX with Alessandro's Thesis $\rightarrow$ \cite{Bozzon2009}\\
+$\CheckedBox$ Testing Bib\TeX with Brambilla's In-collection $\rightarrow$ \cite{Brambilla}\\
+$\CheckedBox$ Testing Bib\TeX with Fraternali's In-collection $\rightarrow$ \cite{Fraternali2010}\\
+$\CheckedBox$ Testing Bib\TeX with Matera's Article $\rightarrow$ \cite{Matera2003}\\
+$\CheckedBox$ Testing Bib\TeX with Matteo's Thesis $\rightarrow$ \cite{Frattini2007}\\
+Draftt thesis --Bib\TeX with Nugraha's Thesis $\rightarrow$ \cite{Nugraha2007}\\
+Testing Bib\TeX with Ko's Article $\rightarrow$ \cite{Ko2010}\\
+Testing Bib\TeX with White's Article $\rightarrow$ \cite{White2004}\\
+Testing Bib\TeX with OReillys Article $\rightarrow$ \cite{O'Reilly2007}\\
+
+
+
+----------------------------to read-------------------------\\
+Testing Bib\TeX with Ceri's Article $\rightarrow$ \cite{Ceri2010}\\
+Testing Bib\TeX with Ceri's Article $\rightarrow$ \cite{Ceri2001}\\
+Testing Bib\TeX with Acerbis $\rightarrow$ \cite{Acerbis2007}\\
+Testing Bib\TeX with Moreno $\rightarrow$ \cite{Moreno2006}\\
+Testing Bib\TeX with Brambilla $\rightarrow$ \cite{Brambilla2006}\\
+Testing Bib\TeX with Rieder $\rightarrow$ \cite{Rieder2009}\\
+Testing Bib\TeX with Ruiz $\rightarrow$ \cite{Ruiz2010}\\
+
+
+
+
+
+----------------------------Web------------------------------\\
+Testing Bib\TeX with Facebook API $\rightarrow$ \cite{Facebook}\\
+Testing Bib\TeX with Google OpenSocial $\rightarrow$ \cite{Google}\\
+
+
+\section{Conclusions}
+
+
+
+
+\section{Future Works}
+Please see Figure ~\ref{fig:flowDiagram} for a prototype blah blah blah
+
+---
+
+
+Please see Figure ~\ref{fig:flowDiagram} on page ~\pageref{fig:flowDiagram} for a prototype blah blah blah
+
+
+
+
+
+
+
+
+\begin{table}[htbp]
+\caption{}
+\begin{tabular}{|c|l|c|l|l|}
+\hline
+\textbf{Code} & \textbf{Name} & \textbf{ASA} & \textbf{Related Patterns} & \textbf{Variants} \\ \hline
+\multicolumn{ 5}{|c|}{\textbf{Front-End Patterns}} \\ \hline
+\multicolumn{ 5}{|c|}{\textbf{Navigation patterns}} \\ \hline
+1 & Aggregation & Mashup & [04] [20] [24] &  \\ \hline
+2 & Browse by connections &  & [14] [20] &  \\ \hline
+3 & Browse by tag & Folksonomy & [06] [20] &  \\ \hline
+\multicolumn{ 5}{|c|}{\textbf{Contribution patterns}} \\ \hline
+4 & Exportation &  & [20] [21] [22] [25] &  \\ \hline
+5 & Flagging &  & [18] [20] [22] &  \\ \hline
+6 & Organization & Grouping, Tagging & [03] [18] [20] [21] [23] [24] & Grouping \\ \hline
+7 & Publication &  & [06] [19] [21] [23] [24] &  \\ \hline
+8 & Rating &  & [17] [20] [23] &  \\ \hline
+9 & Recommendation & Suggestion & [12] [19] [20] [23] &  \\ \hline
+\multicolumn{ 5}{|c|}{\textbf{Social patterns}} \\ \hline
+10 & Group creation &  & [19] [20] &  \\ \hline
+11 & Group participation &  & [12] [13] [18] [20] [22] &  \\ \hline
+12 & Invitation &  & [18] [19] [23] &  \\ \hline
+13 & Permission setting &  & [20] &  \\ \hline
+14 & Relationship setting &  & [17] [20] [22] &  \\ \hline
+15 & Social visualization &  & [17] [22] [23] &  \\ \hline
+16 & Talk &  & [18] [20] &  \\ \hline
+\multicolumn{ 5}{|c|}{\textbf{Back-End Patterns}} \\ \hline
+17 & Evaluation &  & [21] [22] &  \\ \hline
+18 & Notification &  & [09] [12] [14] [16] &  \\ \hline
+19 & Payment &  & [23] &  \\ \hline
+20 & Permission check &  & [13] &  \\ \hline
+21 & Relevance adjustment &  & [17] [22] &  \\ \hline
+22 & Reputation adjustment &  & [17] &  \\ \hline
+23 & Reward &  & [17] [22] &  \\ \hline
+24 & Syndication &  & [06] [07] &  \\ \hline
+25 & Importation &  &  &  \\ \hline
+\end{tabular}
+\label{patterns}
+\end{table}
+
+Please see Table ~\ref{patterns} on page ~\pageref{patterns} for a prototype blah blah blah
+
+
+
+\backmatter
+\pagestyle{plain}
+
+% Bibliography
+\bibliographystyle{authordate4}
+\bibliography{main2}
+
+\end{document}

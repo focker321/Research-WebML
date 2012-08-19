@@ -1,3 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Warnings></Warnings>
+<Warnings> 
+  <Warning xpath="id('sv1#cru4#kln7')" rootXPath="id('sv1')" key="AUTOMATIC_COUPLING_WITHOUT_EFFECT" label="KOLink3"> 
+    <Message>Neither explicit nor implicit parameters' couplings could be found for the link 'KOLink3'</Message>  
+    <Resolution class="com.webratio.ide.ui.resources.ChangeAttributeResolutionGenerator" attribute="automaticCoupling" value="">Remove the 'Automatic Coupling' property</Resolution> 
+  </Warning>  
+  <Warning xpath="id('sv1#lgu4')" rootXPath="id('sv1')" error="false" label="Login" key="NO_OUTGOING_OK_LINKS"> 
+    <Message>No outgoing OK link(s) for the operation unit 'Login'</Message> 
+  </Warning>  
+  <Warning xpath="id('sv1#page15#alt4#page17#enu5')" rootXPath="id('sv1')" key="MISSING_MANDATORY_OUTPUT_PARAMETER" label="Registro"> 
+    <Message>The mandatory output parameter 'First Name' is not transported along an outgoing link from the unit 'Registro'</Message> 
+  </Warning>
+  <Warning xpath="id('sv1#page15#alt4#page17#enu5')" rootXPath="id('sv1')" key="MISSING_MANDATORY_OUTPUT_PARAMETER" label="Registro"> 
+    <Message>The mandatory output parameter 'Last Name' is not transported along an outgoing link from the unit 'Registro'</Message> 
+  </Warning>
+  <Warning xpath="id('sv1#page15#alt4#page17#enu5')" rootXPath="id('sv1')" key="MISSING_MANDATORY_OUTPUT_PARAMETER" label="Registro"> 
+    <Message>The mandatory output parameter 'Password' is not transported along an outgoing link from the unit 'Registro'</Message> 
+  </Warning> 
+</Warnings>
